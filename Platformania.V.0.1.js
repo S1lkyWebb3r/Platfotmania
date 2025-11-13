@@ -48,14 +48,13 @@ const level3Platforms = [
   { x: 500, y: 350, sizeWidth: 20, sizeHeight: 10 },
   { x: 550, y: 425, sizeWidth: 20, sizeHeight: 10 },
   { x: 450, y: 225, sizeWidth: 20, sizeHeight: 10 },
-  { x: 430, y: 100, sizeWidth: 20, sizeHeight: 10 },
   { x: 470, y: 100, sizeWidth: 20, sizeHeight: 10 },
 ];
 
 const level4Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10 },
   { x: 0, y: 0 , sizeWidth: 20, sizeHeight: 600 },
-  { x: 100, y: 30 , sizeWidth: 20, sizeHeight: 570 },
+  { x: 100, y: 40 , sizeWidth: 20, sizeHeight: 560 },
   { x: 0, y: 0 , sizeWidth: 575, sizeHeight: 10 },
   { x: 200, y: 10 , sizeWidth: 20, sizeHeight: 500 },
   { x: 20, y: 450, sizeWidth: 20, sizeHeight: 10 },
@@ -120,8 +119,12 @@ const level6Platforms = [
   { x: 290, y: 130, sizeWidth: 31, sizeHeight: 10 },
   { x: 30, y: 130, sizeWidth: 20, sizeHeight: 1 },
 ];
-
 const level7Platforms = [
+  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10 },
+  
+]
+
+const lastLevelPlatforms = [
   { x: 0, y: 520, sizeWidth: 600, sizeHeight: 1 },
 ];
 
