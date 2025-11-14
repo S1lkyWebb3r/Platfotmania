@@ -2,6 +2,8 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+//Game loop 
+
 // Player square
 let pX = 50;
 let pY = 500;
@@ -20,6 +22,7 @@ let jumpHoldTime = 0;
 const MAX_JUMP_HOLD = 12; // frames of extra lift
 const INITIAL_JUMP = -10;
 const HOLD_JUMP_BOOST = -0.4;
+
 
 
 //Game state (Starting, Paused, Playing)
@@ -133,7 +136,7 @@ const level7Platforms = [
 ]
 
 const lastLevelPlatforms = [
-  { x: 0, y: 520, sizeWidth: 600, sizeHeight: 1 },
+  { x: 0, y: 520, sizeWidth: 600, sizeHeight: 30 },
 ];
 
 // Keys pressed 
@@ -188,8 +191,26 @@ function handleJump() {
   }
 }
 
+//Particle code
+let pParticles = [];
+function spawnParticles(x, y, count = 20) {
+  pParticles = [];
+  for (let i = 0; i < count; i++) {
+    const maxLife = 60
+    pParticles.push({
+      parX: x,
+      parY: y - 30,
+      size: getRandomInt(10),
+      speedX: (Math.random() - 0.5) * 10,  // random spread
+      speedY: (Math.random() - 0.5) * 10,
+      life: maxLife, // frames to live
+      maxLife: maxLife
+    });
+  }
+}
+
 //Updater
-function update() {
+function update(delta) {
   handlePause();
   if (gameState !== "Playing") return;
 
@@ -206,13 +227,12 @@ function update() {
   }
 
   // Apply gravity
-  pVelY += gravity;
+  pVelY += gravity * delta;
 
   // Apply movement
-  pX += pVelX;
-  pY += pVelY;
+  pX += pVelX * delta;
+  pY += pVelY * delta;
 
-  let onPlatform = false;
   const platforms = getCurrentPlatforms();
 
   onPlatform = false; // reset every frame before checking platforms
@@ -369,10 +389,17 @@ function getCurrentPlatforms() {
 }
 
 //Game loop
-function gameLoop() {
-  update();
+function gameLoop(timestamp) {
+  let delta = (timestamp - lastTime) / 16.67;  
+  // delta = 1.0 at 60fps
+  // <1 on faster machines, >1 on slower machines
+
+  lastTime = timestamp;
+
+  update(delta);
   draw();
+
   requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+requestAnimationFrame(gameLoop);
