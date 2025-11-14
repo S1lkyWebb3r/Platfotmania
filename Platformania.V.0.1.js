@@ -3,7 +3,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 //Game loop 
-
+let lastTime = 10;
 // Player square
 let pX = 50;
 let pY = 500;
@@ -196,13 +196,13 @@ let pParticles = [];
 function spawnParticles(x, y, count = 20) {
   pParticles = [];
   for (let i = 0; i < count; i++) {
-    const maxLife = 60
+    const maxLife = 20
     pParticles.push({
       parX: x,
       parY: y - 30,
       size: getRandomInt(10),
-      speedX: (Math.random() - 0.5) * 10,  // random spread
-      speedY: (Math.random() - 0.5) * 10,
+      speedX: (Math.random() - 0.5) * 5,  // random spread
+      speedY: (Math.random() - 0.5) * 5,
       life: maxLife, // frames to live
       maxLife: maxLife
     });
@@ -263,6 +263,8 @@ function update(delta) {
           // Land on top
           pY = platform.y - pSize;
           pVelY = 0;
+
+          spawnParticles(pX, pY, 20)
   
           onPlatform = true;     // ✔ landed
           coyoteTimer = COYOTE_FRAMES; // ✔ reset coyote time
@@ -352,6 +354,14 @@ function draw() {
   ctx.font = "20px Arial";
   ctx.fillText("Game by The Wind's Webber", 300, 550);
   }
+  //Particle appearances
+for (let particle of pParticles) {
+  ctx.fillStyle = "black";
+  ctx.globalAlpha = particle.life / particle.maxLife; // fade out
+  ctx.fillRect(particle.parX, particle.parY, particle.size, particle.size);
+}
+  ctx.globalAlpha = 1;
+  
   if (gameState === "Paused") {
     ctx.fillStyle = "rgba(0,0,0,0.8)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
