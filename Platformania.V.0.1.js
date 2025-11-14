@@ -3,7 +3,8 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 //Game loop 
-let lastTime = 10;
+let lastTime = 0;
+
 // Player square
 let pX = 50;
 let pY = 500;
