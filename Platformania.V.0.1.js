@@ -23,6 +23,7 @@ let jumpHoldTime = 0;
 const MAX_JUMP_HOLD = 12; // frames of extra lift
 const INITIAL_JUMP = -10;
 const HOLD_JUMP_BOOST = -0.4;
+let landedYet = true;
 
 
 
@@ -177,7 +178,7 @@ function handleJump() {
   const jumpPressed = keys["Space"] || keys["ArrowUp"];
 
   // Start jump (coyote time check optional)
-  if (jumpPressed && onPlatform) {
+  if (jumpPressed && (onPlatform || coyoteTimer > 0) ) {
     pVelY = INITIAL_JUMP;
     isJumping = true;
     jumpHoldTime = 0;
@@ -199,14 +200,14 @@ function handleJump() {
 
 //Particle code
 let pParticles = [];
-function spawnParticles(x, y, count = 20) {
+function spawnParticles(x, y, count) {
   pParticles = [];
   for (let i = 0; i < count; i++) {
     const maxLife = 20
     pParticles.push({
-      parX: x,
-      parY: y + 30,
-      size: getRandomInt(10),
+      parX: x + getRandomInt(20),
+      parY: y + 20,
+      size: getRandomInt(5),
       speedX: (Math.random() - 0.5) * 10,  // random spread
       speedY: (Math.random() - 0.5) * 10,
       life: maxLife, // frames to live
@@ -220,12 +221,6 @@ function update(delta) {
   handlePause();
   if (gameState !== "Playing") return;
 
-  //Particles
-  for (let particle of pParticles) {
-    particle.parX += particle.speedX;
-    particle.parY += particle.speedY;
-    particle.life--;
-  }
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
 
@@ -274,10 +269,12 @@ function update(delta) {
           // Land on top
           pY = platform.y - pSize;
           pVelY = 0;
-
-          spawnParticles(pX, pY, 20)
-  
+          landedYet = true;
           onPlatform = true;     //landed
+          if (onPlatform && landedYet) {
+            spawnParticles(pX, pY, 20);
+            landedYet = false;
+          }
           coyoteTimer = COYOTE_FRAMES; //reset coyote time
         } else {
           // Hit bottom of platform
@@ -296,6 +293,13 @@ function update(delta) {
     if (coyoteTimer > 0) {
       coyoteTimer--; // countdown after leaving a platform
     }
+  }
+
+  //Particles
+  for (let particle of pParticles) {
+    particle.parX += particle.speedX;
+    particle.parY += particle.speedY;
+    particle.life--;
   }
 
   // Death check
