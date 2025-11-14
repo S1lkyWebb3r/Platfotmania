@@ -166,6 +166,11 @@ function handlePause() {
   enterPressedLastFrame = keys["Enter"];
 }
 
+// Random
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 //Jump function
 
 function handleJump() {
