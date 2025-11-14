@@ -13,6 +13,14 @@ const jumpStrength = 15;
 const gravity = 0.8;
 let airBorne = false;
 let onPlatform = false;
+let coyoteTimer = 0;      // Counts down after falling
+const COYOTE_FRAMES = 10; // ~10 frames of coyote time
+let isJumping = false;
+let jumpHoldTime = 0;
+const MAX_JUMP_HOLD = 12; // frames of extra lift
+const INITIAL_JUMP = -10;
+const HOLD_JUMP_BOOST = -0.4;
+
 
 //Game state (Starting, Paused, Playing)
 let deathCount = 0;
@@ -132,7 +140,7 @@ const lastLevelPlatforms = [
 const keys = {};
 document.addEventListener("keydown", (e) => keys[e.code] = true);
 document.addEventListener("keyup", (e) => keys[e.code] = false);
-let enterPressedLastFrame = false;
+enterPressedLastFrame = false;
 
 //Collision detection
 function isColliding(pX, pY, pSize, platform) {
@@ -154,6 +162,32 @@ function handlePause() {
   enterPressedLastFrame = keys["Enter"];
 }
 
+//Jump function
+
+function handleJump() {
+  const jumpPressed = keys["Space"] || keys["ArrowUp"];
+
+  // Start jump (coyote time check optional)
+  if (jumpPressed && onPlatform) {
+    pVelY = INITIAL_JUMP;
+    isJumping = true;
+    jumpHoldTime = 0;
+  }
+
+  // Continue jump while holding button
+  if (isJumping && jumpPressed) {
+    if (jumpHoldTime < MAX_JUMP_HOLD) {
+      pVelY += HOLD_JUMP_BOOST; // add extra upward lift
+      jumpHoldTime++;
+    }
+  }
+
+  // Release = stop boosting  
+  if (!jumpPressed) {
+    isJumping = false;
+  }
+}
+
 //Updater
 function update() {
   handlePause();
@@ -165,9 +199,10 @@ function update() {
   else pVelX = 0;
 
   // Jump
-  if (keys["ArrowUp"] && !airBorne) {
+  if (keys["ArrowUp"] && (onPlatform || coyoteTimer > 0)) {
     pVelY = -jumpStrength;
     airBorne = true;
+    coyoteTimer = 0; // consume the coyote jump
   }
 
   // Apply gravity
@@ -180,6 +215,8 @@ function update() {
   let onPlatform = false;
   const platforms = getCurrentPlatforms();
 
+  onPlatform = false; // reset every frame before checking platforms
+
   // Collision with platforms
   for (let platform of platforms) {
     if (isColliding(pX, pY, pSize, platform)) {
@@ -191,7 +228,7 @@ function update() {
         pY + pSize - platform.y,
         platform.y + platform.sizeHeight - pY
       );
-
+  
       if (overlapX < overlapY) {
         // Horizontal collision
         if (pX + pSize / 2 < platform.x + platform.sizeWidth / 2) {
@@ -203,10 +240,14 @@ function update() {
       } else {
         // Vertical collision
         if (pVelY >= 0 && pY + pSize > platform.y && pY < platform.y) {
+          // Land on top
           pY = platform.y - pSize;
           pVelY = 0;
-          onPlatform = true;
+  
+          onPlatform = true;     // ✔ landed
+          coyoteTimer = COYOTE_FRAMES; // ✔ reset coyote time
         } else {
+          // Hit bottom of platform
           pY = platform.y + platform.sizeHeight;
           pVelY = 0;
         }
@@ -216,6 +257,13 @@ function update() {
 
   // Update airborne state
   airBorne = !onPlatform;
+
+  //Coyote timer:
+  if (!onPlatform) {
+    if (coyoteTimer > 0) {
+      coyoteTimer--; // countdown after leaving a platform
+    }
+  }
 
   // Death check
   if (pY > canvas.height) {
@@ -276,7 +324,7 @@ function draw() {
   ctx.fillText("Bugs as intentional game design. Heck Yeah!", 200, 550);
   }
   //level 7 text
-  if (currentLevel === 7) {
+  if (currentLevel === 15) {
   ctx.fillStyle = "white";
   ctx.font = "60px Arial";
   ctx.textAlign = "center";
