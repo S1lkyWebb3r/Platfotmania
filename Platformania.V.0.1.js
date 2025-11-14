@@ -2,6 +2,9 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+//Game loop 
+let lastTime = 0;
+
 // Player square
 let pX = 50;
 let pY = 500;
@@ -139,9 +142,9 @@ const lastLevelPlatforms = [
 
 // Keys pressed 
 const keys = {};
-let enterPressedLastFrame = false; 
 document.addEventListener("keydown", (e) => keys[e.code] = true);
 document.addEventListener("keyup", (e) => keys[e.code] = false);
+enterPressedLastFrame = false;
 
 //Collision detection
 function isColliding(pX, pY, pSize, platform) {
@@ -151,11 +154,6 @@ function isColliding(pX, pY, pSize, platform) {
     pY < platform.y + platform.sizeHeight &&
     pY + pSize > platform.y
   );
-}
-
-// Random
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
 }
 
 //Pause function
@@ -202,10 +200,10 @@ function spawnParticles(x, y, count = 20) {
     const maxLife = 20
     pParticles.push({
       parX: x,
-      parY: y - 30,
+      parY: y + 30,
       size: getRandomInt(10),
-      speedX: (Math.random() - 0.5) * 5,  // random spread
-      speedY: (Math.random() - 0.5) * 5,
+      speedX: (Math.random() - 0.5) * 10,  // random spread
+      speedY: (Math.random() - 0.5) * 10,
       life: maxLife, // frames to live
       maxLife: maxLife
     });
@@ -217,17 +215,22 @@ function update(delta) {
   handlePause();
   if (gameState !== "Playing") return;
 
+  //Particles
+  for (let particle of pParticles) {
+    particle.parX += particle.speedX;
+    particle.parY += particle.speedY;
+    particle.life--;
+  }
+  // remove dead particles
+  pParticles = pParticles.filter(p => p.life > 0);
+
   // Horizontal movement
   if (keys["ArrowLeft"]) pVelX = -moveSpeed;
   else if (keys["ArrowRight"]) pVelX = moveSpeed;
   else pVelX = 0;
 
   // Jump
-  if (keys["ArrowUp"] && (onPlatform || coyoteTimer > 0)) {
-    pVelY = -jumpStrength;
-    airBorne = true;
-    coyoteTimer = 0; // consume the coyote jump
-  }
+  handleJump();
 
   // Apply gravity
   pVelY += gravity * delta;
@@ -269,8 +272,8 @@ function update(delta) {
 
           spawnParticles(pX, pY, 20)
   
-          onPlatform = true;     // ✔ landed
-          coyoteTimer = COYOTE_FRAMES; // ✔ reset coyote time
+          onPlatform = true;     //landed
+          coyoteTimer = COYOTE_FRAMES; //reset coyote time
         } else {
           // Hit bottom of platform
           pY = platform.y + platform.sizeHeight;
@@ -402,11 +405,11 @@ function getCurrentPlatforms() {
 }
 
 //Game loop
-let lastTime = performance.now(); // set to current time first
-requestAnimationFrame(gameLoop);
-
 function gameLoop(timestamp) {
-  const delta = (timestamp - lastTime) / 16.67;
+  let delta = (timestamp - lastTime) / 16.67;  
+  // delta = 1.0 at 60fps
+  // <1 on faster machines, >1 on slower machines
+
   lastTime = timestamp;
 
   update(delta);
@@ -414,3 +417,5 @@ function gameLoop(timestamp) {
 
   requestAnimationFrame(gameLoop);
 }
+
+requestAnimationFrame(gameLoop);
