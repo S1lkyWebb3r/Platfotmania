@@ -2,9 +2,6 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-//Game loop 
-let lastTime = 0;
-
 // Player square
 let pX = 50;
 let pY = 500;
@@ -142,9 +139,9 @@ const lastLevelPlatforms = [
 
 // Keys pressed 
 const keys = {};
+let enterPressedLastFrame = false; 
 document.addEventListener("keydown", (e) => keys[e.code] = true);
 document.addEventListener("keyup", (e) => keys[e.code] = false);
-enterPressedLastFrame = false;
 
 //Collision detection
 function isColliding(pX, pY, pSize, platform) {
@@ -400,11 +397,11 @@ function getCurrentPlatforms() {
 }
 
 //Game loop
-function gameLoop(timestamp) {
-  let delta = (timestamp - lastTime) / 16.67;  
-  // delta = 1.0 at 60fps
-  // <1 on faster machines, >1 on slower machines
+let lastTime = performance.now(); // set to current time first
+requestAnimationFrame(gameLoop);
 
+function gameLoop(timestamp) {
+  const delta = (timestamp - lastTime) / 16.67;
   lastTime = timestamp;
 
   update(delta);
@@ -412,5 +409,3 @@ function gameLoop(timestamp) {
 
   requestAnimationFrame(gameLoop);
 }
-
-requestAnimationFrame(gameLoop);
