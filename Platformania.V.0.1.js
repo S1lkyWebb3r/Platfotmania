@@ -153,6 +153,11 @@ function isColliding(pX, pY, pSize, platform) {
   );
 }
 
+// Random
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 //Pause function
 function handlePause() {
   if (keys["Enter"] && !enterPressedLastFrame) {
