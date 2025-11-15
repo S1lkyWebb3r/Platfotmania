@@ -21,7 +21,7 @@ const COYOTE_FRAMES = 10; // ~10 frames of coyote time
 let isJumping = false;
 let jumpHoldTime = 0;
 const MAX_JUMP_HOLD = 10; // frames of extra lift
-const INITIAL_JUMP = -5;
+const INITIAL_JUMP = -7;
 const HOLD_JUMP_BOOST = -0.7;
 let landed = 1;
 
