@@ -20,10 +20,10 @@ let coyoteTimer = 0;      // Counts down after falling
 const COYOTE_FRAMES = 10; // ~10 frames of coyote time
 let isJumping = false;
 let jumpHoldTime = 0;
-const MAX_JUMP_HOLD = 12; // frames of extra lift
-const INITIAL_JUMP = -10;
-const HOLD_JUMP_BOOST = -0.4;
-let landedYet = true;
+const MAX_JUMP_HOLD = 10; // frames of extra lift
+const INITIAL_JUMP = -5;
+const HOLD_JUMP_BOOST = -0.5;
+let landed = 1;
 
 
 
@@ -188,7 +188,8 @@ function handleJump() {
   if (isJumping && jumpPressed) {
     if (jumpHoldTime < MAX_JUMP_HOLD) {
       pVelY += HOLD_JUMP_BOOST; // add extra upward lift
-      jumpHoldTime++;
+      jumpHoldTime ++;
+      landed ++;
     }
   }
 
@@ -269,13 +270,12 @@ function update(delta) {
           // Land on top
           pY = platform.y - pSize;
           pVelY = 0;
-          landedYet = true;
           onPlatform = true;     //landed
-          if (onPlatform && landedYet) {
-            spawnParticles(pX, pY, 20);
-            landedYet = false;
-          }
           coyoteTimer = COYOTE_FRAMES; //reset coyote time
+          if (landed > 0) {
+            spawnParticles(pX, pY, 20)
+            landed --;
+          }
         } else {
           // Hit bottom of platform
           pY = platform.y + platform.sizeHeight;
