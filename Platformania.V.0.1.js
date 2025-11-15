@@ -21,7 +21,7 @@ const COYOTE_FRAMES = 10; // ~10 frames of coyote time
 let isJumping = false;
 let jumpHoldTime = 0;
 const MAX_JUMP_HOLD = 10; // frames of extra lift
-const INITIAL_JUMP = -5;
+const INITIAL_JUMP = -10;
 const HOLD_JUMP_BOOST = -0.5;
 let landed = 1;
 
@@ -189,7 +189,7 @@ function handleJump() {
     if (jumpHoldTime < MAX_JUMP_HOLD) {
       pVelY += HOLD_JUMP_BOOST; // add extra upward lift
       jumpHoldTime ++;
-      landed ++;
+      landed = 1;
     }
   }
 
