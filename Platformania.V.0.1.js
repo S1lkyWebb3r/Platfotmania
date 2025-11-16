@@ -35,107 +35,106 @@ let currentLevel = 1;
 
 // Platforms for each level
 const level1Platforms = [
-  { x: 50, y: 550, sizeWidth: 50, sizeHeight: 10 },
-  { x: 200, y: 500, sizeWidth: 50, sizeHeight: 10 },
-  { x: 250, y: 400, sizeWidth: 50, sizeHeight: 10 },
-  { x: 150, y: 300, sizeWidth: 50, sizeHeight: 10 },
-  { x: 300, y: 200, sizeWidth: 50, sizeHeight: 10 },
-  { x: 350, y: 100, sizeWidth: 50, sizeHeight: 10 },
+  { x: 50, y: 550, sizeWidth: 50, sizeHeight: 10, name: "p1"},
+  { x: 200, y: 500, sizeWidth: 50, sizeHeight: 10, name: "p2" },
+  { x: 250, y: 400, sizeWidth: 50, sizeHeight: 10, name: "p3" },
+  { x: 150, y: 300, sizeWidth: 50, sizeHeight: 10, name: "p4" },
+  { x: 300, y: 200, sizeWidth: 50, sizeHeight: 10, name: "p5" },
+  { x: 350, y: 100, sizeWidth: 50, sizeHeight: 10, name: "p6" },
 ];
 
 const level2Platforms = [
-  { x: 50, y: 550, sizeWidth: 50, sizeHeight: 550 },
-  { x: 250, y: 500, sizeWidth: 50, sizeHeight: 500 },
-  { x: 400, y: 400, sizeWidth: 50, sizeHeight: 400 },
-  { x: 400, y: 300, sizeWidth: 50, sizeHeight: 10 },
-  { x: 100, y: 300, sizeWidth: 50, sizeHeight: 10 },
-  { x: 250, y: 250, sizeWidth: 50, sizeHeight: 10 },
-  { x: 50, y: 200, sizeWidth: 50, sizeHeight: 10 },
-  { x: 25, y: 100, sizeWidth: 10, sizeHeight: 5 },
+  { x: 50, y: 550, sizeWidth: 50, sizeHeight: 550, name: "c1" },
+  { x: 250, y: 500, sizeWidth: 50, sizeHeight: 500, name: "c2" },
+  { x: 400, y: 400, sizeWidth: 50, sizeHeight: 400, name: "c3" },
+  { x: 400, y: 300, sizeWidth: 50, sizeHeight: 10, name: "p1" },
+  { x: 100, y: 300, sizeWidth: 50, sizeHeight: 10, name: "p2" },
+  { x: 250, y: 250, sizeWidth: 50, sizeHeight: 10, name: "p3" },
+  { x: 50, y: 200, sizeWidth: 50, sizeHeight: 10, name: "p4" },
+  { x: 25, y: 100, sizeWidth: 10, sizeHeight: 5, name: "sp5" },
 ];
 
 const level3Platforms = [
-  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10 },
-  { x: 200, y: 500, sizeWidth: 20, sizeHeight: 10 },
-  { x: 300, y: 400, sizeWidth: 20, sizeHeight: 10 },
-  { x: 500, y: 350, sizeWidth: 20, sizeHeight: 10 },
-  { x: 450, y: 225, sizeWidth: 20, sizeHeight: 10 },
-  { x: 470, y: 100, sizeWidth: 20, sizeHeight: 10 },
+  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
+  { x: 200, y: 500, sizeWidth: 20, sizeHeight: 10, name: "p2" },
+  { x: 300, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p3" },
+  { x: 500, y: 350, sizeWidth: 20, sizeHeight: 10, name: "p4" },
+  { x: 450, y: 225, sizeWidth: 20, sizeHeight: 10, name: "p5" },
+  { x: 470, y: 100, sizeWidth: 20, sizeHeight: 10, name: "p6" },
 ];
 
 const level4Platforms = [
-  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10 },
-  { x: 0, y: 0 , sizeWidth: 20, sizeHeight: 600 },
-  { x: 100, y: 40 , sizeWidth: 20, sizeHeight: 560 },
-  { x: 0, y: 0 , sizeWidth: 575, sizeHeight: 10 },
-  { x: 200, y: 10 , sizeWidth: 20, sizeHeight: 500 },
-  { x: 20, y: 450, sizeWidth: 20, sizeHeight: 10 },
-  { x: 80, y: 350, sizeWidth: 20, sizeHeight: 10 },
-  { x: 20, y: 250, sizeWidth: 20, sizeHeight: 10 },
-  { x: 80, y: 150, sizeWidth: 20, sizeHeight: 10 },
-  { x: 120, y: 590, sizeWidth: 20, sizeHeight: 10 },
-  { x: 200, y: 590, sizeWidth: 20, sizeHeight: 10 },
-  { x: 220, y: 500, sizeWidth: 10, sizeHeight: 10 },
-  { x: 220, y: 400, sizeWidth: 10, sizeHeight: 10 },
-  { x: 400, y: 400, sizeWidth: 20, sizeHeight: 400 },
-  { x: 400, y: 0, sizeWidth: 20, sizeHeight: 250 },
-  { x: 420, y: 400, sizeWidth: 20, sizeHeight: 10 },
-  { x: 500, y: 300, sizeWidth: 20, sizeHeight: 10 },
-  { x: 420, y: 200, sizeWidth: 20, sizeHeight: 10 },
-  { x: 580, y: 130, sizeWidth: 20, sizeHeight: 10 },
+  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10,  name: "p1" },
+  { x: 0, y: 0 , sizeWidth: 20, sizeHeight: 600, name: "w1" },
+  { x: 100, y: 40 , sizeWidth: 20, sizeHeight: 560, name: "w2" },
+  { x: 0, y: 0 , sizeWidth: 575, sizeHeight: 10, name: "r2" },
+  { x: 200, y: 10 , sizeWidth: 20, sizeHeight: 500, name: "w3" },
+  { x: 20, y: 450, sizeWidth: 20, sizeHeight: 10, name: "p3"},
+  { x: 80, y: 350, sizeWidth: 20, sizeHeight: 10, name: "p4" },
+  { x: 20, y: 250, sizeWidth: 20, sizeHeight: 10, name: "p5" },
+  { x: 80, y: 150, sizeWidth: 20, sizeHeight: 10, name: "p6" },
+  { x: 120, y: 590, sizeWidth: 20, sizeHeight: 10, name: "p7" },
+  { x: 200, y: 590, sizeWidth: 20, sizeHeight: 10, name: "p8" },
+  { x: 220, y: 500, sizeWidth: 10, sizeHeight: 10, name: "p9" },
+  { x: 220, y: 400, sizeWidth: 10, sizeHeight: 10, name: "p10" },
+  { x: 400, y: 400, sizeWidth: 20, sizeHeight: 400, name: "w4" },
+  { x: 400, y: 0, sizeWidth: 20, sizeHeight: 250, name: "w5" },
+  { x: 420, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p11" },
+  { x: 500, y: 300, sizeWidth: 20, sizeHeight: 10, name: "p12" },
+  { x: 420, y: 200, sizeWidth: 20, sizeHeight: 10, name: "p13" },
+  { x: 580, y: 130, sizeWidth: 20, sizeHeight: 10, name: "p14" },
 ];
 
 const level5Platforms = [
-  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10 },
-  { x: 30, y: 450, sizeWidth: 20, sizeHeight: 10 },
-  { x: 150, y: 300, sizeWidth: 30, sizeHeight: 10 },
-  { x: 180, y: 320, sizeWidth: 30, sizeHeight: 10 },
+  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
+  { x: 30, y: 450, sizeWidth: 20, sizeHeight: 10, name: "p2" },
+  { x: 150, y: 300, sizeWidth: 30, sizeHeight: 10, name: "p3" },
+  { x: 180, y: 320, sizeWidth: 30, sizeHeight: 10, name: "p4" },
   //Staircase
-  { x: 210, y: 340, sizeWidth: 30, sizeHeight: 10 },
-  { x: 240, y: 360, sizeWidth: 30, sizeHeight: 10 },
-  { x: 270, y: 380, sizeWidth: 30, sizeHeight: 10 },
-  { x: 300, y: 400, sizeWidth: 30, sizeHeight: 10 },
-  { x: 330, y: 420, sizeWidth: 30, sizeHeight: 10 },
-  { x: 360, y: 440, sizeWidth: 30, sizeHeight: 10 },
-  { x: 390, y: 460, sizeWidth: 30, sizeHeight: 10 },
-  { x: 420, y: 480, sizeWidth: 30, sizeHeight: 10 },
+  { x: 210, y: 340, sizeWidth: 30, sizeHeight: 10, name: "s1" },
+  { x: 240, y: 360, sizeWidth: 30, sizeHeight: 10, name: "s2" },
+  { x: 270, y: 380, sizeWidth: 30, sizeHeight: 10, name: "s3" },
+  { x: 300, y: 400, sizeWidth: 30, sizeHeight: 10, name: "s4" },
+  { x: 330, y: 420, sizeWidth: 30, sizeHeight: 10, name: "s5" },
+  { x: 360, y: 440, sizeWidth: 30, sizeHeight: 10, name: "s6" },
+  { x: 390, y: 460, sizeWidth: 30, sizeHeight: 10, name: "s7" },
+  { x: 420, y: 480, sizeWidth: 30, sizeHeight: 10, name: "s8" },
 
-  { x: 450, y: 550, sizeWidth: 30, sizeHeight: 10 },
+  { x: 450, y: 550, sizeWidth: 30, sizeHeight: 10, name: "p5" },
   //second staircase
-  { x: 250, y: 140, sizeWidth: 30, sizeHeight: 10 },
-  { x: 280, y: 160, sizeWidth: 30, sizeHeight: 10 },
-  { x: 310, y: 180, sizeWidth: 30, sizeHeight: 10 },
-  { x: 340, y: 200, sizeWidth: 30, sizeHeight: 10 },
-  { x: 370, y: 220, sizeWidth: 30, sizeHeight: 10 },
-  { x: 400, y: 240, sizeWidth: 30, sizeHeight: 10 },
-  { x: 430, y: 260, sizeWidth: 30, sizeHeight: 10 },
-  { x: 460, y: 280, sizeWidth: 30, sizeHeight: 10 },
+  { x: 250, y: 140, sizeWidth: 30, sizeHeight: 10, name: "s9" },
+  { x: 280, y: 160, sizeWidth: 30, sizeHeight: 10, name: "s10" },
+  { x: 310, y: 180, sizeWidth: 30, sizeHeight: 10, name: "s11" },
+  { x: 340, y: 200, sizeWidth: 30, sizeHeight: 10, name: "s12" },
+  { x: 370, y: 220, sizeWidth: 30, sizeHeight: 10, name: "s13" },
+  { x: 400, y: 240, sizeWidth: 30, sizeHeight: 10, name: "s14" },
+  { x: 430, y: 260, sizeWidth: 30, sizeHeight: 10, name: "s15" },
+  { x: 460, y: 280, sizeWidth: 30, sizeHeight: 10, name: "s16" },
 
-  { x: 490, y: 350, sizeWidth: 30, sizeHeight: 10 },
+  { x: 490, y: 350, sizeWidth: 30, sizeHeight: 10, name: "p6" },
 ];
 
 const level6Platforms = [
-  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 50 },
-  { x: 230, y: 450, sizeWidth: 20, sizeHeight: 150 },
-  { x: 380, y: 450, sizeWidth: 20, sizeHeight: 150 },
-  { x: 530, y: 450, sizeWidth: 20, sizeHeight: 150 },
-  { x: 550, y: 350, sizeWidth: 20, sizeHeight: 250 },
-  { x: 570, y: 250, sizeWidth: 20, sizeHeight: 350 },
-  { x: 50, y: 0, sizeWidth: 550, sizeHeight: 10 },
-  { x: 0, y: 250, sizeWidth: 520, sizeHeight: 10 },
-  { x: 510, y: 130, sizeWidth: 10, sizeHeight: 120 },
-  { x: 490, y: 130, sizeWidth: 20, sizeHeight: 10 },
-  { x: 510, y: 10, sizeWidth: 10, sizeHeight: 100 },
-  { x: 310, y: 50, sizeWidth: 10, sizeHeight: 200 },
-  { x: 30, y: 130, sizeWidth: 20, sizeHeight: 10 },
+  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 50, name: "c1" },
+  { x: 230, y: 450, sizeWidth: 20, sizeHeight: 150, name: "c2" },
+  { x: 380, y: 450, sizeWidth: 20, sizeHeight: 150, name: "c3" },
+  { x: 550, y: 350, sizeWidth: 20, sizeHeight: 250, name: "c4" },
+  { x: 570, y: 250, sizeWidth: 20, sizeHeight: 350, name: "c5" },
+  { x: 50, y: 0, sizeWidth: 550, sizeHeight: 10, name: "r1" },
+  { x: 0, y: 250, sizeWidth: 520, sizeHeight: 10, name: "lp1" },
+  { x: 510, y: 130, sizeWidth: 10, sizeHeight: 120, name: "w1" },
+  { x: 490, y: 130, sizeWidth: 20, sizeHeight: 10, name: "p1" },
+  { x: 510, y: 10, sizeWidth: 10, sizeHeight: 100, name: "w2" },
+  { x: 310, y: 50, sizeWidth: 10, sizeHeight: 200, name: "w3" },
+  { x: 30, y: 130, sizeWidth: 20, sizeHeight: 10, name: "p2" },
 ];
 const level7Platforms = [
-  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10 },
+  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
   
 ]
 
 const lastLevelPlatforms = [
-  { x: 0, y: 520, sizeWidth: 600, sizeHeight: 30 },
+  { x: 0, y: 520, sizeWidth: 600, sizeHeight: 30, name: "b1" },
 ];
 
 // Keys pressed 
@@ -332,6 +331,16 @@ function draw() {
   const platforms = getCurrentPlatforms();  
   for (let platform of platforms) {
     ctx.fillRect(platform.x, platform.y, platform.sizeWidth, platform.sizeHeight);
+  }
+
+  //Debug (delete later)
+  ctx.textAlign = "center";
+  ctx.fillStyle = "white";
+  ctx.font = "14px Arial";
+  ctx.fillText("x: " + pX, 10, 60);
+  ctx.fillText("y: " + pY, 10, 80);
+  for (let p of platforms) {
+    ctx.fillText(p.name, p.x /2, p.y /2)
   }
 
   // Death counter
