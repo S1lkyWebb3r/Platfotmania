@@ -334,13 +334,13 @@ function draw() {
   }
 
   //Debug (delete later)
-  ctx.textAlign = "center";
+  ctx.textAlign = "left";
   ctx.fillStyle = "white";
   ctx.font = "14px Arial";
   ctx.fillText("x: " + pX, 10, 60);
   ctx.fillText("y: " + pY, 10, 80);
   for (let p of platforms) {
-    ctx.fillText(p.name, p.x /2, p.y /2)
+    ctx.fillText(p.name, p.x, p.y)
   }
 
   // Death counter
