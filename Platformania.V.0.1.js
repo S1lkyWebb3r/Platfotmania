@@ -29,10 +29,11 @@ let landed = 1;
 let completedGame = true;
 
 //Trail:
+let trailPos = [];
 let pTrails = [
-  {x: pX, y: pY, size: 15, delay: 5, fade: 0.75, trailPos: []},
-  {x: pX, y: pY, size: 10, delay: 10, fade: 0.5, trailPos: []},
-  {x: pX, y: pY, size: 5, delay: 15, fade: 0.25, trailPos: []},
+  {x: pX, y: pY, size: 15, delay: 5, fade: 0.75,},
+  {x: pX, y: pY, size: 10, delay: 10, fade: 0.5,},
+  {x: pX, y: pY, size: 5, delay: 15, fade: 0.25,},
 ];
 
 
@@ -222,11 +223,11 @@ function chooseColor() {
 
 //Trailing function
 function handleTrail() {
+  trailPos.push({ x: pX, y: pY });
+  if (trailPos.length > t.delay) {
+    trailPos.shift();
+  }
   for (let t of pTrails){
-    t.trailPos.push({ x: pX, y: pY });
-    if (t.trailPos.length > t.delay) {
-      t.trailPos.shift();
-    }
     t.x = trailPos[trailPos.length - t.delay].x;
     t.y = trailPos[trailPos.length - t.delay].y;
   }
