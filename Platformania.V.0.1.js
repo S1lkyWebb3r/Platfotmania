@@ -30,6 +30,7 @@ let completedGame = true;
 
 //Trail:
 let trailPos = [];
+const trailPosMax = 20;
 let pTrails = [
   {x: pX, y: pY, size: 15, delay: 5, fade: 0.75,},
   {x: pX, y: pY, size: 10, delay: 10, fade: 0.5,},
@@ -224,7 +225,7 @@ function chooseColor() {
 //Trailing function
 function handleTrail() {
   trailPos.push({ x: pX, y: pY });
-  if (trailPos.length > t.delay) {
+  if (trailPos.length > trailPosMax) {
     trailPos.shift();
   }
   for (let t of pTrails){
