@@ -265,6 +265,7 @@ function update(delta) {
 
   // Jump
   handleJump();
+  handleTrail();
 
   // Apply gravity
   pVelY += gravity * delta;
