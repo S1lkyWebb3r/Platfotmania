@@ -59,7 +59,6 @@ const level3Platforms = [
   { x: 200, y: 500, sizeWidth: 20, sizeHeight: 10 },
   { x: 300, y: 400, sizeWidth: 20, sizeHeight: 10 },
   { x: 500, y: 350, sizeWidth: 20, sizeHeight: 10 },
-  { x: 550, y: 425, sizeWidth: 20, sizeHeight: 10 },
   { x: 450, y: 225, sizeWidth: 20, sizeHeight: 10 },
   { x: 470, y: 100, sizeWidth: 20, sizeHeight: 10 },
 ];
@@ -117,7 +116,6 @@ const level5Platforms = [
 
 const level6Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 50 },
-  { x: 30, y: 450, sizeWidth: 20, sizeHeight: 150 },
   { x: 230, y: 450, sizeWidth: 20, sizeHeight: 150 },
   { x: 380, y: 450, sizeWidth: 20, sizeHeight: 150 },
   { x: 530, y: 450, sizeWidth: 20, sizeHeight: 150 },
@@ -129,8 +127,7 @@ const level6Platforms = [
   { x: 490, y: 130, sizeWidth: 20, sizeHeight: 10 },
   { x: 510, y: 10, sizeWidth: 10, sizeHeight: 100 },
   { x: 310, y: 50, sizeWidth: 10, sizeHeight: 200 },
-  { x: 290, y: 130, sizeWidth: 31, sizeHeight: 10 },
-  { x: 30, y: 130, sizeWidth: 20, sizeHeight: 1 },
+  { x: 30, y: 130, sizeWidth: 20, sizeHeight: 10 },
 ];
 const level7Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10 },
@@ -175,7 +172,7 @@ function getRandomInt(max) {
 //Jump function
 
 function handleJump() {
-  const jumpPressed = keys["Space"] || keys["ArrowUp"];
+  const jumpPressed = keys["Space"] || keys["ArrowUp"] || keys["keyW"];
 
   // Start jump (coyote time check optional)
   if (jumpPressed && (onPlatform || coyoteTimer > 0) ) {
@@ -226,8 +223,8 @@ function update(delta) {
   pParticles = pParticles.filter(p => p.life > 0);
 
   // Horizontal movement
-  if (keys["ArrowLeft"]) pVelX = -moveSpeed;
-  else if (keys["ArrowRight"]) pVelX = moveSpeed;
+  if (keys["ArrowLeft"] || keys["keyA"]) pVelX = -moveSpeed;
+  else if (keys["ArrowRight"] || keys["keyD"]) pVelX = moveSpeed;
   else pVelX = 0;
 
   // Jump
@@ -346,22 +343,13 @@ function draw() {
   // Level indicator
   ctx.fillStyle = "blue";
   ctx.fillText("Level " + currentLevel, 10, 40);
-  //Clues
-  if (currentLevel === 3) {
-  ctx.fillStyle = "white";
-  ctx.fillText("the edge is kinda buggy", 300, 500);
-  }
-  if (currentLevel === 3 && deathCount > 20) {
-  ctx.fillStyle = "white";
-  ctx.fillText("Push against the edge", 300, 550);
-  }
   //level 5 text
   if (currentLevel === 5) {
   ctx.fillStyle = "white";
   ctx.fillText("Bugs as intentional game design. Heck Yeah!", 200, 550);
   }
   //level 7 text
-  if (currentLevel === 15) {
+  if (currentLevel === 20) {
   ctx.fillStyle = "white";
   ctx.font = "60px Arial";
   ctx.textAlign = "center";
