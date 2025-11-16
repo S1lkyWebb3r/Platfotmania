@@ -11,6 +11,7 @@ let pY = 500;
 const pSize = 20;
 let pVelX = 0;
 let pVelY = 0;
+let pColor = localStorage.getItem("color") || "teal";
 const moveSpeed = 5;
 const jumpStrength = 15;
 const gravity = 0.8;
@@ -24,6 +25,8 @@ const MAX_JUMP_HOLD = 10; // frames of extra lift
 const INITIAL_JUMP = -7;
 const HOLD_JUMP_BOOST = -0.7;
 let landed = 1;
+//Change to local storage later
+let completedGame = true;
 
 
 
@@ -195,6 +198,21 @@ function handleJump() {
   }
 }
 
+//Color picker
+function chooseColor() {
+  if (keys["Digit1"]) pColor = "teal";
+  if (keys["Digit2"]) pColor = "tomato";
+  if (keys["Digit3"]) pColor = "deepskyblue";
+  if (keys["Digit4"]) pColor = "seagreen";
+  if (keys["Digit5"]) pColor = "yellow";
+  if (keys["Digit6"] && completedGame) pColor = "purple";
+  if (keys["Digit7"] && completedGame) pColor = "gold";
+  if (keys["Digit8"] && completedGame) pColor = "white";
+  if (keys["Digit9"] && completedGame) pColor = "black";
+  if (keys["Digit0"] && completedGame) pColor = "turquoise";
+  if (keys["Quote"] && completedGame) pColor = "indigo";
+}
+
 //Particle code
 let pParticles = [];
 function spawnParticles(x, y, count) {
@@ -309,7 +327,7 @@ function update(delta) {
 
   // Switch levels (example: reach top of screen)
   if (pY <= 0) {
-    if (currentLevel < 7) {
+    if (currentLevel < 20) {
     currentLevel++;
     pX = 50;
     pY = 500;
@@ -317,13 +335,18 @@ function update(delta) {
     pVelY = 0;
     }
   }
+  
+  //color swap (see if they like it)
+  if (currentLevel === 1) {
+    chooseColor()
+  } else localStorage.setItem("color", pColor);
 }
 //Draw
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   //Player
-  ctx.fillStyle = "teal";
+  ctx.fillStyle = pColor;
   ctx.fillRect(pX, pY, pSize, pSize);
 
   //Platforms
