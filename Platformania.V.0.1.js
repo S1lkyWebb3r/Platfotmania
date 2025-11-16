@@ -28,6 +28,13 @@ let landed = 1;
 //Change to local storage later
 let completedGame = true;
 
+//Trail:
+let pTrails = [
+  {x: pX, y: pY, size: 15, delay: 5, fade: 0.75, trailPos: []},
+  {x: pX, y: pY, size: 10, delay: 10, fade: 0.5, trailPos: []},
+  {x: pX, y: pY, size: 5, delay: 15, fade: 0.25, trailPos: []},
+];
+
 
 
 //Game state (Starting, Paused, Playing)
@@ -210,7 +217,19 @@ function chooseColor() {
   if (keys["Digit8"] && completedGame) pColor = "white";
   if (keys["Digit9"] && completedGame) pColor = "black";
   if (keys["Digit0"] && completedGame) pColor = "turquoise";
-  if (keys["Quote"] && completedGame) pColor = "indigo";
+  if (keys["Tab"]) pColor = "indigo";
+}
+
+//Trailing function
+function handleTrail() {
+  for (let t of pTrails){
+    t.trailPos.push({ x: pX, y: pY });
+    if (t.trailPos.length > t.delay) {
+      t.trailPos.shift();
+    }
+    t.x = trailPos[trailPos.length - t.delay].x;
+    t.y = trailPos[trailPos.length - t.delay].y;
+  }
 }
 
 //Particle code
@@ -348,6 +367,13 @@ function draw() {
   //Player
   ctx.fillStyle = pColor;
   ctx.fillRect(pX, pY, pSize, pSize);
+
+  for (let t of pTrails) {
+    ctx.fillStyle = pColor;
+    ctx.globalAlpha = t.fade;
+    ctx.fillRect(t.x, t.y, t.size, t.size); 
+  }
+  ctx.globalAlpha = 1;
 
   //Platforms
   ctx.fillStyle = "black";
