@@ -341,7 +341,7 @@ function draw() {
   ctx.fillText("y: " + pY, 10, 80);
   ctx.textAlign = "center";
   for (let p of platforms) {
-    ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight)
+    ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight /2)
   }
 
   // Death counter
