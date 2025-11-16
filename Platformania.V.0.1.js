@@ -228,9 +228,14 @@ function handleTrail() {
   if (trailPos.length > trailPosMax) {
     trailPos.shift();
   }
-  for (let t of pTrails){
-    t.x = trailPos[trailPos.length - t.delay].x;
-    t.y = trailPos[trailPos.length - t.delay].y;
+  for (let t of pTrails) {
+    const index = trailPos.length - t.delay;
+
+    // Only update if we have enough history
+    if (index >= 0 && trailPos[index]) {
+      t.x = trailPos[index].x;
+      t.y = trailPos[index].y;
+    }
   }
 }
 
