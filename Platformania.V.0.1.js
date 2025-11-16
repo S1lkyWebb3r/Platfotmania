@@ -44,9 +44,9 @@ const level1Platforms = [
 ];
 
 const level2Platforms = [
-  { x: 50, y: 550, sizeWidth: 50, sizeHeight: 550, name: "c1" },
-  { x: 250, y: 500, sizeWidth: 50, sizeHeight: 500, name: "c2" },
-  { x: 400, y: 400, sizeWidth: 50, sizeHeight: 400, name: "c3" },
+  { x: 50, y: 550, sizeWidth: 50, sizeHeight: 50, name: "c1" },
+  { x: 250, y: 500, sizeWidth: 50, sizeHeight: 100, name: "c2" },
+  { x: 400, y: 400, sizeWidth: 50, sizeHeight: 200, name: "c3" },
   { x: 400, y: 300, sizeWidth: 50, sizeHeight: 10, name: "p1" },
   { x: 100, y: 300, sizeWidth: 50, sizeHeight: 10, name: "p2" },
   { x: 250, y: 250, sizeWidth: 50, sizeHeight: 10, name: "p3" },
@@ -77,7 +77,7 @@ const level4Platforms = [
   { x: 200, y: 590, sizeWidth: 20, sizeHeight: 10, name: "p8" },
   { x: 220, y: 500, sizeWidth: 10, sizeHeight: 10, name: "p9" },
   { x: 220, y: 400, sizeWidth: 10, sizeHeight: 10, name: "p10" },
-  { x: 400, y: 400, sizeWidth: 20, sizeHeight: 400, name: "w4" },
+  { x: 400, y: 400, sizeWidth: 20, sizeHeight: 200, name: "w4" },
   { x: 400, y: 0, sizeWidth: 20, sizeHeight: 250, name: "w5" },
   { x: 420, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p11" },
   { x: 500, y: 300, sizeWidth: 20, sizeHeight: 10, name: "p12" },
@@ -171,7 +171,7 @@ function getRandomInt(max) {
 //Jump function
 
 function handleJump() {
-  const jumpPressed = keys["Space"] || keys["ArrowUp"] || keys["keyW"];
+  const jumpPressed = keys["Space"] || keys["ArrowUp"] || keys["KeyW"];
 
   // Start jump (coyote time check optional)
   if (jumpPressed && (onPlatform || coyoteTimer > 0) ) {
@@ -222,8 +222,8 @@ function update(delta) {
   pParticles = pParticles.filter(p => p.life > 0);
 
   // Horizontal movement
-  if (keys["ArrowLeft"] || keys["keyA"]) pVelX = -moveSpeed;
-  else if (keys["ArrowRight"] || keys["keyD"]) pVelX = moveSpeed;
+  if (keys["ArrowLeft"] || keys["KeyA"]) pVelX = -moveSpeed;
+  else if (keys["ArrowRight"] || keys["KeyD"]) pVelX = moveSpeed;
   else pVelX = 0;
 
   // Jump
