@@ -264,7 +264,7 @@ function death(x, y, cooldown) {
   for (let i = 0; i < cooldown; i++) {
     const maxLife = 20
     pVelY = 0;
-    pParticles.push({
+    dParticles.push({
       parX: x,
       parY: y,
       size: getRandomInt(10) + 5,
