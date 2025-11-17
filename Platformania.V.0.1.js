@@ -273,15 +273,17 @@ function death(x, y, cooldown) {
       life: maxLife, // frames to live
       maxLife: maxLife
     });
-    if (i > cooldown) {
-      deathCount++;
-      pX = 50;
-      pY = 500;
-      pVelY = 0;
-      airBorne = true;
-    }
+    deathCount++;
+    pX = 50;
+    pY = 500;
+    pVelY = 0;
+    airBorne = true;
   }
-
+  deathCount++;
+    pX = 50;
+    pY = 500;
+    pVelY = 0;
+    airBorne = true;
 }
 
 //Updater
@@ -372,7 +374,6 @@ function update(delta) {
 
   // Death check
   if (pY > canvas.height) {
-    deathCount++;
     death(pX, pY, 60)
   }
 
