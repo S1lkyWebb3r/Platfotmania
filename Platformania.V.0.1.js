@@ -273,11 +273,6 @@ function death(x, y, cooldown) {
       life: maxLife, // frames to live
       maxLife: maxLife
     });
-    deathCount++;
-    pX = 50;
-    pY = 500;
-    pVelY = 0;
-    airBorne = true;
   }
   deathCount++;
     pX = 50;
@@ -293,6 +288,7 @@ function update(delta) {
 
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
+  dParticles = dParticles.filter(d => d.life > 0);
 
   // Horizontal movement
   if (keys["ArrowLeft"] || keys["KeyA"]) pVelX = -moveSpeed;
@@ -371,6 +367,13 @@ function update(delta) {
     particle.parY += particle.speedY;
     particle.life--;
   }
+  // Update death particles
+  for (let d of dParticles) {
+    d.parX += d.speedX;
+    d.parY += d.speedY;
+    d.life--;
+  }
+
 
   // Death check
   if (pY > canvas.height) {
@@ -455,6 +458,7 @@ function draw() {
     ctx.globalAlpha = particle.life / particle.maxLife; // fade out
     ctx.fillRect(particle.parX, particle.parY, particle.size, particle.size);
   }
+
   for (let particle of dParticles) {
     ctx.fillStyle = pColor;
     ctx.globalAlpha = particle.life / particle.maxLife; // fade out
