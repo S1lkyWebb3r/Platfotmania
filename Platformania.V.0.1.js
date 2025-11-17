@@ -373,10 +373,7 @@ function update(delta) {
   // Death check
   if (pY > canvas.height) {
     deathCount++;
-    pX = 50;
-    pY = 500;
-    pVelY = 0;
-    airBorne = true;
+    death(pX, pY, 60)
   }
 
   // Switch levels (example: reach top of screen)
