@@ -42,6 +42,8 @@ let pTrails = [
 //Game state (Starting, Paused, Playing)
 let deathCount = 0;
 let gameState = "Starting"
+let deathTimer = 0;
+
 // Levels
 let currentLevel = 1;
 
@@ -275,20 +277,43 @@ function death(x, y, cooldown) {
     });
   }
   deathCount++;
-    pX = 50;
-    pY = 500;
-    pVelY = 0;
-    airBorne = true;
+  gameState = "dead"
+  deathTimer = 60 * delta;
+
+  pX = 50;
+  pY = 500;
+  pVelY = 0;
+  airBorne = true;
 }
 
 //Updater
 function update(delta) {
+  if (gameState === "Dead") {
+    // Update particles only
+    dParticles = dParticles.filter(d => d.life > 0);
+    for (let d of dParticles) {
+      d.parX += d.speedX;
+      d.parY += d.speedY;
+      d.life--;
+    }
+  
+    deathTimer--;
+  
+    // Respawn when timer ends
+    if (deathTimer <= 0) {
+      pX = 50;
+      pY = 500;
+      pVelX = 0;
+      pVelY = 0;
+      gameState = "Playing";
+    }
+  }
+
   handlePause();
   if (gameState !== "Playing") return;
 
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
-  dParticles = dParticles.filter(d => d.life > 0);
 
   // Horizontal movement
   if (keys["ArrowLeft"] || keys["KeyA"]) pVelX = -moveSpeed;
@@ -366,12 +391,6 @@ function update(delta) {
     particle.parX += particle.speedX;
     particle.parY += particle.speedY;
     particle.life--;
-  }
-  // Update death particles
-  for (let d of dParticles) {
-    d.parX += d.speedX;
-    d.parY += d.speedY;
-    d.life--;
   }
 
 
