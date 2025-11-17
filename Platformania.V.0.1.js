@@ -241,7 +241,7 @@ function handleTrail() {
 
 //Particle code
 let pParticles = [];
-function spawnParticles(x, y, count) {
+function spawnLandingParticles(x, y, count) {
   pParticles = [];
   for (let i = 0; i < count; i++) {
     const maxLife = 20
@@ -255,6 +255,33 @@ function spawnParticles(x, y, count) {
       maxLife: maxLife
     });
   }
+}
+
+//Death animation
+let dParticles = [];
+function death(x, y, cooldown) {
+  dParticles = [];
+  for (let i = 0; i < cooldown; i++) {
+    const maxLife = 20
+    pVelY = 0;
+    pParticles.push({
+      parX: x,
+      parY: y,
+      size: getRandomInt(10) + 5,
+      speedX: (Math.random() - 0.5) * 10,  // random spread
+      speedY: (Math.random() - 0.5) * 10,
+      life: maxLife, // frames to live
+      maxLife: maxLife
+    });
+    if (i > cooldown) {
+      deathCount++;
+      pX = 50;
+      pY = 500;
+      pVelY = 0;
+      airBorne = true;
+    }
+  }
+
 }
 
 //Updater
@@ -314,7 +341,7 @@ function update(delta) {
           onPlatform = true;     //landed
           coyoteTimer = COYOTE_FRAMES; //reset coyote time
           if (landed > 0) {
-            spawnParticles(pX, pY, 20)
+            spawnLandingParticles(pX, pY, 20)
             landed --;
           }
         } else {
@@ -425,11 +452,16 @@ function draw() {
   ctx.fillText("Game by The Wind's Webber", 300, 550);
   }
   //Particle appearances
-for (let particle of pParticles) {
-  ctx.fillStyle = "black";
-  ctx.globalAlpha = particle.life / particle.maxLife; // fade out
-  ctx.fillRect(particle.parX, particle.parY, particle.size, particle.size);
-}
+  for (let particle of pParticles) {
+    ctx.fillStyle = "black";
+    ctx.globalAlpha = particle.life / particle.maxLife; // fade out
+    ctx.fillRect(particle.parX, particle.parY, particle.size, particle.size);
+  }
+  for (let particle of dParticles) {
+    ctx.fillStyle = pColor;
+    ctx.globalAlpha = particle.life / particle.maxLife; // fade out
+    ctx.fillRect(particle.parX, particle.parY, particle.size, particle.size);
+  }
   ctx.globalAlpha = 1;
   
   if (gameState === "Paused") {
