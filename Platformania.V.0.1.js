@@ -278,7 +278,6 @@ function death(x, y, cooldown) {
   }
   deathCount++;
   gameState = "dead"
-  deathTimer = 60 * delta;
 
   pX = 50;
   pY = 500;
@@ -289,6 +288,7 @@ function death(x, y, cooldown) {
 //Updater
 function update(delta) {
   if (gameState === "Dead") {
+    deathTimer = 60 * delta;
     // Update particles only
     dParticles = dParticles.filter(d => d.life > 0);
     for (let d of dParticles) {
