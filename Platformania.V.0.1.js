@@ -278,7 +278,7 @@ function death(x, y, cooldown) {
   }
   deathCount++;
   gameState = "Dead"
-  deathTimer = 60; //Should probably have delta here
+  deathTimer = 30; //Should probably have delta here
 
   pX = 50;
   pY = 500;
