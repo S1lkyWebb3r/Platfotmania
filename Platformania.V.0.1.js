@@ -303,6 +303,7 @@ function death(x, y, count) {
 }
 
 function handleObject(o) {
+  if (o.level !== currentLevel) return;
   // Enemy
   if (o.type === "enemy") {
     death(pX, pY, 60);
