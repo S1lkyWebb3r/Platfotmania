@@ -155,7 +155,7 @@ const objects = [
   //Testing
   {x: 250, y: 550, sizeWidth: 10, sizeHeight: 10, type: "enemy", color: "red", level: 1},
   {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 1},
-  {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "blue", level: 1, open: false},
+  {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 1, open: false},
 ]
 
 // Keys pressed 
@@ -298,18 +298,29 @@ function death(x, y, count) {
   airBorne = true;
 }
 
-//Oject handling
-function handleObject() {
-  for (let o of objects){
-    if (o.level !== currentLevel) continue;
-    if (o.type === "enemy") death(pX, pY, 60)
-    if (o.type === "switch") o.open = true;
-    if (o.type === "door" && !o.open) {
-      if (pX < o.x) pX = o.x;
-      if (pX + pSize > o.x + o.sizeWidth) pX = o.x + o.sizeWidth - pSize;
-      if (pY < o.y) pY = o.y;
-      if (pY + pSize > o.y + o.sizeHeight) pY = o.y + o.sizeHeight - pSize;
+function handleObject(o) {
+  // Enemy
+  if (o.type === "enemy") {
+    death(pX, pY, 60);
+    return;
+  }
+
+  // Switch
+  if (o.type === "switch") {
+    o.open = true;
+    return;
+  }
+
+  // Door
+  if (o.type === "door") {
+    if (!o.open) {
+      // Push the player away from the closed door
+      if (pX + pSize > o.x && pX < o.x) pX = o.x - pSize;
+      if (pX < o.x + o.sizeWidth && pX > o.x) pX = o.x + o.sizeWidth;
+      if (pY + pSize > o.y && pY < o.y) pY = o.y - pSize;
+      if (pY < o.y + o.sizeHeight && pY > o.y) pY = o.y + o.sizeHeight;
     }
+    return;
   }
 }
 
@@ -444,9 +455,10 @@ function update(delta) {
   //Collision of objects
   for (let o of objects) {
     if (isCollidingObj(pX, pY, pSize, o.x, o.y, o.sizeWidth, o.sizeHeight)) {
-      handleObject();
+      handleObject(o);
     }
   }
+
   //color swap (see if they like it)
   if (currentLevel === 1) {
     chooseColor()
