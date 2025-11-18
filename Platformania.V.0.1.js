@@ -420,6 +420,7 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   //Player
+if (gameState !== "Dead"){
   ctx.fillStyle = pColor;
   ctx.fillRect(pX, pY, pSize, pSize);
 
@@ -429,7 +430,7 @@ function draw() {
     ctx.fillRect(t.x, t.y, t.size, t.size); 
   }
   ctx.globalAlpha = 1;
-
+}
   //Platforms
   ctx.fillStyle = "black";
   const platforms = getCurrentPlatforms();  
