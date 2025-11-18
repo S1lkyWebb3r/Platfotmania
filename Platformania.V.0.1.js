@@ -195,7 +195,7 @@ function getRandomInt(max) {
 
 // Collision check
 function isCollidingObj(x, y, size, objX, objY, height, width) {
-  return x < objX + width && x + size > objX && y < objY + width && y + size > objY;
+  return x < objX + width && x + size > objX && y < objY + height && y + size > objY;
 }
 
 //Jump function
