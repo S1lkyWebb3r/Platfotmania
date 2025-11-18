@@ -143,8 +143,10 @@ const level6Platforms = [
   { x: 30, y: 130, sizeWidth: 20, sizeHeight: 10, name: "p2" },
 ];
 const level7Platforms = [
-  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
-  { x: 150, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p2" },
+  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 50, name: "p1" },
+  { x: 200, y: 550, sizeWidth: 20, sizeHeight: 50, name: "p2" },
+  { x: 350, y: 550, sizeWidth: 20, sizeHeight: 50, name: "p3" },
+  { x: 500, y: 550, sizeWidth: 20, sizeHeight: 50, name: "p4" },
 
 ]
 
@@ -160,6 +162,8 @@ const objects = [
 
   //Level 7
   {x: 100, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
+  {x: 250, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
+  {x: 400, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
 ]
 
 // Keys pressed 
