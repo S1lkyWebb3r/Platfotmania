@@ -459,7 +459,7 @@ function update(delta) {
 
   //Collision of objects
   for (let o of objects) {
-    if (isCollidingObj(pX, pY, pSize, o.x, o.y, o.sizeWidth, o.sizeHeight)) {
+    if (isCollidingObj(pX, pY, pSize, o.x, o.y, o.sizeHeight, o.sizeWidth)) {
       handleObject(o);
     }
   }
