@@ -144,6 +144,7 @@ const level6Platforms = [
 ];
 const level7Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
+  { x: 150, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p2" },
 
 ]
 
@@ -153,9 +154,12 @@ const lastLevelPlatforms = [
 
 const objects = [
   //Testing
-  {x: 250, y: 550, sizeWidth: 10, sizeHeight: 10, type: "enemy", color: "red", level: 1},
-  {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 1},
-  {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 1, open: false},
+  {x: 250, y: 550, sizeWidth: 10, sizeHeight: 10, type: "enemy", color: "red", level: 0},
+  {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
+  {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
+
+  //Level 7
+  {x: 100, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
 ]
 
 // Keys pressed 
