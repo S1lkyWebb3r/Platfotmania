@@ -4,7 +4,6 @@ const ctx = canvas.getContext("2d");
 
 //Game loop 
 let lastTime = 0;
-let delta = 1;
 
 // Player square
 let pX = 50;
@@ -279,7 +278,7 @@ function death(x, y, cooldown) {
   }
   deathCount++;
   gameState = "dead"
-  deathTimer = 60 * delta;
+  deathTimer = 60; //Should probably have delta here
 
   pX = 50;
   pY = 500;
