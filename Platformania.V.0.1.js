@@ -5,6 +5,11 @@ const ctx = canvas.getContext("2d");
 //Game loop 
 let lastTime = 0;
 
+//Music
+const music = new Audio("PlatformerSong.mp3");
+music.loop = true;
+music.volume = 0.4;
+
 // Player square
 let pX = 50;
 let pY = 500;
@@ -187,7 +192,10 @@ function handlePause() {
   if (keys["Enter"] && !enterPressedLastFrame) {
     if (gameState === "Playing") gameState = "Paused";
     else if (gameState === "Paused") gameState = "Playing";
-    else if (gameState === "Starting") gameState = "Playing";
+    else if (gameState === "Starting"){
+      music.play();
+      gameState = "Playing";
+    }
   }
   enterPressedLastFrame = keys["Enter"];
 }
