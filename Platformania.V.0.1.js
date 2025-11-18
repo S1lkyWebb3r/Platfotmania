@@ -144,18 +144,25 @@ const level6Platforms = [
 ];
 const level7Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
-  
+
 ]
 
 const lastLevelPlatforms = [
   { x: 0, y: 520, sizeWidth: 600, sizeHeight: 30, name: "b1" },
 ];
 
+const objects = [
+  //Testing
+  {x: 250, y: 550, sizeWidth: 10, sizeHeight: 10, type: "enemy", color: "red", level: 1},
+  {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 1},
+  {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "blue", level: 1, open: false},
+]
+
 // Keys pressed 
 const keys = {};
 document.addEventListener("keydown", (e) => keys[e.code] = true);
 document.addEventListener("keyup", (e) => keys[e.code] = false);
-enterPressedLastFrame = false;
+let enterPressedLastFrame = false;
 
 //Collision detection
 function isColliding(pX, pY, pSize, platform) {
@@ -180,6 +187,11 @@ function handlePause() {
 // Random
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+// Collision check
+function isCollidingObj(x, y, size, objX, objY, height, width) {
+  return x < objX + width && x + size > objX && y < objY + width && y + size > objY;
 }
 
 //Jump function
@@ -261,9 +273,9 @@ function spawnLandingParticles(x, y, count) {
 
 //Death animation
 let dParticles = [];
-function death(x, y, cooldown) {
+function death(x, y, count) {
   dParticles = [];
-  for (let i = 0; i < cooldown; i++) {
+  for (let i = 0; i < count; i++) {
     const maxLife = 20
     pVelY = 0;
     dParticles.push({
@@ -284,6 +296,21 @@ function death(x, y, cooldown) {
   pY = 500;
   pVelY = 0;
   airBorne = true;
+}
+
+//Oject handling
+function handleObject() {
+  for (let o of objects){
+    if (o.level !== currentLevel) continue;
+    if (o.type === "enemy") death(pX, pY, 60)
+    if (o.type === "switch") o.open = true;
+    if (o.type === "door" && !o.open) {
+      if (pX < o.x) pX = o.x;
+      if (pX + pSize > o.x + o.sizeWidth) pX = o.x + o.sizeWidth - pSize;
+      if (pY < o.y) pY = o.y;
+      if (pY + pSize > o.y + o.sizeHeight) pY = o.y + o.sizeHeight - pSize;
+    }
+  }
 }
 
 //Updater
@@ -330,6 +357,10 @@ function update(delta) {
   // Apply movement
   pX += pVelX * delta;
   pY += pVelY * delta;
+
+  // Keep player inside canvas
+  if (pX < 0) pX = 0;
+  if (pX + pSize > canvas.width) pX = canvas.width - pSize;
 
   const platforms = getCurrentPlatforms();
 
@@ -409,7 +440,13 @@ function update(delta) {
     pVelY = 0;
     }
   }
-  
+
+  //Collision of objects
+  for (let o of objects) {
+    if (isCollidingObj(pX, pY, pSize, o.x, o.y, o.sizeWidth, o.sizeHeight)) {
+      handleObject();
+    }
+  }
   //color swap (see if they like it)
   if (currentLevel === 1) {
     chooseColor()
@@ -437,6 +474,14 @@ if (gameState !== "Dead"){
   for (let platform of platforms) {
     ctx.fillRect(platform.x, platform.y, platform.sizeWidth, platform.sizeHeight);
   }
+
+  //objects
+  const currentObjects = getCurrentObjects();
+  for (let o of currentObjects) {
+    ctx.fillStyle = o.color;
+    ctx.fillRect(o.x, o.y, o.sizeWidth, o.sizeHeight);
+  }
+
 
   //Debug (delete later)
   ctx.textAlign = "left";
@@ -520,6 +565,10 @@ function getCurrentPlatforms() {
   if (currentLevel === 6) return level6Platforms;
   if (currentLevel === 7) return level7Platforms;
   return []; // fallback
+}
+
+function getCurrentObjects() {
+  return objects.filter(o => o.level === currentLevel);
 }
 
 //Game loop
