@@ -180,8 +180,8 @@ const objects = [
   {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
 
   //level 4
-  {x: 220, y: 250, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
-  {x: 400, y: 250, sizeWidth: 20, sizeHeight: 150, type: "door", color: "green", level: 0, open: false},
+  {x: 220, y: 250, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 4},
+  {x: 400, y: 250, sizeWidth: 20, sizeHeight: 150, type: "door", color: "green", level: 4, open: false},
 
   //Level 7
   {x: 100, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
