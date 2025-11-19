@@ -51,6 +51,10 @@ let pTrails = [
 let deathCount = 0;
 let gameState = "Starting"
 let deathTimer = 0;
+//Activity detection
+window.addEventListener("blur", (event) => {
+  gameState = "Paused";
+}, true);
 
 // Levels
 let currentLevel = 1;
