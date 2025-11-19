@@ -11,7 +11,7 @@ music.loop = true;
 music.volume = 0.4;
 
 const landingSound = new Audio("impactWood_medium_003.ogg");
-landingSound.volume = 0.5;
+landingSound.volume = 1;
 
 // Player square
 let pX = 50;
