@@ -10,6 +10,9 @@ const music = new Audio("PlatformerSong.mp3");
 music.loop = true;
 music.volume = 0.4;
 
+const landingSound = new Audio("impactWood_medium_003.ogg");
+landingSound.volume = 0.5;
+
 // Player square
 let pX = 50;
 let pY = 500;
@@ -424,6 +427,7 @@ function update(delta) {
           coyoteTimer = COYOTE_FRAMES; //reset coyote time
           if (landed > 0) {
             spawnLandingParticles(pX, pY, 20)
+            landingSound.play();
             landed --;
           }
         } else {
