@@ -12,6 +12,11 @@ music.volume = 0.4;
 
 const landingSound = new Audio("impactWood_medium_003.ogg");
 landingSound.volume = 1;
+window.addEventListener("keydown", () => {
+  landingSound.play(); 
+  landingSound.pause();
+  landingSound.currentTime = 0;
+}, { once: true });
 
 // Player square
 let pX = 50;
@@ -55,6 +60,7 @@ let deathTimer = 0;
 window.addEventListener("blur", (event) => {
   gameState = "Paused";
 }, true);
+
 
 // Levels
 let currentLevel = 1;
@@ -431,6 +437,7 @@ function update(delta) {
           coyoteTimer = COYOTE_FRAMES; //reset coyote time
           if (landed > 0) {
             spawnLandingParticles(pX, pY, 20)
+            landingSound.currentTime = 0;
             landingSound.play();
             landed --;
           }
