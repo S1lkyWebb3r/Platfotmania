@@ -537,14 +537,16 @@ if (gameState !== "Dead"){
 
 
   //Debug (delete later)
-  ctx.textAlign = "left";
-  ctx.fillStyle = "white";
-  ctx.font = "14px Arial";
-  ctx.fillText("x: " + pX, 10, 60);
-  ctx.fillText("y: " + pY, 10, 80);
-  ctx.textAlign = "center";
-  for (let p of platforms) {
-    ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight /2)
+  if (pColor === "indigo") {
+    ctx.textAlign = "left"; 
+    ctx.fillStyle = "white";
+    ctx.font = "14px Arial";
+    ctx.fillText("x: " + pX, 10, 60);
+    ctx.fillText("y: " + pY, 10, 80);
+    ctx.textAlign = "center";
+    for (let p of platforms) {
+      ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight /2)
+    }
   }
 
   // Death counter
