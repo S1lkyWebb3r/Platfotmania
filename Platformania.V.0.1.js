@@ -188,9 +188,9 @@ const objects = [
   {x: 250, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
   {x: 400, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
   //second row
-  {x: 100, y: 200, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
-  {x: 250, y: 200, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
-  {x: 400, y: 200, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
+  {x: 100, y: 100, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
+  {x: 250, y: 100, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
+  {x: 400, y: 100, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
 ]
 
 // Keys pressed 
