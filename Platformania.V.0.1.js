@@ -166,10 +166,10 @@ const level7Platforms = [
   { x: 200, y: 550, sizeWidth: 20, sizeHeight: 50, name: "c2" },
   { x: 350, y: 550, sizeWidth: 20, sizeHeight: 50, name: "c3" },
   { x: 500, y: 550, sizeWidth: 20, sizeHeight: 50, name: "c4" },
-  { x: 500, y: 450, sizeWidth: 20, sizeHeight: 50, name: "p5" },
-  { x: 350, y: 400, sizeWidth: 20, sizeHeight: 50, name: "p6" },
-  { x: 200, y: 400, sizeWidth: 20, sizeHeight: 50, name: "p7" },
-  { x: 50, y: 400, sizeWidth: 20, sizeHeight: 50, name: "p8" },
+  { x: 500, y: 450, sizeWidth: 20, sizeHeight: 10, name: "p5" },
+  { x: 350, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p6" },
+  { x: 200, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p7" },
+  { x: 50, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p8" },
 
 ]
 
