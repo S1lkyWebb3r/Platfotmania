@@ -166,10 +166,10 @@ const level7Platforms = [
   { x: 200, y: 550, sizeWidth: 20, sizeHeight: 50, name: "c2" },
   { x: 350, y: 550, sizeWidth: 20, sizeHeight: 50, name: "c3" },
   { x: 500, y: 550, sizeWidth: 20, sizeHeight: 50, name: "c4" },
-  { x: 500, y: 450, sizeWidth: 20, sizeHeight: 10, name: "p5" },
-  { x: 350, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p6" },
-  { x: 200, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p7" },
-  { x: 50, y: 400, sizeWidth: 20, sizeHeight: 10, name: "p8" },
+  { x: 500, y: 410, sizeWidth: 20, sizeHeight: 10, name: "p5" },
+  { x: 350, y: 360, sizeWidth: 20, sizeHeight: 10, name: "p6" },
+  { x: 200, y: 360, sizeWidth: 20, sizeHeight: 10, name: "p7" },
+  { x: 50, y: 360, sizeWidth: 20, sizeHeight: 10, name: "p8" },
 
 ]
 
@@ -188,9 +188,9 @@ const objects = [
   {x: 250, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
   {x: 400, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
   //second row
-  {x: 100, y: 200, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
-  {x: 250, y: 200, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
-  {x: 400, y: 200, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
+  {x: 100, y: 200, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
+  {x: 250, y: 200, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
+  {x: 400, y: 200, sizeWidth: 40, sizeHeight: 100, type: "enemy", color: "red", level: 7},
 ]
 
 // Keys pressed 
