@@ -170,6 +170,7 @@ const level7Platforms = [
   { x: 350, y: 360, sizeWidth: 20, sizeHeight: 10, name: "p6" },
   { x: 200, y: 360, sizeWidth: 20, sizeHeight: 10, name: "p7" },
   { x: 50, y: 360, sizeWidth: 20, sizeHeight: 10, name: "p8" },
+  { x: 50, y: 220, sizeWidth: 20, sizeHeight: 10, name: "p9" },
 
 ]
 
