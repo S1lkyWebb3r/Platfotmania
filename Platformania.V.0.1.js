@@ -177,6 +177,22 @@ const level7Platforms = [
 
 ]
 
+const level8Platforms = [
+  { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
+];
+
+const level9Platforms = [];
+const level10Platforms = [];
+const level11Platforms = [];
+const level12Platforms = [];
+const level13Platforms = [];
+const level14Platforms = [];
+const level15Platforms = [];
+const level16Platforms = [];
+const level17Platforms = [];
+const level18Platforms = [];
+const level19Platforms = [];
+
 const lastLevelPlatforms = [
   { x: 0, y: 520, sizeWidth: 600, sizeHeight: 30, name: "b1" },
 ];
@@ -623,6 +639,19 @@ function getCurrentPlatforms() {
   if (currentLevel === 5) return level5Platforms;
   if (currentLevel === 6) return level6Platforms;
   if (currentLevel === 7) return level7Platforms;
+  if (currentLevel === 8) return level8Platforms;
+  if (currentLevel === 9) return level9Platforms;
+  if (currentLevel === 10) return level10Platforms;
+  if (currentLevel === 11) return level11Platforms;
+  if (currentLevel === 12) return level12Platforms;
+  if (currentLevel === 13) return level13Platforms;
+  if (currentLevel === 14) return level14Platforms;
+  if (currentLevel === 15) return level15Platforms;
+  if (currentLevel === 16) return level16Platforms;
+  if (currentLevel === 17) return level17Platforms;
+  if (currentLevel === 18) return level18Platforms;
+  if (currentLevel === 19) return level19Platforms;
+  if (currentLevel === 20) return lastLevelPlatforms;
   return []; // fallback
 }
 
