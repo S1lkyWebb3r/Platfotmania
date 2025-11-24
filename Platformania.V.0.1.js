@@ -583,7 +583,7 @@ if (gameState !== "Dead"){
   ctx.fillStyle = "white";
   ctx.fillText("Bugs as intentional game design. Heck Yeah!", 200, 550);
   }
-  if (currentLevel === 5 && pX === 550 && pY === 330 && pColor === "black") {
+  if (currentLevel === 6 && pX === 550 && pY === 330 && pColor === "black") {
     ctx.fillStyle = "white";
     ctx.fillText("Where did they go?", 200, 550);
   }
