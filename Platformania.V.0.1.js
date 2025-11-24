@@ -180,8 +180,8 @@ const level7Platforms = [
 const level8Platforms = [
   { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
   { x: 10, y: 430, sizeWidth: 30, sizeHeight: 170, name: "c2" },
-  { x: 0, y: 330, sizeWidth: 30, sizeHeight: 270, name: "c3" }, 
-  { x: 400, y: 530, sizeWidth: 30, sizeHeight: 30, name: "c4" }, 
+  { x: 0, y: 330, sizeWidth: 10, sizeHeight: 270, name: "c3" }, 
+  { x: 230, y: 570, sizeWidth: 30, sizeHeight: 30, name: "c4" }, 
   
 ];
 
