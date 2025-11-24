@@ -179,6 +179,10 @@ const level7Platforms = [
 
 const level8Platforms = [
   { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
+  { x: 10, y: 430, sizeWidth: 30, sizeHeight: 170, name: "c2" },
+  { x: 0, y: 330, sizeWidth: 30, sizeHeight: 270, name: "c3" }, 
+  { x: 400, y: 530, sizeWidth: 30, sizeHeight: 30, name: "c4" }, 
+  
 ];
 
 const level9Platforms = [];
@@ -283,7 +287,7 @@ function handleJump() {
 function chooseColor() {
   if (keys["Digit1"]) pColor = "teal";
   if (keys["Digit2"]) pColor = "tomato";
-  if (keys["Digit3"]) pColor = "deepskyblue";
+  if (keys["Digit3"]) pColor = "deepblue";
   if (keys["Digit4"]) pColor = "seagreen";
   if (keys["Digit5"]) pColor = "yellow";
   if (keys["Digit6"] && completedGame) pColor = "purple";
