@@ -183,6 +183,7 @@ const level8Platforms = [
   { x: 0, y: 330, sizeWidth: 10, sizeHeight: 270, name: "c3" }, 
   { x: 230, y: 550, sizeWidth: 70, sizeHeight: 50, name: "c4" }, 
   { x: 430, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c5" }, 
+  { x: 580, y: 400, sizeWidth: 30, sizeHeight: 200, name: "c6" }, 
   
 ];
 
