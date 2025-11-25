@@ -222,12 +222,12 @@ const objects = [
 
   //Level
   //First jump
-  {x: 120, y: 150, sizeWidth: 10, sizeHeight: 450, type: "enemy", color: "red", level: 8},
-  {x: 200, y: 230, sizeWidth: 10, sizeHeight: 370, type: "enemy", color: "red", level: 8},
+  {x: 120, y: 110, sizeWidth: 10, sizeHeight: 450, type: "enemy", color: "red", level: 8},
+  {x: 200, y: 190, sizeWidth: 10, sizeHeight: 370, type: "enemy", color: "red", level: 8},
   //Second jump
-  {x: 340, y: 460, sizeWidth: 10, sizeHeight: 140, type: "enemy", color: "red", level: 8},
+  {x: 340, y: 420, sizeWidth: 10, sizeHeight: 140, type: "enemy", color: "red", level: 8},
   //Third Jump
-  {x: 490, y: 410, sizeWidth: 10, sizeHeight: 190, type: "enemy", color: "red", level: 8},
+  {x: 490, y: 370, sizeWidth: 10, sizeHeight: 190, type: "enemy", color: "red", level: 8},
 ]
 
 // Keys pressed 
