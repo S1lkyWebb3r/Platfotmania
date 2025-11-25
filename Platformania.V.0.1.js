@@ -11,7 +11,7 @@ music.loop = true;
 music.volume = 0.4;
 
 const landingSound = new Audio("impactWood_medium_003.ogg");
-landingSound.volume = 1;
+landingSound.volume = 0.2;
 window.addEventListener("keydown", () => {
   landingSound.play(); 
   landingSound.pause();
@@ -185,7 +185,8 @@ const level8Platforms = [
   { x: 430, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c5" }, 
   { x: 570, y: 410, sizeWidth: 30, sizeHeight: 190, name: "c6" },
   { x: 340, y: 380, sizeWidth: 30, sizeHeight: 10, name: "p1" },  
-  
+  { x: 520, y: 240, sizeWidth: 30, sizeHeight: 10, name: "p2" },  
+  { x: 340, y: 100, sizeWidth: 30, sizeHeight: 10, name: "p3" },
 ];
 
 const level9Platforms = [];
