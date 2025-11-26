@@ -224,8 +224,8 @@ const objects = [
   //First jump
   {x: 120, y: 210, sizeWidth: 10, sizeHeight: 450, type: "enemy", color: "red", level: 8},
   {x: 120, y: 0, sizeWidth: 10, sizeHeight: 150, type: "enemy", color: "red", level: 8},
-  {x: 200, y: 280, sizeWidth: 10, sizeHeight: 350, type: "enemy", color: "red", level: 8},
-  {x: 200, y: 0, sizeWidth: 10, sizeHeight: 220, type: "enemy", color: "red", level: 8},
+  {x: 190, y: 280, sizeWidth: 10, sizeHeight: 350, type: "enemy", color: "red", level: 8},
+  {x: 190, y: 0, sizeWidth: 10, sizeHeight: 220, type: "enemy", color: "red", level: 8}, 
   //Second jump
   {x: 340, y: 520, sizeWidth: 10, sizeHeight: 140, type: "enemy", color: "red", level: 8},
   //Third Jump
@@ -544,22 +544,23 @@ function update(delta) {
     chooseColor()
   } else localStorage.setItem("color", pColor);
 }
+
 //Draw
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   //Player
-if (gameState !== "Dead"){
-  ctx.fillStyle = pColor;
-  ctx.fillRect(pX, pY, pSize, pSize);
-
-  for (let t of pTrails) {
+  if (gameState !== "Dead"){
     ctx.fillStyle = pColor;
-    ctx.globalAlpha = t.fade;
-    ctx.fillRect(t.x, t.y, t.size, t.size); 
+    ctx.fillRect(pX, pY, pSize, pSize);
+
+    for (let t of pTrails) {
+      ctx.fillStyle = pColor;
+      ctx.globalAlpha = t.fade;
+      ctx.fillRect(t.x, t.y, t.size, t.size); 
+    }
+    ctx.globalAlpha = 1;
   }
-  ctx.globalAlpha = 1;
-}
   //Platforms
   ctx.fillStyle = "black";
   const platforms = getCurrentPlatforms();  
