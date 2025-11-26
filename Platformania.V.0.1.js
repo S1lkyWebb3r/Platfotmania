@@ -46,7 +46,10 @@ let trailPos = [];
 const trailPosMax = 20;
 let pTrails = [
   {x: pX, y: pY, size: 15, delay: 5, fade: 0.75,},
-  {x: pX, y: pY, size: 10, delay: 10, fade: 0.5,},
+  {x: pX, y: pY, size: 13, delay: 7, fade: 0.65,},
+  {x: pX, y: pY, size: 11, delay: 9, fade: 0.55,},
+  {x: pX, y: pY, size: 9, delay: 11, fade: 0.45,},
+  {x: pX, y: pY, size: 9, delay: 13, fade: 0.35,},
   {x: pX, y: pY, size: 5, delay: 15, fade: 0.25,},
 ];
 
@@ -222,7 +225,7 @@ const objects = [
 
   //Level 8
   //First jump
-  {x: 120, y: 210, sizeWidth: 10, sizeHeight: 450, type: "enemy", color: "red", level: 8},
+  {x: 120, y: 200, sizeWidth: 10, sizeHeight: 450, type: "enemy", color: "red", level: 8},
   {x: 120, y: 0, sizeWidth: 10, sizeHeight: 150, type: "enemy", color: "red", level: 8},
   {x: 180, y: 290, sizeWidth: 10, sizeHeight: 350, type: "enemy", color: "red", level: 8},
   {x: 180, y: 0, sizeWidth: 10, sizeHeight: 200, type: "enemy", color: "red", level: 8}, 
