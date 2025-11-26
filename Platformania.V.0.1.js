@@ -224,8 +224,8 @@ const objects = [
   //First jump
   {x: 120, y: 210, sizeWidth: 10, sizeHeight: 450, type: "enemy", color: "red", level: 8},
   {x: 120, y: 0, sizeWidth: 10, sizeHeight: 150, type: "enemy", color: "red", level: 8},
-  {x: 200, y: 275, sizeWidth: 10, sizeHeight: 350, type: "enemy", color: "red", level: 8},
-  {x: 200, y: 0, sizeWidth: 10, sizeHeight: 225, type: "enemy", color: "red", level: 8},
+  {x: 200, y: 260, sizeWidth: 10, sizeHeight: 350, type: "enemy", color: "red", level: 8},
+  {x: 200, y: 0, sizeWidth: 10, sizeHeight: 160, type: "enemy", color: "red", level: 8},
   //Second jump
   {x: 340, y: 520, sizeWidth: 10, sizeHeight: 140, type: "enemy", color: "red", level: 8},
   //Third Jump
