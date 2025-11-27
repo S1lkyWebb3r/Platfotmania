@@ -480,7 +480,7 @@ function update(delta) {
           pX = platform.x + platform.sizeWidth;
         }
         pVelX = 0;
-      } else if (overlapY > overlapX) {
+      } else {
         // Vertical collision
         if (pVelY >= 0 && pY + pSize > platform.y && pY < platform.y) {
           // Land on top
@@ -589,6 +589,10 @@ function draw() {
     ctx.fillText("x: " + pX, 10, 60);
     ctx.fillText("y: " + pY, 10, 80);
     ctx.fillText("fps: " + fps, 10, 100);
+    //Delete this later
+    ctx.fillText("VelY: " + pVelY, 10, 120);
+    ctx.fillText("onPlatform: " + onPlatform, 10, 140);
+    ctx.fillText("velX: " + pVelX, 10, 160);
     ctx.textAlign = "center";
     for (let p of platforms) {
       ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight /2)
