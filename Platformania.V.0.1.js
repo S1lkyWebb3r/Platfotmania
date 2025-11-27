@@ -49,7 +49,7 @@ let pTrails = [
   {x: pX, y: pY, size: 13, delay: 4, fade: 0.65,},
   {x: pX, y: pY, size: 11, delay: 6, fade: 0.55,},
   {x: pX, y: pY, size: 9, delay: 8, fade: 0.45,},
-  {x: pX, y: pY, size: 9, delay: 10, fade: 0.35,},
+  {x: pX, y: pY, size: 7, delay: 10, fade: 0.35,},
   {x: pX, y: pY, size: 5, delay: 12, fade: 0.25,},
 ];
 
@@ -472,7 +472,6 @@ function update(delta) {
         pY + pSize - platform.y,
         platform.y + platform.sizeHeight - pY
       );
-  
       if (overlapX < overlapY) {
         // Horizontal collision
         if (pX + pSize / 2 < platform.x + platform.sizeWidth / 2) {
@@ -481,7 +480,7 @@ function update(delta) {
           pX = platform.x + platform.sizeWidth;
         }
         pVelX = 0;
-      } else {
+      } else if (overlapY > overlapX) {
         // Vertical collision
         if (pVelY >= 0 && pY + pSize > platform.y && pY < platform.y) {
           // Land on top
@@ -710,7 +709,7 @@ function gameLoop(timestamp) {
 
   update(delta);
   draw();
-  
+
   requestAnimationFrame(gameLoop);
 }
 
