@@ -53,6 +53,12 @@ let pTrails = [
   {x: pX, y: pY, size: 5, delay: 12, fade: 0.25,},
 ];
 
+//Fps
+let fps = 0;
+let fpsCounter = 0;
+let fpsTimer = 0;
+
+
 
 
 //Game state (Starting, Paused, Playing)
@@ -579,13 +585,14 @@ function draw() {
   }
 
 
-  //Debug (delete later)
+  //Debug 
   if (pColor === "indigo") {
     ctx.textAlign = "left"; 
     ctx.fillStyle = "white";
     ctx.font = "14px Arial";
     ctx.fillText("x: " + pX, 10, 60);
     ctx.fillText("y: " + pY, 10, 80);
+    ctx.fillText("fps: " + fps, 10, 100);
     ctx.textAlign = "center";
     for (let p of platforms) {
       ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight /2)
@@ -694,6 +701,16 @@ function gameLoop(timestamp) {
   // <1 on faster machines, >1 on slower machines
 
   lastTime = timestamp;
+
+  // Count frames
+  framesThisSecond++;
+  fpsTimer += delta;
+
+  if (fpsTimer >= 1000) {  // 1 second passed
+    fps = framesThisSecond;
+    framesThisSecond = 0;
+    fpsTimer = 0;
+  }
 
   update(delta);
   draw();
