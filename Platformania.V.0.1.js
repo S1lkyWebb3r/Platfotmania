@@ -55,11 +55,8 @@ let pTrails = [
 
 //Fps
 let fps = 0;
-let fpsCounter = 0;
 let fpsTimer = 0;
-
-
-
+let framesThisSecond = 0;
 
 //Game state (Starting, Paused, Playing)
 let deathCount = 0;
