@@ -45,12 +45,12 @@ let completedGame = true;
 let trailPos = [];
 const trailPosMax = 20;
 let pTrails = [
-  {x: pX, y: pY, size: 15, delay: 5, fade: 0.95,},
-  {x: pX, y: pY, size: 13, delay: 7, fade: 0.85,},
-  {x: pX, y: pY, size: 11, delay: 9, fade: 0.75,},
-  {x: pX, y: pY, size: 9, delay: 11, fade: 0.65,},
-  {x: pX, y: pY, size: 9, delay: 13, fade: 0.55,},
-  {x: pX, y: pY, size: 5, delay: 15, fade: 0.45,},
+  {x: pX, y: pY, size: 15, delay: 2, fade: 0.75,},
+  {x: pX, y: pY, size: 13, delay: 4, fade: 0.65,},
+  {x: pX, y: pY, size: 11, delay: 6, fade: 0.55,},
+  {x: pX, y: pY, size: 9, delay: 8, fade: 0.45,},
+  {x: pX, y: pY, size: 9, delay: 10, fade: 0.35,},
+  {x: pX, y: pY, size: 5, delay: 12, fade: 0.25,},
 ];
 
 
