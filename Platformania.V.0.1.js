@@ -691,28 +691,28 @@ function getCurrentObjects() {
   return objects.filter(o => o.level === currentLevel);
 }
 
-//Game loop
 function gameLoop(timestamp) {
-  let delta = (timestamp - lastTime) / 16.67;  
-  // delta = 1.0 at 60fps
-  // <1 on faster machines, >1 on slower machines
+  const frameTime = timestamp - lastTime;   // real ms between frames
 
-  lastTime = timestamp;
-
-  // Count frames
+  // FPS calc
   framesThisSecond++;
-  fpsTimer += delta;
+  fpsTimer += frameTime;
 
-  if (fpsTimer >= 1000) {  // 1 second passed
+  if (fpsTimer >= 1000) {
     fps = framesThisSecond;
     framesThisSecond = 0;
     fpsTimer = 0;
   }
 
+  // Now calculate your normalized delta
+  let delta = frameTime / 16.67;
+  lastTime = timestamp;
+
   update(delta);
   draw();
-
+  
   requestAnimationFrame(gameLoop);
 }
+
 
 requestAnimationFrame(gameLoop);
