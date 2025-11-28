@@ -126,28 +126,21 @@ const level4Platforms = [
 const level5Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
   { x: 30, y: 450, sizeWidth: 20, sizeHeight: 10, name: "p2" },
+  { x: 50, y: 350, sizeWidth: 20, sizeHeight: 10, name: "p2.5" },
   { x: 150, y: 300, sizeWidth: 30, sizeHeight: 10, name: "p3" },
   { x: 180, y: 320, sizeWidth: 30, sizeHeight: 10, name: "p4" },
   //Staircase
   { x: 210, y: 340, sizeWidth: 30, sizeHeight: 10, name: "s1" },
-  { x: 240, y: 360, sizeWidth: 30, sizeHeight: 10, name: "s2" },
   { x: 270, y: 380, sizeWidth: 30, sizeHeight: 10, name: "s3" },
-  { x: 300, y: 400, sizeWidth: 30, sizeHeight: 10, name: "s4" },
   { x: 330, y: 420, sizeWidth: 30, sizeHeight: 10, name: "s5" },
-  { x: 360, y: 440, sizeWidth: 30, sizeHeight: 10, name: "s6" },
   { x: 390, y: 460, sizeWidth: 30, sizeHeight: 10, name: "s7" },
-  { x: 420, y: 480, sizeWidth: 30, sizeHeight: 10, name: "s8" },
 
   { x: 450, y: 550, sizeWidth: 30, sizeHeight: 10, name: "p5" },
   //second staircase
   { x: 250, y: 140, sizeWidth: 30, sizeHeight: 10, name: "s9" },
-  { x: 280, y: 160, sizeWidth: 30, sizeHeight: 10, name: "s10" },
   { x: 310, y: 180, sizeWidth: 30, sizeHeight: 10, name: "s11" },
-  { x: 340, y: 200, sizeWidth: 30, sizeHeight: 10, name: "s12" },
   { x: 370, y: 220, sizeWidth: 30, sizeHeight: 10, name: "s13" },
-  { x: 400, y: 240, sizeWidth: 30, sizeHeight: 10, name: "s14" },
   { x: 430, y: 260, sizeWidth: 30, sizeHeight: 10, name: "s15" },
-  { x: 460, y: 280, sizeWidth: 30, sizeHeight: 10, name: "s16" },
 
   { x: 490, y: 350, sizeWidth: 30, sizeHeight: 10, name: "p6" },
 ];
@@ -162,7 +155,7 @@ const level6Platforms = [
   { x: 0, y: 250, sizeWidth: 520, sizeHeight: 10, name: "lp1" },
   { x: 510, y: 130, sizeWidth: 10, sizeHeight: 120, name: "w1" },
   { x: 490, y: 130, sizeWidth: 20, sizeHeight: 10, name: "p1" },
-  { x: 510, y: 10, sizeWidth: 10, sizeHeight: 100, name: "w2" },
+  { x: 510, y: 10, sizeWidth: 10, sizeHeight: 90, name: "w2" },
   { x: 310, y: 50, sizeWidth: 10, sizeHeight: 200, name: "w3" },
   { x: 30, y: 130, sizeWidth: 20, sizeHeight: 10, name: "p2" },
 ];
@@ -211,11 +204,23 @@ const lastLevelPlatforms = [
   { x: 0, y: 520, sizeWidth: 600, sizeHeight: 30, name: "b1" },
 ];
 
-const objects = [
+let objects = [
   //Testing
   {x: 250, y: 550, sizeWidth: 10, sizeHeight: 10, type: "enemy", color: "red", level: 0},
   {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
   {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
+
+  //Level 5
+  //first staircase
+  {x: 240, y: 360, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
+  {x: 300, y: 400, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
+  {x: 360, y: 440, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
+  {x: 420, y: 480, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
+  //second staircase
+  {x: 280, y: 160, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
+  {x: 340, y: 200, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
+  {x: 400, y: 240, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
+  {x: 460, y: 280, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
 
   //Level 7
   {x: 100, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 7},
@@ -615,11 +620,7 @@ function draw() {
   // Level indicator
   ctx.fillStyle = "blue";
   ctx.fillText("Level " + currentLevel, 10, 40);
-  //level 5 text
-  if (currentLevel === 5) {
-  ctx.fillStyle = "white";
-  ctx.fillText("Bugs as intentional game design. Heck Yeah!", 200, 550);
-  }
+  //Easter egg text
   if (currentLevel === 6 && pX === 550 && pY === 330 && pColor === "black") {
     ctx.fillStyle = "white";
     ctx.fillText("Where did they go?", 200, 550);
