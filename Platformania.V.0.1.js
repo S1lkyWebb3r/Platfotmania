@@ -127,8 +127,8 @@ const level5Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
   { x: 30, y: 450, sizeWidth: 20, sizeHeight: 10, name: "p2" },
   { x: 50, y: 350, sizeWidth: 20, sizeHeight: 10, name: "p2.5" },
-  { x: 150, y: 300, sizeWidth: 30, sizeHeight: 10, name: "p3" },
-  { x: 180, y: 320, sizeWidth: 30, sizeHeight: 10, name: "p4" },
+  { x: 150, y: 300, sizeWidth: 30, sizeHeight: 10, name: "s0.3" },
+
   //Staircase
   { x: 210, y: 340, sizeWidth: 30, sizeHeight: 10, name: "s1" },
   { x: 270, y: 380, sizeWidth: 30, sizeHeight: 10, name: "s3" },
@@ -212,6 +212,7 @@ let objects = [
 
   //Level 5
   //first staircase
+  {x: 180, y: 320, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
   {x: 240, y: 360, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
   {x: 300, y: 400, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
   {x: 360, y: 440, sizeWidth: 30, sizeHeight: 10, type: "enemy", color: "red", level: 5},
