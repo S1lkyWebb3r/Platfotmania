@@ -475,7 +475,7 @@ for (let platform of platforms) {
 
 // ---- Vertical Movement ----
 pY += pVelY * delta;
-pY += gravity * delta; // apply gravity
+pVelY += gravity * delta;
 
 let landedThisFrame = false;
 
