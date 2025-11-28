@@ -246,12 +246,9 @@ let enterPressedLastFrame = false;
 
 //Collision detection
 function isColliding(pX, pY, pSize, platform) {
-  return (
-    pX < platform.x + platform.sizeWidth &&
-    pX + pSize > platform.x &&
-    pY < platform.y + platform.sizeHeight &&
-    pY + pSize > platform.y
-  );
+  if (pX < platform.x + platform.sizeWidth && pX + pSize > platform.x) return ("side");
+  if (pY + pSize > platform.y)  return ("bottom");
+  if (pY < platform.y + platform.sizeHeight)  return ("top");
 }
 
 //Pause function
@@ -463,44 +460,36 @@ function update(delta) {
 
   // Collision with platforms
   for (let platform of platforms) {
-    if (isColliding(pX, pY, pSize, platform)) {
-      let overlapX = Math.min(
-        pX + pSize - platform.x,
-        platform.x + platform.sizeWidth - pX
-      );
-      let overlapY = Math.min(
-        pY + pSize - platform.y,
-        platform.y + platform.sizeHeight - pY
-      );
-      if (overlapX < overlapY) {
-        // Horizontal collision
-        if (pX + pSize / 2 < platform.x + platform.sizeWidth / 2) {
-          pX = platform.x - pSize;
-        } else {
-          pX = platform.x + platform.sizeWidth;
-        }
-        pVelX = 0;
+    let playerPlatformCollision = isColliding(pX, pY, pSize, platform);
+    if (playerPlatformCollision === "Side") {
+      // Horizontal collision
+      if (pX + pSize / 2 < platform.x + platform.sizeWidth / 2) {
+        pX = platform.x - pSize;
       } else {
-        // Vertical collision
-        if (pVelY >= 0 && pY + pSize > platform.y && pY < platform.y) {
-          // Land on top
-          pY = platform.y - pSize;
-          pVelY = 0;
-          onPlatform = true;     //landed
-          coyoteTimer = COYOTE_FRAMES; //reset coyote time
-          if (landed > 0) {
-            spawnLandingParticles(pX, pY, 20)
-            landingSound.currentTime = 0;
-            landingSound.play();
-            landed --;
-          }
-        } else {
-          // Hit bottom of platform
-          pY = platform.y + platform.sizeHeight;
-          pVelY = 0;
+        pX = platform.x + platform.sizeWidth;
+      }
+      pVelX = 0;
+    } else {
+      // Vertical collision
+      if (playerPlatformCollision === "Top") {
+        // Land on top
+        pY = platform.y - pSize;
+        pVelY = 0;
+        onPlatform = true;     //landed
+        coyoteTimer = COYOTE_FRAMES; //reset coyote time
+        if (landed > 0) {
+          spawnLandingParticles(pX, pY, 20)
+          landingSound.currentTime = 0;
+          landingSound.play();
+          landed --;
         }
+      } else if (playerPlatformCollision === "Bottom") {
+        // Hit bottom of platform
+        pY = platform.y + platform.sizeHeight;
+          pVelY = 0;
       }
     }
+    playerPlatformCollision = null; // reset for next platform
   }
 
   // Update airborne state
