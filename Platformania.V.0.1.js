@@ -245,30 +245,13 @@ document.addEventListener("keyup", (e) => keys[e.code] = false);
 let enterPressedLastFrame = false;
 
 //Collision detection
-function isColliding(pX, pY, pSize, platform) {
-
-  const px2 = pX + pSize;
-  const py2 = pY + pSize;
-  const sx2 = platform.x + platform.sizeWidth;
-  const sy2 = platform.y + platform.sizeHeight;
-
-  // First check if they overlap at all
-  if (px2 <= platform.x || pX >= sx2 || py2 <= platform.y || pY >= sy2) {
-    return null; // no collision
-  }
-
-  // Calculate the penetration depth on each side
-  const fromLeft   = px2 - platform.x;
-  const fromRight  = sx2 - pX;
-  const fromTop    = py2 - platform.y;
-  const fromBottom = sy2 - pY;
-
-  const minPen = Math.min(fromLeft, fromRight, fromTop, fromBottom);
-
-  if (minPen === fromTop)    return "top";    // player landed on platform
-  if (minPen === fromBottom) return "bottom"; // player hit head
-  if (minPen === fromLeft)   return "left";   // player hit left side
-  if (minPen === fromRight)  return "right";  // player hit right side
+function aabb(aX, aY, aW, aH, bX, bY, bW, bH) {
+  return (
+    aX < bX + bW &&
+    aX + aW > bX &&
+    aY < bY + bH &&
+    aY + aH > bY
+  );
 }
 
 //Pause function
@@ -463,13 +446,6 @@ function update(delta) {
   handleJump();
   handleTrail();
 
-  // Apply gravity
-  pVelY += gravity * delta;
-
-  // Apply movement
-  pX += pVelX * delta;
-  pY += pVelY * delta;
-
   // Keep player inside canvas
   if (pX < 0) pX = 0;
   if (pX + pSize > canvas.width) pX = canvas.width - pSize;
@@ -478,35 +454,55 @@ function update(delta) {
 
   onPlatform = false; // reset every frame before checking platforms
 
-  // Collision with platforms
-  for (let platform of platforms) {
-    let playerPlatformCollision = isColliding(pX, pY, pSize, platform);
-  if (playerPlatformCollision === "left") {
-    pX = platform.x - pSize;
+  // ---- Horizontal Movement ----
+pX += pVelX * delta;
+
+for (let platform of platforms) {
+  if (aabb(pX, pY, pSize, pSize, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) {
+
+    // Moving right: hit left side
+    if (pVelX > 0) {
+      pX = platform.x - pSize;
+    }
+    // Moving left: hit right side
+    else if (pVelX < 0) {
+      pX = platform.x + platform.sizeWidth;
+    }
+
     pVelX = 0;
-  } else if (playerPlatformCollision === "right") {
-    pX = platform.x + platform.sizeWidth;
-    pVelX = 0;
-  } else if (playerPlatformCollision === "top") {
-      // Vertical collision
-      // Land on top
+  }
+}
+
+// ---- Vertical Movement ----
+pY += pVelY * delta;
+// Apply gravity
+pVelY += gravity * delta;
+
+let landedThisFrame = false;
+
+for (let platform of platforms) {
+  if (aabb(pX, pY, pSize, pSize, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) {
+
+    // Moving down: landed on platform
+    if (pVelY > 0) {
       pY = platform.y - pSize;
       pVelY = 0;
-      onPlatform = true;     //landed
-      coyoteTimer = COYOTE_FRAMES; //reset coyote time
-      if (landed > 0) {
-        spawnLandingParticles(pX, pY, 20)
-        landingSound.currentTime = 0;
-        landingSound.play();
-        landed --;
-      }
-  } else if (playerPlatformCollision === "bottom") {
-    // Hit bottom of platform
-    pY = platform.y + platform.sizeHeight;
-    pVelY = 0;
+      onPlatform = true;
+      landedThisFrame = true;
+      coyoteTimer = COYOTE_FRAMES;
+    }
+    // Moving up: hit head
+    else if (pVelY < 0) {
+      pY = platform.y + platform.sizeHeight;
+      pVelY = 0;
+    }
   }
-  playerPlatformCollision = null; // reset for next platform
-  }
+}
+if (!landedThisFrame) {
+  onPlatform = false;
+}
+
+
 
   // Update airborne state
   airBorne = !onPlatform;
