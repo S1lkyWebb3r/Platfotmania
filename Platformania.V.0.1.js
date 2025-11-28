@@ -249,7 +249,7 @@ let objects = [
 
   //Level 9
   {x: 0, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 9},
-  {x: 70, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 70, y: 450, sizeWidth: 80, sizeHeight: 150, type: "enemy", color: "red", level: 9},
   {x: 225, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
   {x: 450, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
 ]
