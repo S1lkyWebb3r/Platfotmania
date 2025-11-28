@@ -492,12 +492,13 @@ for (let platform of platforms) {
       coyoteTimer = COYOTE_FRAMES;
     }
     // Moving up: hit head
-    else if (pVelY < 0) {
+    else if (pVelY > 0) {
       pY = platform.y + platform.sizeHeight;
       pVelY = 0;
     }
   }
 }
+
 if (!landedThisFrame) {
   onPlatform = false;
 }
