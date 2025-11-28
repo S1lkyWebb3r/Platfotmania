@@ -475,29 +475,34 @@ for (let platform of platforms) {
 
 // ---- Vertical Movement ----
 pY += pVelY * delta;
-// Apply gravity
-pVelY += gravity * delta;
+pY += gravity * delta; // apply gravity
 
 let landedThisFrame = false;
 
 for (let platform of platforms) {
-  if (aabb(pX, pY, pSize, pSize, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) {
+  if (!aabb(pX, pY, pSize, pSize, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) 
+    continue;
 
-    // Moving down: landed on platform
-    if (pVelY > 0) {
-      pY = platform.y - pSize;
-      pVelY = 0;
-      onPlatform = true;
-      landedThisFrame = true;
-      coyoteTimer = COYOTE_FRAMES;
-    }
-    // Moving up: hit head
-    else if (pVelY > 0) {
-      pY = platform.y + platform.sizeHeight;
-      pVelY = 0;
-    }
+  // --- LANDING (top collision) ---
+  if (pVelY > 0 && pY + pSize > platform.y && (pY + pSize - pVelY * delta) <= platform.y) {
+    pY = platform.y - pSize;
+    pVelY = 0;
+    landedThisFrame = true;
+    onPlatform = true;
+    coyoteTimer = COYOTE_FRAMES;
+    continue;
+  }
+
+  // --- HEAD HIT (bottom collision) ---
+  if (pVelY < 0 && pY < platform.y + platform.sizeHeight && (pY - pVelY * delta) >= platform.y + platform.sizeHeight) {
+    // Hit the ceiling
+    pY = platform.y + platform.sizeHeight;
+    pVelY = 0;
+    isJumping = false;   // stops jump-hold
+    continue;
   }
 }
+
 
 if (!landedThisFrame) {
   onPlatform = false;
