@@ -188,7 +188,10 @@ const level8Platforms = [
   { x: 340, y: 100, sizeWidth: 30, sizeHeight: 10, name: "p3" },
 ];
 
-const level9Platforms = [];
+const level9Platforms = [
+  { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
+];
+
 const level10Platforms = [];
 const level11Platforms = [];
 const level12Platforms = [];
@@ -243,6 +246,12 @@ let objects = [
   //Walls
   {x: 330, y: 0, sizeWidth: 10, sizeHeight: 390, type: "enemy", color: "red", level: 8},
   {x: 550, y: 0, sizeWidth: 10, sizeHeight: 250, type: "enemy", color: "red", level: 8},
+
+  //Level 9
+  {x: 0, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 70, y: 450, sizeWidth: 40, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 225, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 450, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
 ]
 
 // Keys pressed 
