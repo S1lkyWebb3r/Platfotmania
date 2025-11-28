@@ -500,7 +500,7 @@ function update(delta) {
         landingSound.play();
         landed --;
       }
-  } else if (playerPlatformCollision === "Bottom") {
+  } else if (playerPlatformCollision === "bottom") {
     // Hit bottom of platform
     pY = platform.y + platform.sizeHeight;
     pVelY = 0;
