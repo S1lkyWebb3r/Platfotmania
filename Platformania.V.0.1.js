@@ -235,13 +235,14 @@ let objects = [
   //Level 8
   //First jump
   {x: 120, y: 200, sizeWidth: 10, sizeHeight: 450, type: "enemy", color: "red", level: 8},
-  {x: 120, y: 0, sizeWidth: 10, sizeHeight: 150, type: "enemy", color: "red", level: 8},
   {x: 180, y: 290, sizeWidth: 10, sizeHeight: 350, type: "enemy", color: "red", level: 8},
-  {x: 180, y: 0, sizeWidth: 10, sizeHeight: 200, type: "enemy", color: "red", level: 8}, 
   //Second jump
   {x: 340, y: 520, sizeWidth: 10, sizeHeight: 140, type: "enemy", color: "red", level: 8},
   //Third Jump
   {x: 490, y: 470, sizeWidth: 10, sizeHeight: 190, type: "enemy", color: "red", level: 8},
+  //Walls
+  {x: 330, y: 0, sizeWidth: 10, sizeHeight: 390, type: "enemy", color: "red", level: 8},
+  {x: 550, y: 0, sizeWidth: 10, sizeHeight: 250, type: "enemy", color: "red", level: 8},
 ]
 
 // Keys pressed 
