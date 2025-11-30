@@ -264,7 +264,7 @@ let enterPressedLastFrame = false;
 let joycon = null;
 
 window.addEventListener("gamepadconnected", (e) => {
-    joycon = getGamepadByIndex(joycon.index)
+    joycon = navigator.getGamepads()[e.gamepad.index];
     console.log("Joy-Con connected:", joycon.id);
 });
 
@@ -275,7 +275,7 @@ window.addEventListener("gamepaddisconnected", () => {
 function getGamepadByIndex(index) {
     return navigator.getGamepads
         ? [...navigator.getGamepads()].filter(g => g && g.index === index)[0]
-        :   null;
+        : null;
 }
 
 
@@ -283,7 +283,7 @@ function getGamepadByIndex(index) {
 function readJoyConInput() {
     if (!joycon) return;
 
-    joycon = navigator.getGamepads()[joycon.index];
+    joycon = getGamepadByIndex(joycon.index);
     if (!joycon) return;
 
     // Left stick horizontal (Joy-Con)
