@@ -466,6 +466,8 @@ function handleObject(o) {
 
 //Updater
 function update(delta) {
+  readJoyConInput();
+  
   if (gameState === "Dead") {
     // Update particles only
     dParticles = dParticles.filter(d => d.life > 0);
