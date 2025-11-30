@@ -335,32 +335,30 @@ function isCollidingObj(x, y, size, objX, objY, height, width) {
   return x < objX + width && x + size > objX && y < objY + height && y + size > objY;
 }
 
-//Jump function
-
 function handleJump() {
   const jumpPressed = keys["Space"] || keys["ArrowUp"] || keys["KeyW"] || keys["JOY_JUMP"];
 
-  // Start jump (coyote time check optional)
-  if (jumpPressed && (onPlatform || coyoteTimer > 0) ) {
+  // Start jump
+  if (jumpPressed && (onPlatform || coyoteTimer > 0)) {
     pVelY = INITIAL_JUMP;
     isJumping = true;
     jumpHoldTime = 0;
   }
 
-  // Continue jump while holding button
+  // Continue jump (variable jump height)
   if (isJumping && jumpPressed) {
     if (jumpHoldTime < MAX_JUMP_HOLD) {
-      pVelY += HOLD_JUMP_BOOST; // add extra upward lift
-      jumpHoldTime ++;
-      landed = 1;
+      pVelY += HOLD_JUMP_BOOST;
+      jumpHoldTime++;
     }
   }
 
-  // Release = stop boosting  º
+  // Stop giving jump boost when player releases jump
   if (!jumpPressed) {
     isJumping = false;
   }
 }
+
 
 //Color picker
 function chooseColor() {
