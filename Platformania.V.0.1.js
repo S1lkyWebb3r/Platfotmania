@@ -264,13 +264,20 @@ let enterPressedLastFrame = false;
 let joycon = null;
 
 window.addEventListener("gamepadconnected", (e) => {
-    joycon = navigator.getGamepads()[e.gamepad.index];
+    joycon = getGamepadByIndex(joycon.index)
     console.log("Joy-Con connected:", joycon.id);
 });
 
 window.addEventListener("gamepaddisconnected", () => {
     joycon = null;
 });
+
+function getGamepadByIndex(index) {
+    return navigator.getGamepads
+        ? [...navigator.getGamepads()].filter(g => g && g.index === index)[0]
+        :   null;
+}
+
 
 // Read Joy-Con state each frame
 function readJoyConInput() {
@@ -467,7 +474,7 @@ function handleObject(o) {
 //Updater
 function update(delta) {
   readJoyConInput();
-  
+
   if (gameState === "Dead") {
     // Update particles only
     dParticles = dParticles.filter(d => d.life > 0);
