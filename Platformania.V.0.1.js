@@ -260,6 +260,48 @@ document.addEventListener("keydown", (e) => keys[e.code] = true);
 document.addEventListener("keyup", (e) => keys[e.code] = false);
 let enterPressedLastFrame = false;
 
+//joycon support:
+let joycon = null;
+
+window.addEventListener("gamepadconnected", (e) => {
+    joycon = navigator.getGamepads()[e.gamepad.index];
+    console.log("Joy-Con connected:", joycon.id);
+});
+
+window.addEventListener("gamepaddisconnected", () => {
+    joycon = null;
+});
+
+// Read Joy-Con state each frame
+function readJoyConInput() {
+    if (!joycon) return;
+
+    joycon = navigator.getGamepads()[joycon.index];
+    if (!joycon) return;
+
+    // Left stick horizontal (Joy-Con)
+    const stickX = joycon.axes[0];  // -1 = left, +1 = right
+
+    // A button (jump)
+    const btnA = joycon.buttons[0].pressed;
+
+    // Convert stick input into your movement variables
+    if (stickX < -0.3) {
+        keys["JOY_LEFT"] = true;
+        keys["JOY_RIGHT"] = false;
+    } else if (stickX > 0.3) {
+        keys["JOY_RIGHT"] = true;
+        keys["JOY_LEFT"] = false;
+    } else {
+        keys["JOY_LEFT"] = false;
+        keys["JOY_RIGHT"] = false;
+    }
+
+    // Jump button
+    keys["JOY_JUMP"] = btnA;
+}
+
+
 //Collision detection
 function aabb(aX, aY, aW, aH, bX, bY, bW, bH) {
   return (
@@ -296,7 +338,7 @@ function isCollidingObj(x, y, size, objX, objY, height, width) {
 //Jump function
 
 function handleJump() {
-  const jumpPressed = keys["Space"] || keys["ArrowUp"] || keys["KeyW"];
+  const jumpPressed = keys["Space"] || keys["ArrowUp"] || keys["KeyW"] || keys["JOY_JUMP"];
 
   // Start jump (coyote time check optional)
   if (jumpPressed && (onPlatform || coyoteTimer > 0) ) {
@@ -314,7 +356,7 @@ function handleJump() {
     }
   }
 
-  // Release = stop boosting  
+  // Release = stop boosting  º
   if (!jumpPressed) {
     isJumping = false;
   }
@@ -454,8 +496,8 @@ function update(delta) {
   pParticles = pParticles.filter(p => p.life > 0);
 
   // Horizontal movement
-  if (keys["ArrowLeft"] || keys["KeyA"]) pVelX = -moveSpeed;
-  else if (keys["ArrowRight"] || keys["KeyD"]) pVelX = moveSpeed;
+  if (keys["ArrowLeft"] || keys["KeyA"] || keys["JOY_LEFT"]) pVelX = -moveSpeed;
+  else if (keys["ArrowRight"] || keys["KeyD"] || keys["JOY_RIGHT"]) pVelX = moveSpeed;
   else pVelX = 0;
 
   // Jump
