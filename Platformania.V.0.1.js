@@ -350,6 +350,7 @@ function handleJump() {
     pVelY = INITIAL_JUMP;
     isJumping = true;
     jumpHoldTime = 0;
+    landed = 1;
   }
 
   // Continue jump (variable jump height)
@@ -551,9 +552,12 @@ for (let platform of platforms) {
   // --- LANDING (top collision) ---
   if (pVelY > 0 && pY + pSize > platform.y && (pY + pSize - pVelY * delta) <= platform.y) {
     pY = platform.y - pSize;
-    spawnLandingParticles(pX, pY, +Math.round(pVelY *2))
+    if (landed === 1) {
+      spawnLandingParticles(pX, pY, +Math.round(pVelY *2))
+    }
     pVelY = 0;
     landedThisFrame = true;
+    landed --;
     onPlatform = true;
     coyoteTimer = COYOTE_FRAMES;
     continue;
