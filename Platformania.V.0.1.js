@@ -551,6 +551,7 @@ for (let platform of platforms) {
   // --- LANDING (top collision) ---
   if (pVelY > 0 && pY + pSize > platform.y && (pY + pSize - pVelY * delta) <= platform.y) {
     pY = platform.y - pSize;
+    spawnLandingParticles(pX, pY, +Math.round(pVelY *2))
     pVelY = 0;
     landedThisFrame = true;
     onPlatform = true;
