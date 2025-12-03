@@ -248,10 +248,18 @@ let objects = [
   {x: 550, y: 0, sizeWidth: 10, sizeHeight: 250, type: "enemy", color: "red", level: 8},
 
   //Level 9
-  {x: 24, y: 450, sizeWidth: 15, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 25, y: 450, sizeWidth: 15, sizeHeight: 150, type: "enemy", color: "red", level: 9},
   {x: 70, y: 450, sizeWidth: 105, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 25, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 25, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+
   {x: 225, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 225, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 225, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+
   {x: 425, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 425, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 425, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
 ]
 
 // Keys pressed 
