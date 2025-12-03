@@ -192,8 +192,8 @@ const level9Platforms = [
   { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
   { x: 130, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p1"},
   { x: 200, y: 550, sizeWidth: 30, sizeHeight: 10, name: "p2"},
-  { x: 250, y: 550, sizeWidth: 30, sizeHeight: 10, name: "p3"},
-  { x: 450, y: 550, sizeWidth: 30, sizeHeight: 10, name: "p5"},
+  { x: 250, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p3"},
+  { x: 450, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p5"},
   { x: 360, y: 365, sizeWidth: 30, sizeHeight: 10, name: "p5"},
 ];
 
@@ -655,12 +655,6 @@ function draw() {
     }
     ctx.globalAlpha = 1;
   }
-  //Platforms
-  ctx.fillStyle = "black";
-  const platforms = getCurrentPlatforms();  
-  for (let platform of platforms) {
-    ctx.fillRect(platform.x, platform.y, platform.sizeWidth, platform.sizeHeight);
-  }
 
   //objects
   const currentObjects = getCurrentObjects();
@@ -669,6 +663,12 @@ function draw() {
     ctx.fillRect(o.x, o.y, o.sizeWidth, o.sizeHeight);
   }
 
+  //Platforms
+  ctx.fillStyle = "black";
+  const platforms = getCurrentPlatforms();  
+  for (let platform of platforms) {
+    ctx.fillRect(platform.x, platform.y, platform.sizeWidth, platform.sizeHeight);
+  }
 
   //Debug 
   if (pColor === "indigo") {
@@ -689,12 +689,12 @@ function draw() {
 
   // Death counter
   ctx.textAlign = "left";
-  ctx.fillStyle = "red";
+  ctx.fillStyle = "white";
   ctx.font = "20px Arial";
   ctx.fillText("Deaths: " + deathCount, 10, 20);
 
   // Level indicator
-  ctx.fillStyle = "blue";
+  ctx.fillStyle = "white";
   ctx.fillText("Level " + currentLevel, 10, 40);
   //Easter egg text
   if (currentLevel === 6 && pX === 550 && pY === 330 && pColor === "black") {
