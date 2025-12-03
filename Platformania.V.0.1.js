@@ -453,8 +453,8 @@ function death(x, y, count) {
   gameState = "Dead"
   deathTimer = 30; //Should probably have delta here
 
-  pX = 270;
-  pY = 430;
+  pX = 50;
+  pY = 500;
   pVelY = 0;
   airBorne = true;
 }
@@ -503,8 +503,8 @@ function update(delta) {
   
     // Respawn when timer ends
     if (deathTimer <= 0) {
-      pX = 50;
-      pY = 500;
+      pX = 270;
+      pY = 430;
       pVelX = 0;
       pVelY = 0;
       gameState = "Playing";
