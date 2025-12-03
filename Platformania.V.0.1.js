@@ -453,8 +453,8 @@ function death(x, y, count) {
   gameState = "Dead"
   deathTimer = 30; //Should probably have delta here
 
-  pX = 50;
-  pY = 500;
+  pX = 270;
+  pY = 430;
   pVelY = 0;
   airBorne = true;
 }
