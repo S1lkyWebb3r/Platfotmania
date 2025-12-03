@@ -380,7 +380,7 @@ function chooseColor() {
   if (keys["Digit8"] && completedGame) pColor = "white";
   if (keys["Digit9"] && completedGame) pColor = "black";
   if (keys["Digit0"] && completedGame) pColor = "turquoise";
-  if (keys["Tab"]) pColor = "indigo";
+  if (keys["KeyP"]) pColor = "indigo";
 }
 
 //Trailing function
@@ -668,8 +668,7 @@ function draw() {
     ctx.fillText("fps: " + fps, 10, 100);
     //Delete this later
     ctx.fillText("VelY: " + pVelY, 10, 120);
-    ctx.fillText("onPlatform: " + onPlatform, 10, 140);
-    ctx.fillText("velX: " + pVelX, 10, 160);
+    ctx.fillText("Coyote timer" + coyoteTimer, 10, 140)
     ctx.textAlign = "center";
     for (let p of platforms) {
       ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight /2)
