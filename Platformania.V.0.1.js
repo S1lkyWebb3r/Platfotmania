@@ -196,6 +196,9 @@ const level9Platforms = [
   { x: 410, y: 570, sizeWidth: 30, sizeHeight: 10, name: "p4"},
   { x: 450, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p5"},
   { x: 360, y: 365, sizeWidth: 30, sizeHeight: 10, name: "p6"},
+  { x: 425, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p7"},
+  { x: 325, y: 140, sizeWidth: 50, sizeHeight: 10, name: "kaizo1"},
+  { x: 250, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p8"},
 ];
 
 const level10Platforms = [];
@@ -503,8 +506,8 @@ function update(delta) {
   
     // Respawn when timer ends
     if (deathTimer <= 0) {
-      pX = 270;
-      pY = 430;
+      pX = 375;
+      pY = 345;
       pVelX = 0;
       pVelY = 0;
       gameState = "Playing";
