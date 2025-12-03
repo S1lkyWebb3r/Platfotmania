@@ -192,7 +192,7 @@ const level9Platforms = [
   { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
   { x: 130, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p1"},
   { x: 200, y: 550, sizeWidth: 30, sizeHeight: 10, name: "p2"},
-  { x: 250, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p3"},
+  { x: 270, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p3"},
   { x: 410, y: 570, sizeWidth: 30, sizeHeight: 10, name: "p4"},
   { x: 450, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p5"},
   { x: 360, y: 365, sizeWidth: 30, sizeHeight: 10, name: "p6"},
