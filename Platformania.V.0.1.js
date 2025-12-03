@@ -541,54 +541,53 @@ for (let platform of platforms) {
 
 // ---- Vertical Movement ----
 pVelY += gravity * delta;
-pY += pVelY * delta;
 
+let nextY = pY + pVelY * delta;
 let landedThisFrame = false;
 
 for (let platform of platforms) {
-  if (!aabb(pX, pY, pSize, pSize, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) 
+
+  // Recompute AABB using nextY
+  if (!aabb(pX, nextY, pSize, pSize, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) 
     continue;
 
   // --- LANDING (top collision) ---
-  if (pVelY > 0 && pY + pSize > platform.y && (pY + pSize - pVelY * delta) <= platform.y) {
-    pY = platform.y - pSize;
+  if (pVelY > 0 && (pY + pSize) <= platform.y && (nextY + pSize) >= platform.y) {
+
+    // Correct position
+    nextY = platform.y - pSize;
+
     if (landed === 1) {
-      spawnLandingParticles(pX, pY, +Math.round(pVelY *2))
+      spawnLandingParticles(pX, nextY, Math.round(pVelY * 2));
     }
+
     pVelY = 0;
     landedThisFrame = true;
-    landed --;
+    landed--;
     onPlatform = true;
     coyoteTimer = COYOTE_FRAMES;
     continue;
   }
 
   // --- HEAD HIT (bottom collision) ---
-  if (pVelY < 0 && pY < platform.y + platform.sizeHeight && (pY - pVelY * delta) >= platform.y + platform.sizeHeight) {
-    // Hit the ceiling
-    pY = platform.y + platform.sizeHeight;
+  if (pVelY < 0 && pY >= platform.y + platform.sizeHeight && nextY <= platform.y + platform.sizeHeight) {
+
+    nextY = platform.y + platform.sizeHeight;
     pVelY = 0;
-    isJumping = false;   // stops jump-hold
+    isJumping = false;
     continue;
   }
 }
 
+pY = nextY;
 
-if (!landedThisFrame) {
-  onPlatform = false;
-}
+// Update platform state
+if (!landedThisFrame) onPlatform = false;
+airBorne = !onPlatform;
 
+// Coyote timer
+if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
 
-
-  // Update airborne state
-  airBorne = !onPlatform;
-
-  //Coyote timer:
-  if (!onPlatform) {
-    if (coyoteTimer > 0) {
-      coyoteTimer--; // countdown after leaving a platform
-    }
-  }
 
   //Particles
   for (let particle of pParticles) {
@@ -668,7 +667,7 @@ function draw() {
     ctx.fillText("fps: " + fps, 10, 100);
     //Delete this later
     ctx.fillText("VelY: " + pVelY, 10, 120);
-    ctx.fillText("Coyote timer" + coyoteTimer, 10, 140)
+    ctx.fillText("Coyote timer: " + coyoteTimer, 10, 140)
     ctx.textAlign = "center";
     for (let p of platforms) {
       ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight /2)
