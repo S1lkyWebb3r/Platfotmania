@@ -6,12 +6,14 @@ const ctx = canvas.getContext("2d");
 let lastTime = 0;
 
 //Music
+let audio = false
 const music = new Audio("Audio/PlatformerSong.mp3");
 music.loop = true;
 music.volume = 0.4;
 
 const landingSound = new Audio("Audio/impactWood_medium_003.ogg");
 landingSound.volume = 0.2;
+
 window.addEventListener("keydown", () => {
   landingSound.play(); 
   landingSound.pause();
@@ -225,6 +227,8 @@ let objects = [
   {x: 250, y: 550, sizeWidth: 10, sizeHeight: 10, type: "enemy", color: "red", level: 0},
   {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
   {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
+  //Level 1 test
+  {x: 270, y: 380, speedX: 0, speedY: 10, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 1},
 
   //Level 5
   //first staircase
@@ -349,7 +353,7 @@ function handlePause() {
     if (gameState === "Playing") gameState = "Paused";
     else if (gameState === "Paused") gameState = "Playing";
     else if (gameState === "Starting"){
-      music.play();
+      if (audio)music.play();
       gameState = "Playing";
     }
   }
@@ -471,6 +475,10 @@ function handleObject(o) {
     death(pX, pY, 60);
     return;
   }
+  if (o.type === "mEnemy") {
+    death(pX, pY, 60);
+    return;
+  }
 
   // Switch
   if (o.type === "switch") {
@@ -546,6 +554,17 @@ function update(delta) {
 
   onPlatform = false; // reset every frame before checking platforms
 
+  //Enemy movement
+  for (let o of objects){
+    if (o.type === "mEnemy"){
+      for (let i = 0; i < o.interval; i++){
+        o.x += speedX * direction;
+        o.y += speedY * direction;
+      }
+    }
+    direction = -direction
+  }
+
   // ---- Horizontal Movement ----
 pX += pVelX * delta;
 
@@ -585,6 +604,11 @@ for (let platform of platforms) {
 
     if (landed === 1) {
       spawnLandingParticles(pX, nextY, Math.round(pVelY * 2));
+    }
+
+    if (audio) {
+      landingSound.currentTime = 0;
+      landingSound.play();
     }
 
     pVelY = 0;
@@ -653,6 +677,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
     chooseColor()
   } else localStorage.setItem("color", pColor);
 }
+
 
 //Draw
 function draw() {
