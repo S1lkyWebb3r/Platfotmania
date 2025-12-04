@@ -282,6 +282,8 @@ let objects = [
   {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 375, spawnY: 345},
 ]
 
+let direction = 1;
+
 // Keys pressed 
 const keys = {};
 document.addEventListener("keydown", (e) => keys[e.code] = true);
