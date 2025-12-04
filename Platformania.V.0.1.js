@@ -556,7 +556,7 @@ function update(delta) {
 
   //Enemy movement
   for (let o of objects){
-    let direction = 1;
+    let direction =1;
     if (o.type === "mEnemy"){
       for (let i = 0; i < o.interval; i++){
         o.x += speedX * direction;
