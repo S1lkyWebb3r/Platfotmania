@@ -561,8 +561,8 @@ function update(delta) {
     let direction =1;
     if (o.type === "mEnemy"){
       for (let i = 0; i < o.interval; i++){
-        o.x += speedX * direction;
-        o.y += speedY * direction;
+        o.x += o.speedX * direction;
+        o.y += o.speedY * direction;
       }
     }
     direction = -direction
