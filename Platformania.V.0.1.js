@@ -201,7 +201,8 @@ const level9Platforms = [
   { x: 425, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p7"},
   { x: 325, y: 140, sizeWidth: 50, sizeHeight: 10, name: "kaizo1"},
   { x: 250, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p8"},
-  { x: 325, y: 140, sizeWidth: 50, sizeHeight: 10, name: "kaizo2"},
+  { x: 125, y: 140, sizeWidth: 70, sizeHeight: 10, name: "kaizo2"},
+  { x: 50, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p9"},
 ];
 
 const level10Platforms = [];
