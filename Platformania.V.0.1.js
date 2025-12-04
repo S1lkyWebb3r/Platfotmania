@@ -6,11 +6,11 @@ const ctx = canvas.getContext("2d");
 let lastTime = 0;
 
 //Music
-const music = new Audio("PlatformerSong.mp3");
+const music = new Audio("Audio/PlatformerSong.mp3");
 music.loop = true;
 music.volume = 0.4;
 
-const landingSound = new Audio("impactWood_medium_003.ogg");
+const landingSound = new Audio("Audio/impactWood_medium_003.ogg");
 landingSound.volume = 0.2;
 window.addEventListener("keydown", () => {
   landingSound.play(); 
@@ -21,6 +21,8 @@ window.addEventListener("keydown", () => {
 // Player square
 let pX = 50;
 let pY = 500;
+let spawnX = 50;
+let spawnY = 500;
 const pSize = 20;
 let pVelX = 0;
 let pVelY = 0;
@@ -199,6 +201,7 @@ const level9Platforms = [
   { x: 425, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p7"},
   { x: 325, y: 140, sizeWidth: 50, sizeHeight: 10, name: "kaizo1"},
   { x: 250, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p8"},
+  { x: 325, y: 140, sizeWidth: 50, sizeHeight: 10, name: "kaizo2"},
 ];
 
 const level10Platforms = [];
@@ -269,6 +272,9 @@ let objects = [
   {x: 425, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
   {x: 425, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
   {x: 425, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  //Checkpoint
+  {x: 280, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 275, spawnY: 430},
+  {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 375, spawnY: 345},
 ]
 
 // Keys pressed 
@@ -455,11 +461,6 @@ function death(x, y, count) {
   deathCount++;
   gameState = "Dead"
   deathTimer = 30; //Should probably have delta here
-
-  pX = 50;
-  pY = 500;
-  pVelY = 0;
-  airBorne = true;
 }
 
 function handleObject(o) {
@@ -487,6 +488,12 @@ function handleObject(o) {
     }
     return;
   }
+
+  //Checkpoint
+  if (o.type === "checkpoint"){
+    spawnX = o.spawnX
+    spawnY = o.spawnY
+  }
 }
 
 //Updater
@@ -506,8 +513,8 @@ function update(delta) {
   
     // Respawn when timer ends
     if (deathTimer <= 0) {
-      pX = 375;
-      pY = 345;
+      pX = spawnX;
+      pY = spawnY;
       pVelX = 0;
       pVelY = 0;
       gameState = "Playing";
@@ -623,8 +630,10 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
   if (pY <= 0) {
     if (currentLevel < 20) {
     currentLevel++;
-    pX = 50;
-    pY = 500;
+    spawnX = 50;
+    spawnY = 500;
+    pX = spawnX;
+    pY = spawnY;
     pVelX = 0;
     pVelY = 0;
     }
