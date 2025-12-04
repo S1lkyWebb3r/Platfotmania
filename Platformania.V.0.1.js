@@ -492,8 +492,9 @@ function handleObject(o) {
 
   //Checkpoint
   if (o.type === "checkpoint"){
-    spawnX = o.spawnX
-    spawnY = o.spawnY
+    spawnX = o.spawnX;
+    spawnY = o.spawnY;
+    o.color = pColor;
   }
 }
 
