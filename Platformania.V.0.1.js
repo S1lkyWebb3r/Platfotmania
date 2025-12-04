@@ -282,6 +282,8 @@ let objects = [
   {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 375, spawnY: 345},
 ]
 
+let direction = 1;
+
 // Keys pressed 
 const keys = {};
 document.addEventListener("keydown", (e) => keys[e.code] = true);
@@ -556,6 +558,7 @@ function update(delta) {
 
   //Enemy movement
   for (let o of objects){
+    let direction =1;
     if (o.type === "mEnemy"){
       for (let i = 0; i < o.interval; i++){
         o.x += speedX * direction;
