@@ -6,12 +6,14 @@ const ctx = canvas.getContext("2d");
 let lastTime = 0;
 
 //Music
+let audio = false
 const music = new Audio("Audio/PlatformerSong.mp3");
 music.loop = true;
 music.volume = 0.4;
 
 const landingSound = new Audio("Audio/impactWood_medium_003.ogg");
 landingSound.volume = 0.2;
+
 window.addEventListener("keydown", () => {
   landingSound.play(); 
   landingSound.pause();
@@ -351,7 +353,7 @@ function handlePause() {
     if (gameState === "Playing") gameState = "Paused";
     else if (gameState === "Paused") gameState = "Playing";
     else if (gameState === "Starting"){
-      music.play();
+      if (audio)music.play();
       gameState = "Playing";
     }
   }
@@ -602,6 +604,11 @@ for (let platform of platforms) {
 
     if (landed === 1) {
       spawnLandingParticles(pX, nextY, Math.round(pVelY * 2));
+    }
+
+    if (audio) {
+      landingSound.currentTime = 0;
+      landingSound.play();
     }
 
     pVelY = 0;
