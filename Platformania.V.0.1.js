@@ -207,7 +207,10 @@ const level9Platforms = [
   { x: 50, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p9"},
 ];
 
-const level10Platforms = [];
+const level10Platforms = [
+
+];
+
 const level11Platforms = [];
 const level12Platforms = [];
 const level13Platforms = [];
@@ -228,7 +231,8 @@ let objects = [
   {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
   {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
   //Level 1 test
-  {x: 270, y: 380, speedX: 0, speedY: 10, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 1},
+  {x: 270, y: 380, speedX: 0, speedY: 2, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 1, dir: 1, tick: 0},
+
 
   //Level 5
   //first staircase
@@ -557,16 +561,24 @@ function update(delta) {
   onPlatform = false; // reset every frame before checking platforms
 
   //Enemy movement
-  for (let o of objects){
-    let direction =1;
-    if (o.type === "mEnemy"){
-      for (let i = 0; i < o.interval; i++){
-        o.x += o.speedX * direction;
-        o.y += o.speedY * direction;
-      }
+  for (let o of objects) {
+  if (o.type === "mEnemy") {
+
+    // Move enemy
+    o.x += o.speedX * o.dir;
+    o.y += o.speedY * o.dir;
+
+    // Count steps
+    o.tick++;
+
+    // Flip after interval steps
+    if (o.tick >= o.interval) {
+      o.dir *= -1;     // reverse direction
+      o.tick = 0;      // reset counter
     }
-    direction = -direction
   }
+}
+
 
   // ---- Horizontal Movement ----
 pX += pVelX * delta;
