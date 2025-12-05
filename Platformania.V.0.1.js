@@ -208,6 +208,7 @@ const level9Platforms = [
 ];
 
 const level10Platforms = [
+  { x: 0, y: 550, sizeWidth: 600, sizeHeight: 50, name: "p1" },
 
 ];
 
@@ -230,8 +231,7 @@ let objects = [
   {x: 250, y: 550, sizeWidth: 10, sizeHeight: 10, type: "enemy", color: "red", level: 0},
   {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
   {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
-  //Level 1 test
-  {x: 270, y: 380, speedX: 0, speedY: 2, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 1, dir: 1, tick: 0},
+  {x: 270, y: 380, speedX: 0, speedY: 2, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 0, dir: 1, tick: 0},
 
 
   //Level 5
@@ -284,6 +284,10 @@ let objects = [
   //Checkpoint
   {x: 280, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 275, spawnY: 430},
   {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 375, spawnY: 345},
+
+  //Level 10
+  {x: 0, y: 450, speedX: 5, speedY: 0, interval: 132, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, tick: 0},
+
 ]
 
 let direction = 1;
