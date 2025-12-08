@@ -540,7 +540,7 @@ function update(delta) {
       pVelX = 0;
       pVelY = 0;
       for(let o of objects){
-        if (o.type === "mEnemy" && o.spawnX && o.spawnY){
+        if (o.type === "mEnemy"){
           o.x = o.spawnX;
           o.y = o.spawnY;
           o.interval = o.inInterval;
