@@ -290,11 +290,9 @@ let objects = [
   {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 375, spawnY: 345},
 
   //Level 10
-  {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, tick: 0},
-  {spawnX: 580, spawnY: 530, x: 580, y: 530, speedX: 5, speedY: 0, interval: 116, inInterval: 116, sizeWidth: 20, sizeHeight: 20, type: "mEnemy", color: "red", level: 10, dir: -1, tick: 0},
+  {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 580, spawnY: 530, x: 580, y: 530, speedX: 5, speedY: 0, interval: 116, inInterval: 116, sizeWidth: 20, sizeHeight: 20, type: "mEnemy", color: "red", level: 10, dir: -1, inDir: -1, tick: 0},
 ]
-
-let direction = 1;
 
 // Keys pressed 
 const keys = {};
@@ -547,9 +545,9 @@ function update(delta) {
           o.y = o.spawnY;
           o.interval = o.inInterval;
           o.tick = 0;
+          o.dir = o.inDir;
         }
       }
-      direction = 1;
       gameState = "Playing";
     }
   }
@@ -693,13 +691,13 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
       pY = spawnY;
       pVelX = 0;
       pVelY = 0;
-      direction = 1;
       for(let o of objects){
         if (o.type === "mEnemy" && o.spawnX && o.spawnY){
           o.x = o.spawnX;
           o.y = o.spawnY;
           o.interval = o.inInterval;
           o.tick = 0;
+          o.dir = o.inDir;
         }
       }
     }
