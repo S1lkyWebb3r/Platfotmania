@@ -434,8 +434,8 @@ function handleTrail() {
 
     // Only update if we have enough history
     if (index >= 0 && trailPos[index]) {
-      t.x = trailPos[index].x;
-      t.y = trailPos[index].y;
+      t.x = trailPos[index].x + (pSize - t.size) / 2;
+      t.y = trailPos[index].y + (pSize - t.size) / 2;
     }
   }
 }
