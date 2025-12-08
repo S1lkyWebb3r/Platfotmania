@@ -547,6 +547,7 @@ function update(delta) {
           o.y = o.spawnY;
         }
       }
+      direction = 1;
       gameState = "Playing";
     }
   }
@@ -691,6 +692,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
       pY = spawnY;
       pVelX = 0;
       pVelY = 0;
+      direction = 1;
       for(let o of objects){
         if (o.type === "mEnemy" && o.spawnX && o.spawnY){
           o.x = o.spawnX;
