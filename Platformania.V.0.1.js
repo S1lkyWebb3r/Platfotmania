@@ -290,8 +290,8 @@ let objects = [
   {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 375, spawnY: 345},
 
   //Level 10
-  {x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, tick: 0},
-  {x: 580, y: 530, speedX: 5, speedY: 0, interval: 116, sizeWidth: 20, sizeHeight: 20, type: "mEnemy", color: "red", level: 10, dir: -1, tick: 0},
+  {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, tick: 0},
+  {spawnX: 580, spawnY: 530, x: 580, y: 530, speedX: 5, speedY: 0, interval: 116, sizeWidth: 20, sizeHeight: 20, type: "mEnemy", color: "red", level: 10, dir: -1, tick: 0},
 ]
 
 let direction = 1;
@@ -541,6 +541,12 @@ function update(delta) {
       pY = spawnY;
       pVelX = 0;
       pVelY = 0;
+      for(let o of objects){
+        if (o.type === "mEnemy" && o.spawnX && o.spawnY){
+          o.x = o.spawnX;
+          o.y = o.spawnY;
+        }
+      }
       gameState = "Playing";
     }
   }
@@ -570,7 +576,7 @@ function update(delta) {
 
   //Enemy movement
   for (let o of objects) {
-  if (o.type === "mEnemy") {
+  if (o.type === "mEnemy" && o.level === currentLevel) {
 
     // Move enemy
     o.x += o.speedX * o.dir;
@@ -678,13 +684,19 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
   // Switch levels (example: reach top of screen)
   if (pY <= 0) {
     if (currentLevel < 20) {
-    currentLevel++;
-    spawnX = 50;
-    spawnY = 500;
-    pX = spawnX;
-    pY = spawnY;
-    pVelX = 0;
-    pVelY = 0;
+      currentLevel++;
+      spawnX = 50;
+      spawnY = 500;
+      pX = spawnX;
+      pY = spawnY;
+      pVelX = 0;
+      pVelY = 0;
+      for(let o of objects){
+        if (o.type === "mEnemy" && o.spawnX && o.spawnY){
+          o.x = o.spawnX;
+          o.y = o.spawnY;
+        }
+      }
     }
   }
 
