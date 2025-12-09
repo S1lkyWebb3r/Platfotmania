@@ -217,7 +217,15 @@ const level10Platforms = [
   { x: 50, y: 0, sizeWidth: 550, sizeHeight: 10, name: "r1" },
 ];
 
-const level11Platforms = [];
+const level11Platforms = [
+  { x: 50, y: 550, sizeWidth: 50, sizeHeight: 10, name: "p1"},
+  { x: 200, y: 500, sizeWidth: 50, sizeHeight: 10, name: "p2" },
+  { x: 250, y: 400, sizeWidth: 50, sizeHeight: 10, name: "p3" },
+  { x: 150, y: 300, sizeWidth: 50, sizeHeight: 10, name: "p4" },
+  { x: 300, y: 200, sizeWidth: 50, sizeHeight: 10, name: "p5" },
+  { x: 350, y: 100, sizeWidth: 50, sizeHeight: 10, name: "p6" },
+];
+
 const level12Platforms = [];
 const level13Platforms = [];
 const level14Platforms = [];
@@ -293,6 +301,12 @@ let objects = [
   //Level 10
   {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
   {spawnX: 550, spawnY: 500, x: 550, y: 500, speedX: 5, speedY: 0, interval: 116, inInterval: 116, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: -1, inDir: -1, tick: 0},
+  {spawnX: 0, spawnY: 10, x: 0, y: 10, speedX: 5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 0, spawnY: 300, x: 0, y: 300, speedX: 5, speedY: -5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 450, spawnY: 10, x: 450, y: 10, speedX: -5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 450, spawnY: 300, x: 450, y: 300, speedX: -5, speedY: -5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+
+  //Level 11 
   {spawnX: 0, spawnY: 10, x: 0, y: 10, speedX: 5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
   {spawnX: 0, spawnY: 300, x: 0, y: 300, speedX: 5, speedY: -5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
   {spawnX: 450, spawnY: 10, x: 450, y: 10, speedX: -5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
