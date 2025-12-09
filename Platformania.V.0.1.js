@@ -293,6 +293,7 @@ let objects = [
   //Level 10
   {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
   {spawnX: 580, spawnY: 530, x: 580, y: 530, speedX: 5, speedY: 0, interval: 116, inInterval: 116, sizeWidth: 20, sizeHeight: 20, type: "mEnemy", color: "red", level: 10, dir: -1, inDir: -1, tick: 0},
+  {spawnX: 0, spawnY: 300, x: 0, y: 300, speedX: 5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
 ]
 
 // Keys pressed 
@@ -302,7 +303,7 @@ document.addEventListener("keyup", (e) => keys[e.code] = false);
 let enterPressedLastFrame = false;
 
 //joycon support:
-let joycon = null;
+let joycon = null;  
 
 window.addEventListener("gamepadconnected", (e) => {
     joycon = navigator.getGamepads()[e.gamepad.index];
