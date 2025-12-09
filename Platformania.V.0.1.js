@@ -212,7 +212,8 @@ const level10Platforms = [
   { x: 550, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p2"},
   { x: 0, y: 350, sizeWidth: 550, sizeHeight: 10, name: "p3"},
   { x: 580, y: 350, sizeWidth: 20, sizeHeight: 10, name: "p4"},
-  { x: 0, y: 200, sizeWidth: 20, sizeHeight: 10, name: "p5"},
+  { x: 0, y: 225, sizeWidth: 20, sizeHeight: 10, name: "p5"},
+  { x: 30, y: 150, sizeWidth: 20, sizeHeight: 10, name: "p6"},
   { x: 50, y: 0, sizeWidth: 550, sizeHeight: 10, name: "r1" },
 ];
 
