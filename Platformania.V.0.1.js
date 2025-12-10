@@ -307,8 +307,8 @@ let objects = [
   {spawnX: 450, spawnY: 300, x: 450, y: 300, speedX: -5, speedY: -5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
 
   //Level 11 
-  {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 5, speedY: 0, interval: 60, inInterval: 60, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 300, spawnY: 0, x: 300, y: 0, speedX: 5, speedY: 0, interval: 60, inInterval: 60, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: 1, inDir: 1, tick: 0},
+  {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 60, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 300, spawnY: 0, x: 300, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 60, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: 1, inDir: 1, tick: 0},
 ];
 
 // Keys pressed 
