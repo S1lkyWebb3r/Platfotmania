@@ -228,7 +228,7 @@ const level11Platforms = [
 
 const level12Platforms = [
   { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
-  { x: 255, y: 600, sizeWidth: 10, sizeHeight: 600, name: "w1" },
+  { x: 255, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
   { x: 0, y: 0, sizeWidth: 575, sizeHeight: 10, name: "r2" },
   { x: 340, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c2" },
   
@@ -546,7 +546,7 @@ function handleObject(o) {
 
   //Teleportal
   if (o.type === "teleporter"){
-    if (pX === o.x && pY === o.y){
+    if (pSize < o.x - pX && pSize < o.y - pY){
       pX = o.landX; 
       pY = o.landY;
     }
