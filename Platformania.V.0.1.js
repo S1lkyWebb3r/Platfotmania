@@ -598,6 +598,7 @@ function update(delta) {
   }
 
   handlePause();
+
   if (gameState !== "Playing") return;
 
   // remove dead particles
@@ -936,4 +937,6 @@ function gameLoop(timestamp) {
 
     requestAnimationFrame(gameLoop);
 }
+
+requestAnimationFrame(gameLoop);
 
