@@ -896,7 +896,14 @@ function getCurrentObjects() {
 }
 
 function gameLoop(timestamp) {
-  const frameTime = timestamp - lastTime;   // real ms between frames
+  const frameTime = timestamp - lastTime; // real ms between frames
+
+  // --- 60 FPS CAP ---
+  const minFrame = 1000 / 60; // 16.67ms
+  if (frameTime < minFrame) {
+    requestAnimationFrame(gameLoop);
+    return; // skip this frame to throttle fps
+  }
 
   // FPS calc
   framesThisSecond++;
@@ -908,7 +915,7 @@ function gameLoop(timestamp) {
     fpsTimer = 0;
   }
 
-  // Now calculate your normalized delta
+  // Normalized delta (1 = perfect 60 fps)
   let delta = frameTime / 16.67;
   lastTime = timestamp;
 
@@ -917,6 +924,5 @@ function gameLoop(timestamp) {
 
   requestAnimationFrame(gameLoop);
 }
-
 
 requestAnimationFrame(gameLoop);
