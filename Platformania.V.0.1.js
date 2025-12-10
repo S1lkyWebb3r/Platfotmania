@@ -252,8 +252,8 @@ let objects = [
   {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
   {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
   {x: 270, y: 380, speedX: 0, speedY: 2, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 0, dir: 1, tick: 0},
-  {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "magenta", level: 1, landX: 275, landY: 430},
-  {x: 275, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "magenta", level: 1},
+  {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "magenta", level: 1, landX: 300, landY: 200},
+  {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "magenta", level: 1},
 
 
   //Level 5
