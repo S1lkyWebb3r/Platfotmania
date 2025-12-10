@@ -546,10 +546,8 @@ function handleObject(o) {
 
   //Teleportal
   if (o.type === "teleporter"){
-    if (pX + pSize > o.x && pY + pSize > o.y){
-      pX = o.landX; 
-      pY = o.landY;
-    }
+    pX = o.landX; 
+    pY = o.landY;
     return;
   };
 
