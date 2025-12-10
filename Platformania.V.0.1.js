@@ -678,7 +678,7 @@ for (let platform of platforms) {
     nextY = platform.y - pSize;
 
     if (landed === 1) {
-      spawnLandingParticles(pX, nextY, Math.round(pVelY * 2));
+      spawnLandingParticles(pX, nextY, Math.round(pVelY * 1.5));
       if (audio) {
       landingSound.currentTime = 0;
       landingSound.play();
@@ -901,34 +901,39 @@ function getCurrentObjects() {
   return objects.filter(o => o.level === currentLevel);
 }
 
+let accumulator = 0;
+const step = 1000 / 60; // fixed 60 FPS update
+
 function gameLoop(timestamp) {
-  const frameTime = timestamp - lastTime; // real ms between frames
+    if (!lastTime) lastTime = timestamp;
 
-  // --- 60 FPS CAP ---
-  const minFrame = 1000 / 60; // 16.67ms
-  if (frameTime < minFrame) {
+    let delta = timestamp - lastTime;
+    lastTime = timestamp;
+
+    // FPS counter (optional)
+    framesThisSecond++;
+    fpsTimer += delta;
+    if (fpsTimer >= 1000) {
+        fps = framesThisSecond;
+        framesThisSecond = 0;
+        fpsTimer = 0;
+    }
+
+    // -------- FIXED UPDATE LOOP (always 60 fps physics) --------
+    // prevent huge delta causing spiral of death
+    if (delta > 100) delta = 100;
+
+    accumulator += delta;
+
+    // each step = 1/60s
+    while (accumulator >= step) {
+        update(1);    // use delta = 1 (your physics already expect this)
+        accumulator -= step;
+    }
+
+    // -------- DRAW (may run at 40 fps, 30 fps, whatever) --------
+    draw();
+
     requestAnimationFrame(gameLoop);
-    return; // skip this frame to throttle fps
-  }
-
-  // FPS calc
-  framesThisSecond++;
-  fpsTimer += frameTime;
-
-  if (fpsTimer >= 1000) {
-    fps = framesThisSecond;
-    framesThisSecond = 0;
-    fpsTimer = 0;
-  }
-
-  // Normalized delta (1 = perfect 60 fps)
-  let delta = frameTime / 16.67;
-  lastTime = timestamp;
-
-  update(delta);
-  draw();
-
-  requestAnimationFrame(gameLoop);
 }
 
-requestAnimationFrame(gameLoop);
