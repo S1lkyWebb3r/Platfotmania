@@ -226,7 +226,14 @@ const level11Platforms = [
   { x: 350, y: 100, sizeWidth: 50, sizeHeight: 10, name: "p6" },
 ];
 
-const level12Platforms = [];
+const level12Platforms = [
+  { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
+  { x: 255, y: 600, sizeWidth: 10, sizeHeight: 600, name: "w1" },
+  { x: 0, y: 0, sizeWidth: 575, sizeHeight: 10, name: "r2" },
+  { x: 340, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c2" },
+  
+];
+
 const level13Platforms = [];
 const level14Platforms = [];
 const level15Platforms = [];
@@ -245,6 +252,8 @@ let objects = [
   {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
   {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
   {x: 270, y: 380, speedX: 0, speedY: 2, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 0, dir: 1, tick: 0},
+  {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "magenta", level: 1, landX: 275, landY: 430},
+  {x: 275, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "magenta", level: 1},
 
 
   //Level 5
@@ -503,17 +512,17 @@ function handleObject(o) {
   if (o.type === "enemy") {
     death(pX, pY, 60);
     return;
-  }
+  };
   if (o.type === "mEnemy") {
     death(pX, pY, 60);
     return;
-  }
+  };
 
   // Switch
   if (o.type === "switch") {
     o.open = true;
     return;
-  }
+  };
 
   // Door
   if (o.type === "door") {
@@ -525,14 +534,29 @@ function handleObject(o) {
       if (pY < o.y + o.sizeHeight && pY > o.y) pY = o.y + o.sizeHeight;
     }
     return;
-  }
+  };
 
   //Checkpoint
   if (o.type === "checkpoint"){
     spawnX = o.spawnX;
     spawnY = o.spawnY;
     o.color = pColor;
-  }
+    return;
+  };
+
+  //Teleportal
+  if (o.type === "teleporter"){
+    if (pX === o.x && pY === o.y){
+      pX = o.landX; 
+      pY = o.landY;
+    }
+    return;
+  };
+
+  //Exit
+  if (o.type === "exit"){
+    return;
+  };
 }
 
 //Updater
