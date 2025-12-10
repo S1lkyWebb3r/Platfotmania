@@ -252,8 +252,8 @@ let objects = [
   {x: 100, y: 100, sizeWidth: 10, sizeHeight: 10, type: "switch", color: "blue", level: 0},
   {x: 200, y: 200, sizeWidth: 10, sizeHeight: 10, type: "door", color: "green", level: 0, open: false},
   {x: 270, y: 380, speedX: 0, speedY: 2, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 0, dir: 1, tick: 0},
-  {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "magenta", level: 1, landX: 300, landY: 200},
-  {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "magenta", level: 1},
+  {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 0, landX: 300, landY: 200},
+  {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 0},
 
 
   //Level 5
@@ -318,6 +318,12 @@ let objects = [
   //Level 11 
   {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: 1, inDir: 1, tick: 0},
   {spawnX: 300, spawnY: 0, x: 300, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: 1, inDir: 1, tick: 0},
+
+  //Level 12
+  {x: 145, y: 50, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 12, landX: 345, landY: 500},
+  {x: 345, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 12},
+  {spawnX: 0, spawnY: 0, x: 0, y: 0, speedX: 0, speedY: 0.5, interval: 1200, inInterval: 1200, sizeWidth: 600, sizeHeight: 10, type: "mEnemy", color: "red", level: 12, dir: 1, inDir: 1, tick: 0},
+
 ];
 
 // Keys pressed 
