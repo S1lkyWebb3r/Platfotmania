@@ -235,7 +235,7 @@ const level12Platforms = [
   { x: 225, y: 325, sizeWidth: 70, sizeHeight: 10, name: "p2" },
   { x: 150, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p3" },
   { x: 75, y: 125, sizeWidth: 30, sizeHeight: 10, name: "p4" },
-  { x: 265, y: 470, sizeWidth: 10, sizeHeight: 10, name: "p5" },
+  { x: 265, y: 450, sizeWidth: 10, sizeHeight: 10, name: "p5" },
   { x: 375, y: 325, sizeWidth: 30, sizeHeight: 10, name: "p6" },
   { x: 570, y: 325, sizeWidth: 30, sizeHeight: 10, name: "p7" },
   { x: 265, y: 100, sizeWidth: 30, sizeHeight: 10, name: "p8" },
