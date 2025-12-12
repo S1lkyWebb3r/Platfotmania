@@ -235,6 +235,10 @@ const level12Platforms = [
   { x: 225, y: 325, sizeWidth: 70, sizeHeight: 10, name: "p2" },
   { x: 150, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p3" },
   { x: 75, y: 125, sizeWidth: 30, sizeHeight: 10, name: "p4" },
+  { x: 265, y: 400, sizeWidth: 10, sizeHeight: 10, name: "p5" },
+  { x: 375, y: 325, sizeWidth: 30, sizeHeight: 10, name: "p6" },
+  { x: 570, y: 325, sizeWidth: 30, sizeHeight: 10, name: "p7" },
+  { x: 265, y: 100, sizeWidth: 30, sizeHeight: 10, name: "p8" },
   
 ];
 
@@ -326,7 +330,9 @@ let objects = [
   //Level 12
   {x: 40, y: 50, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 12, landX: 345, landY: 500},
   {x: 345, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 12},
-  {spawnX: 0, spawnY: 600, x: 0, y: 600, speedX: 0, speedY: 0.5, interval: 1200, inInterval: 1200, sizeWidth: 600, sizeHeight: 10, type: "mEnemy", color: "red", level: 12, dir: -1, inDir: -1, tick: 0},
+  {spawnX: 0, spawnY: 600, x: 0, y: 600, speedX: 0, speedY: 1, interval: 1200, inInterval: 1200, sizeWidth: 600, sizeHeight: 10, type: "mEnemy", color: "red", level: 12, dir: -1, inDir: -1, tick: 0},
+  {x: 570, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 12, landX: 265, landY: 10},
+  {x: 265, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 12},
 
 ];
 
