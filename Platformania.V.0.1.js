@@ -244,7 +244,15 @@ const level12Platforms = [
   { x: 570, y: 100, sizeWidth: 30, sizeHeight: 10, name: "p11" },
 ];
 
-const level13Platforms = [];
+const level13Platforms = [
+  { x: 275, y: 550, sizeWidth: 50, sizeHeight: 10, name: "p1"},
+  { x: 275, y: 450, sizeWidth: 50, sizeHeight: 10, name: "p2"},
+  { x: 275, y: 350, sizeWidth: 50, sizeHeight: 10, name: "p3"},
+  { x: 275, y: 250, sizeWidth: 50, sizeHeight: 10, name: "p4"},
+  { x: 275, y: 150, sizeWidth: 50, sizeHeight: 10, name: "p5"},
+  { x: 275, y: 150, sizeWidth: 50, sizeHeight: 10, name: "p6"},
+];
+
 const level14Platforms = [];
 const level15Platforms = [];
 const level16Platforms = [];
@@ -335,6 +343,10 @@ let objects = [
   {spawnX: 0, spawnY: 600, x: 0, y: 600, speedX: 0, speedY: 0.5, interval: 1200, inInterval: 1200, sizeWidth: 600, sizeHeight: 10, type: "mEnemy", color: "red", level: 12, dir: -1, inDir: -1, tick: 0},
   {x: 570, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 12, landX: 265, landY: 10},
   {x: 265, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 12},
+
+  //Level 13
+  {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 300, spawnY: 0, x: 300, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: -1, inDir: -1, tick: 0},
 
 ];
 
