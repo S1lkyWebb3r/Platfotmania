@@ -346,8 +346,8 @@ let objects = [
 
   //Level 13
   {x: 60, y: 550, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 13, spawnX: 285, spawnY: 530},
-  {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 600, spawnY: 0, x: 600, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: -1, inDir: -1, tick: 0},
+  {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 1.5, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 600, spawnY: 0, x: 600, y: 0, speedX: 1.5, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: -1, inDir: -1, tick: 0},
 
 ];
 
