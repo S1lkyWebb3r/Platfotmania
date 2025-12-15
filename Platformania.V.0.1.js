@@ -828,9 +828,9 @@ function draw() {
     ctx.fillText("x: " + pX, 10, 60);
     ctx.fillText("y: " + pY, 10, 80);
     ctx.fillText("fps: " + fps, 10, 100);
-    //Delete this later
-    ctx.fillText("VelY: " + pVelY, 10, 120);
-    ctx.fillText("Coyote timer: " + coyoteTimer, 10, 140)
+    ctx.fillText("Coyote timer: " + coyoteTimer, 10, 120);
+  
+
     ctx.textAlign = "center";
     for (let p of platforms) {
       ctx.fillText(p.name, p.x + p.sizeWidth /2, p.y + p.sizeHeight /2)
