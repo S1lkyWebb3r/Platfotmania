@@ -42,6 +42,7 @@ const MAX_JUMP_HOLD = 10; // frames of extra lift
 const INITIAL_JUMP = -7;
 const HOLD_JUMP_BOOST = -0.7;
 let landed = 1;
+let acceleratedThisFrame = false;
 //Change to local storage later
 let completedGame = true;
 
