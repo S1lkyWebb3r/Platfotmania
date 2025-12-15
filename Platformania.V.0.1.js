@@ -370,10 +370,10 @@ let objects = [
   {spawnX: 600, spawnY: 0, x: 600, y: 0, speedX: 1.5, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: -1, inDir: -1, tick: 0},
 
   //Level 14
-  {x: 50, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 14, landX: 165, landY: 500},
-  {x: 165, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 14},
+  {x: 50, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 14, landX: 165, landY: 525},
+  {x: 165, y: 525, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 14},
   {x: 165, y: 425, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 14, landX: 315, landY: 425},
-  {x: 315, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 14},
+  {x: 315, y: 425, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 14},
 
 ];
 
