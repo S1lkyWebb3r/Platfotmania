@@ -374,6 +374,10 @@ let objects = [
   {x: 165, y: 525, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 14},
   {x: 165, y: 425, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 14, landX: 315, landY: 425},
   {x: 315, y: 425, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 14},
+  {x: 315, y: 325, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 14, landX: 165, landY: 325},
+  {x: 165, y: 325, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 14},
+  {x: 165, y: 225, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 14, landX: 315, landY: 225},
+  {x: 315, y: 225, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 14},
 
 ];
 
