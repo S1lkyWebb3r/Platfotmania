@@ -914,6 +914,8 @@ function draw() {
     ctx.fillText("y: " + pY, 10, 80);
     ctx.fillText("fps: " + fps, 10, 100);
     ctx.fillText("Coyote timer: " + coyoteTimer, 10, 120);
+    ctx.fillText("velY: " + pVelY.toFixed(2), 10, 140);
+    ctx.fillText("velX: " + pVelX.toFixed(2), 10, 160);
   
 
     ctx.textAlign = "center";
