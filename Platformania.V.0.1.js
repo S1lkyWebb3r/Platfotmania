@@ -253,7 +253,15 @@ const level13Platforms = [
   { x: 275, y: 150, sizeWidth: 50, sizeHeight: 10, name: "p6"},
 ];
 
-const level14Platforms = [];
+const level14Platforms = [
+  { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
+  { x: 0, y: 0, sizeWidth: 50, sizeHeight: 600, name: "w1" },
+  { x: 0, y: 0, sizeWidth: 600, sizeHeight: 10, name: "w1" },
+  { x: 50, y: 425, sizeWidth: 20, sizeHeight: 10, name: "p2" },
+  { x: 50, y: 300, sizeWidth: 20, sizeHeight: 10, name: "p3" },
+  { x: 50, y: 175, sizeWidth: 20, sizeHeight: 10, name: "p4" },
+];
+
 const level15Platforms = [];
 const level16Platforms = [];
 const level17Platforms = [];
