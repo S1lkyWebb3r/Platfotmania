@@ -277,7 +277,11 @@ const level14Platforms = [
   { x: 390, y: 425, sizeWidth: 10, sizeHeight: 10, name: "p7" },
 ];
 
-const level15Platforms = [];
+const level15Platforms = [
+  { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
+  { x: 0, y: 0, sizeWidth: 570, sizeHeight: 10, name: "r1" },
+];
+
 const level16Platforms = [];
 const level17Platforms = [];
 const level18Platforms = [];
@@ -296,7 +300,7 @@ let objects = [
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 0, landX: 300, landY: 200},
   {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 0},
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 0, landX: 400, landY: 400},
-  {x: 225, y: 490, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 1, accelX: 6, },
+  {x: 225, y: 490, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 0, accelX: 6, },
 
 
   //Level 5
@@ -391,6 +395,12 @@ let objects = [
   {spawnX: 550, spawnY: 175, x: 0, y: 175, speedX: -3, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 50, sizeHeight: 10, type: "mEnemy", color: "red", level: 14, dir: 1, inDir: 1, tick: 0},
   {x: 410, y: 570, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 14, landX: 580, landY: 500},
   {x: 580, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 14},
+
+  //Level 15
+  {x: 50, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 14, landX: 50, landY: 450},
+  {x: 50, y: 350, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 14},
+  {x: 60, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 14, landX: 60, landY: 350},
+  {x: 60, y: 350, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 14},
 
 ];
 
