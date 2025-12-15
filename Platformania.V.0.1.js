@@ -292,7 +292,7 @@ let objects = [
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 0, landX: 300, landY: 200},
   {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 0},
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 0, landX: 400, landY: 400},
-  {x: 225, y: 490, sizewidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 1, accelX: 0, accelY: -10},
+  {x: 225, y: 490, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 1, accelX: 0, accelY: -10},
 
   //Level 5
   //first staircase
