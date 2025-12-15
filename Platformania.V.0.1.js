@@ -291,6 +291,7 @@ let objects = [
   {x: 270, y: 380, speedX: 0, speedY: 2, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 0, dir: 1, tick: 0},
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 0, landX: 300, landY: 200},
   {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 0},
+  {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 1, landX: 400, landY: 400},
 
 
   //Level 5
@@ -616,6 +617,14 @@ function handleObject(o) {
     pY = o.landY;
     return;
   };
+  //Inverse Teleportal
+  if (o.type === "invTeleporter"){
+    pX = o.landX; 
+    pY = o.landY;
+    pVelX *= -1;
+    pVelY *= -1;
+    return;
+  }
 
   //Exit
   if (o.type === "exit"){
