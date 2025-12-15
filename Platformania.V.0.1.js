@@ -42,7 +42,10 @@ const MAX_JUMP_HOLD = 10; // frames of extra lift
 const INITIAL_JUMP = -7;
 const HOLD_JUMP_BOOST = -0.7;
 let landed = 1;
-let acceleratedThisFrame = false;
+const JUMPER_INITIAL_Y = -14;     // stronger than normal jump
+const JUMPER_HOLD_BOOST = -1.0;   // stronger hold
+const MAX_JUMPER_HOLD = 14;       // frames
+let currentJumpType = "normal";
 //Change to local storage later
 let completedGame = true;
 
@@ -293,7 +296,8 @@ let objects = [
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 0, landX: 300, landY: 200},
   {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 0},
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 0, landX: 400, landY: 400},
-  {x: 225, y: 490, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 1, accelX: 0, accelY: -10},
+  {x: 225, y: 490, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 1, accelX: 6, },
+
 
   //Level 5
   //first staircase
@@ -487,15 +491,25 @@ function handleJump() {
     isJumping = true;
     jumpHoldTime = 0;
     landed = 1;
+    currentJumpType = "normal";
   }
 
-  // Continue jump (variable jump height)
+
   if (isJumping && jumpPressed) {
-    if (jumpHoldTime < MAX_JUMP_HOLD) {
-      pVelY += HOLD_JUMP_BOOST;
+    const maxHold = currentJumpType === "jumper"
+      ? MAX_JUMPER_HOLD
+      : MAX_JUMP_HOLD;
+
+    const holdForce = currentJumpType === "jumper"
+      ? JUMPER_HOLD_BOOST
+      : HOLD_JUMP_BOOST;
+
+    if (jumpHoldTime < maxHold) {
+      pVelY += holdForce;
       jumpHoldTime++;
     }
   }
+
 
   // Stop giving jump boost when player releases jump
   if (!jumpPressed) {
@@ -620,6 +634,7 @@ function handleObject(o) {
     pY = o.landY;
     return;
   };
+
   //Inverse Teleportal
   if (o.type === "invTeleporter"){
     pX = o.landX; 
@@ -629,15 +644,27 @@ function handleObject(o) {
     return;
   }
 
-  //Jumper
-  if (o.type === "jumper"){
-    if (acceleratedThisFrame) return; // Prevent multiple accelerations in one frame
+  if (o.type === "jumper") {
+    if (acceleratedThisFrame) return;
     acceleratedThisFrame = true;
+
+  // Reset vertical motion so the jump feels punchy
+    if (pVelY > 0) pVelY = 0;
+
+    // Apply launch
+    pVelY = JUMPER_INITIAL_Y;
+    pVelX = o.accelX; // directional push (can be 0)
+
     isJumping = true;
-    pVelX += o.accelX;
-    pVelY += o.accelY;
+    jumpHoldTime = 0;
+    currentJumpType = "jumper";
+
+    onPlatform = false;
+    coyoteTimer = 0;
+
     return;
   }
+
 
   //Exit
   if (o.type === "exit"){
@@ -702,6 +729,8 @@ function update(delta) {
   const platforms = getCurrentPlatforms();
 
   onPlatform = false; // reset every frame before checking platforms
+  acceleratedThisFrame = false;
+
 
   //Enemy movement
   for (let o of objects) {
