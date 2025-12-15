@@ -291,7 +291,7 @@ let objects = [
   {x: 270, y: 380, speedX: 0, speedY: 2, interval: 40, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 0, dir: 1, tick: 0},
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 0, landX: 300, landY: 200},
   {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 0},
-  {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 1, landX: 400, landY: 400},
+  {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 0, landX: 400, landY: 400},
 
 
   //Level 5
@@ -384,6 +384,7 @@ let objects = [
   {spawnX: 0, spawnY: 425, x: 0, y: 425, speedX: 3, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 50, sizeHeight: 10, type: "mEnemy", color: "red", level: 14, dir: 1, inDir: 1, tick: 0},
   {spawnX: 0, spawnY: 300, x: 0, y: 300, speedX: 3, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 50, sizeHeight: 10, type: "mEnemy", color: "red", level: 14, dir: 1, inDir: 1, tick: 0},
   {spawnX: 0, spawnY: 175, x: 0, y: 175, speedX: 3, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 50, sizeHeight: 10, type: "mEnemy", color: "red", level: 14, dir: 1, inDir: 1, tick: 0},
+  {x: 410, y: 570, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 14, landX: 580, landY: 300},
 
 ];
 
