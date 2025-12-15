@@ -262,10 +262,11 @@ const level14Platforms = [
   { x: 50, y: 175, sizeWidth: 10, sizeHeight: 10, name: "p4" },
   { x: 100, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w2" },
   { x: 110, y: 550, sizeWidth: 10, sizeHeight: 10, name: "p5" },
-  { x: 110, y: 175, sizeWidth: 10, sizeHeight: 10, name: "p6" },
+  { x: 110, y: 300, sizeWidth: 10, sizeHeight: 10, name: "p8" },
   { x: 250, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w3" },
   { x: 400, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w4" },
-  { x: 390, y: 300, sizeWidth: 10, sizeHeight: 10, name: "p8" },
+  { x: 390, y: 175, sizeWidth: 10, sizeHeight: 10, name: "p6" },
+  { x: 390, y: 425, sizeWidth: 10, sizeHeight: 10, name: "p7" },
 ];
 
 const level15Platforms = [];
