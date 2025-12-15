@@ -470,7 +470,7 @@ function handleJump() {
 function chooseColor() {
   if (keys["Digit1"]) pColor = "teal";
   if (keys["Digit2"]) pColor = "tomato";
-  if (keys["Digit3"]) pColor = "deepblue";
+  if (keys["Digit3"]) pColor = "darkblue";
   if (keys["Digit4"]) pColor = "seagreen";
   if (keys["Digit5"]) pColor = "yellow";
   if (keys["Digit6"] && completedGame) pColor = "purple";
