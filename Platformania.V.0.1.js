@@ -952,8 +952,9 @@ function draw() {
   //Level 15 text
   if (currentLevel === 15) {
     ctx.fillStyle = "white";
+    ctx.textAlign = "center";
     ctx.font = "60px Arial";
-    ctx.fillText("XLR8", 265, 70);
+    ctx.fillText("XLR8", 300, 70);
   }
   
   //Last level text
