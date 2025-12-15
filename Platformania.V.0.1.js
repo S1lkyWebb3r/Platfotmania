@@ -345,8 +345,8 @@ let objects = [
   {x: 265, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 12},
 
   //Level 13
-  {x: 50, y: 570, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 12, landX: 290, landY: 530},
-  {x: 290, y: 530, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 12},
+  {x: 50, y: 570, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 13, landX: 290, landY: 530},
+  {x: 290, y: 530, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 13},
   {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 1.5, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: 1, inDir: 1, tick: 0},
   {spawnX: 600, spawnY: 0, x: 600, y: 0, speedX: 1.5, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: -1, inDir: -1, tick: 0},
 
