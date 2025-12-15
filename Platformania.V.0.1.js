@@ -257,9 +257,18 @@ const level14Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
   { x: 0, y: 0, sizeWidth: 50, sizeHeight: 600, name: "w1" },
   { x: 0, y: 0, sizeWidth: 570, sizeHeight: 10, name: "r1" },
-  { x: 50, y: 425, sizeWidth: 20, sizeHeight: 10, name: "p2" },
-  { x: 50, y: 300, sizeWidth: 20, sizeHeight: 10, name: "p3" },
-  { x: 50, y: 175, sizeWidth: 20, sizeHeight: 10, name: "p4" },
+  { x: 50, y: 425, sizeWidth: 10, sizeHeight: 10, name: "p2" },
+  { x: 50, y: 300, sizeWidth: 10, sizeHeight: 10, name: "p3" },
+  { x: 50, y: 175, sizeWidth: 10, sizeHeight: 10, name: "p4" },
+  { x: 100, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w2" },
+  { x: 110, y: 550, sizeWidth: 10, sizeHeight: 10, name: "p4.5" },
+  { x: 110, y: 375, sizeWidth: 10, sizeHeight: 10, name: "p5" },
+  { x: 110, y: 125, sizeWidth: 10, sizeHeight: 10, name: "p6" },
+  { x: 250, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w3" },
+  { x: 400, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w3" },
+  { x: 390, y: 550, sizeWidth: 10, sizeHeight: 10, name: "p7" },
+  { x: 390, y: 375, sizeWidth: 10, sizeHeight: 10, name: "p8" },
+  { x: 390, y: 125, sizeWidth: 10, sizeHeight: 10, name: "p9" },
 ];
 
 const level15Platforms = [];
