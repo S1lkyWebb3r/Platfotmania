@@ -42,9 +42,9 @@ const MAX_JUMP_HOLD = 10; // frames of extra lift
 const INITIAL_JUMP = -7;
 const HOLD_JUMP_BOOST = -0.7;
 let landed = 1;
-const JUMPER_INITIAL_Y = -14;     // stronger than normal jump
-const JUMPER_HOLD_BOOST = -1.0;   // stronger hold
-const MAX_JUMPER_HOLD = 14;       // frames
+const JUMPER_INITIAL_Y = -7;     // stronger than normal jump
+const JUMPER_HOLD_BOOST = -0.7;   // stronger hold
+const MAX_JUMPER_HOLD = 10;       // frames
 let currentJumpType = "normal";
 //Change to local storage later
 let completedGame = true;
