@@ -257,14 +257,18 @@ const level14Platforms = [
   { x: 50, y: 550, sizeWidth: 20, sizeHeight: 10, name: "p1" },
   { x: 0, y: 0, sizeWidth: 50, sizeHeight: 600, name: "w1" },
   { x: 0, y: 0, sizeWidth: 570, sizeHeight: 10, name: "r1" },
+  //first wall
   { x: 50, y: 425, sizeWidth: 10, sizeHeight: 10, name: "p2" },
   { x: 50, y: 300, sizeWidth: 10, sizeHeight: 10, name: "p3" },
   { x: 50, y: 175, sizeWidth: 10, sizeHeight: 10, name: "p4" },
+  //Wall on left side
   { x: 100, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w2" },
   { x: 110, y: 550, sizeWidth: 10, sizeHeight: 10, name: "p5" },
   { x: 110, y: 300, sizeWidth: 10, sizeHeight: 10, name: "p8" },
+  //Separator
   { x: 250, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w3" },
-  { x: 400, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w4" },
+  //Wall on right side
+  { x: 400, y: 30, sizeWidth: 10, sizeHeight: 570, name: "w4" },
   { x: 390, y: 175, sizeWidth: 10, sizeHeight: 10, name: "p6" },
   { x: 390, y: 425, sizeWidth: 10, sizeHeight: 10, name: "p7" },
 ];
@@ -364,6 +368,12 @@ let objects = [
   {x: 290, y: 530, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 13},
   {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 1.5, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: 1, inDir: 1, tick: 0},
   {spawnX: 600, spawnY: 0, x: 600, y: 0, speedX: 1.5, speedY: 0, interval: 200, inInterval: 200, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 13, dir: -1, inDir: -1, tick: 0},
+
+  //Level 14
+  {x: 50, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 14, landX: 165, landY: 500},
+  {x: 165, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 14},
+  {x: 165, y: 425, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 14, landX: 315, landY: 425},
+  {x: 315, y: 500, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 14},
 
 ];
 
