@@ -953,7 +953,7 @@ function draw() {
   if (currentLevel === 15) {
     ctx.fillStyle = "white";
     ctx.font = "60px Arial";
-    ctx.fillText("XLR8", 300, 20);
+    ctx.fillText("XLR8", 265, 70);
   }
   
   //Last level text
