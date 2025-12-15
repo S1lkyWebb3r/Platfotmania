@@ -279,7 +279,7 @@ const level14Platforms = [
 
 const level15Platforms = [
   { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
-  { x: 0, y: 0, sizeWidth: 570, sizeHeight: 10, name: "r1" },
+  { x: 0, y: 100, sizeWidth: 600, sizeHeight: 5, name: "r1" },
 ];
 
 const level16Platforms = [];
@@ -943,10 +943,17 @@ function draw() {
   // Level indicator
   ctx.fillStyle = "white";
   ctx.fillText("Level " + currentLevel, 10, 40);
+
   //Easter egg text
   if (currentLevel === 6 && pX === 550 && pY === 330 && pColor === "black") {
     ctx.fillStyle = "white";
     ctx.fillText("Where did they go?", 200, 550);
+  }
+  //Level 15 text
+  if (currentLevel === 15) {
+    ctx.fillStyle = "white";
+    ctx.font = "60px Arial";
+    ctx.fillText("XLR8", 300, 20);
   }
   
   //Last level text
@@ -958,6 +965,7 @@ function draw() {
   ctx.font = "20px Arial";
   ctx.fillText("Game by The Wind's Webber", 300, 550);
   }
+
   //Particle appearances
   for (let particle of pParticles) {
     ctx.fillStyle = "black";
