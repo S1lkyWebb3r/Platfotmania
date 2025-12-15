@@ -630,6 +630,9 @@ function handleObject(o) {
 
   //Jumper
   if (o.type === "jumper"){
+    if (acceleratedThisFrame) return; // Prevent multiple accelerations in one frame
+    acceleratedThisFrame = true;
+    isJumping = true;
     pVelX += o.accelX;
     pVelY += o.accelY;
     return;
