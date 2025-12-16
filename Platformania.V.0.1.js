@@ -289,7 +289,17 @@ const level16Platforms = [
   { x: 470, y: 0, sizeWidth: 130, sizeHeight: 10, name: "r2" },
 ];
 
-const level17Platforms = [];
+const level17Platforms = [
+  { x: 0, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
+  { x: 590, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
+  { x: 0, y: 530, sizeWidth: 600, sizeHeight: 70, name: "b1" },
+  { x: 0, y: 430, sizeWidth: 560, sizeHeight: 10, name: "p1" },
+  { x: 40, y: 330, sizeWidth: 560, sizeHeight: 10, name: "p2" },
+  { x: 0, y: 230, sizeWidth: 560, sizeHeight: 10, name: "p3" },
+  { x: 40, y: 130, sizeWidth: 560, sizeHeight: 10, name: "p4" },
+  { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
+];
+
 const level18Platforms = [];
 const level19Platforms = [];
 
