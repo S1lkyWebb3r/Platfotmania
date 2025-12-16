@@ -435,16 +435,11 @@ let objects = [
   {x: 580, y: 370, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 17, accelX: -40},
   {x: 245, y: 420, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -40},
   {x: 10, y: 270, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 17, accelX: 60},
-  {x: 530, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 480, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 430, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 380, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 330, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 280, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 230, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 180, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 130, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 80, y: 210, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
+  {x: 530, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
+  {x: 430, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
+  {x: 280, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
+  {x: 180, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
+  {x: 80, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
 ];
 
 // Keys pressed 
