@@ -431,7 +431,7 @@ let objects = [
 
   //Level 17
   {x: 10, y: 520, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 50},
-  {x: 580, y: 260, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 17, accelX: -30},
+  {x: 580, y: 360, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 17, accelX: -30},
   {x: 245, y: 420, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -30},
 ];
 
