@@ -430,8 +430,9 @@ let objects = [
   {x: 450, y: 250, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 16},
 
   //Level 17
-  {x: 10, y: 520, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 50, },
-  {x: 245, y: 420, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -30, },
+  {x: 10, y: 520, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 50},
+  {x: 580, y: 260, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 17, accelX: -30},
+  {x: 245, y: 420, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -30},
 ];
 
 // Keys pressed 
