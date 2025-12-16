@@ -283,7 +283,11 @@ const level15Platforms = [
   { x: 0, y: 100, sizeWidth: 600, sizeHeight: 5, name: "r1" },
 ];
 
-const level16Platforms = [];
+const level16Platforms = [
+  { x: 0, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
+  { x: 0, y: 100, sizeWidth: 600, sizeHeight: 5, name: "r1" },
+];
+
 const level17Platforms = [];
 const level18Platforms = [];
 const level19Platforms = [];
@@ -301,7 +305,7 @@ let objects = [
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 0, landX: 300, landY: 200},
   {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 0},
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 0, landX: 400, landY: 400},
-  {x: 225, y: 490, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 1, accelX: -30, },
+  {x: 225, y: 490, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 0, accelX: -30, },
 
 
   //Level 5
@@ -403,6 +407,13 @@ let objects = [
   {x: 80, y: 400, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 15, landX: 80, landY: 250},
   {x: 80, y: 250, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 15},
 
+  //Level 16
+  {x: 50, y: 520, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 16, accelX: -30, },
+  {x: 10, y: 450, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 16, accelX: 0, },
+  {x: 10, y: 300, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 16, accelX: 0, },
+  {x: 10, y: 150, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 16, accelX: 0, },
+  {x: 10, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 15, landX: 50, landY: 250},
+  {x: 50, y: 250, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 15},
 ];
 
 // Keys pressed 
