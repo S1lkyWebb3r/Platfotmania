@@ -298,7 +298,7 @@ const level17Platforms = [
   { x: 0, y: 230, sizeWidth: 560, sizeHeight: 10, name: "p3" },
   { x: 40, y: 130, sizeWidth: 560, sizeHeight: 10, name: "p4" },
   { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
-  { x: 270, y: 400, sizeWidth: 10, sizeHeight: 10, name: "r1" },
+  { x: 270, y: 420, sizeWidth: 10, sizeHeight: 10, name: "r1" },
 ];
 
 const level18Platforms = [];
@@ -431,7 +431,7 @@ let objects = [
 
   //Level 17
   {x: 10, y: 520, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 50, },
-  {x: 245, y: 400, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 30, },
+  {x: 245, y: 420, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -30, },
 ];
 
 // Keys pressed 
