@@ -752,6 +752,8 @@ function update(delta) {
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
 
+  const platforms = getCurrentPlatforms();
+
   // Horizontal movement
   if (keys["ArrowLeft"] && !crouching || keys["KeyA"] && !crouching || keys["JOY_LEFT"] && !crouching) pVelX = -moveSpeed;
   else if (keys["ArrowRight"] && !crouching || keys["KeyD"] && !crouching || keys["JOY_RIGHT"] && !crouching) pVelX = moveSpeed;
@@ -781,8 +783,6 @@ function update(delta) {
   // Keep player inside canvas
   if (pX < 0) pX = 0;
   if (pX + pWidth > canvas.width) pX = canvas.width - pWidth;
-
-  const platforms = getCurrentPlatforms();
 
   onPlatform = false; // reset every frame before checking platforms
   acceleratedThisFrame = false;
