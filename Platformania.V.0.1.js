@@ -28,6 +28,8 @@ let spawnY = 500;
 const pWidth = 20;
 let pHeight = 20;
 let crouching = false;
+const STAND_HEIGHT = 20;
+const CROUCH_HEIGHT = 15;
 let pVelX = 0;
 let friction = 2.5; 
 let pVelY = 0;
@@ -562,6 +564,16 @@ function handleJump() {
   }
 }
 
+//Crouch helper: 
+function canStandUp(platforms) {
+  for (let p of platforms) {
+    if (aabb(pX, pY - (STAND_HEIGHT - CROUCH_HEIGHT), pWidth, STAND_HEIGHT, p.x, p.y, p.sizeWidth, p.sizeHeight)) {
+      return false;
+    }
+  }
+  return true;
+}
+
 
 //Color picker
 function chooseColor() {
@@ -746,11 +758,21 @@ function update(delta) {
   else if (pVelX > 0) pVelX -= friction * delta;
   else if (pVelX < 0) pVelX += friction * delta;
 
-  if (keys["ArrowDown"] || keys["KeyS"]) crouching = true;
-  else crouching = false;
-  
-  if (crouching) pHeight = 15;
-  else pHeight = 20;
+  if (keys["ArrowDown"] || keys["KeyS"]) {
+    if (!crouching) {
+        // entering crouch → shrink from the top
+        pY += STAND_HEIGHT - CROUCH_HEIGHT;
+        pHeight = CROUCH_HEIGHT;
+        crouching = true;
+    }
+  } else {
+    if (crouching && canStandUp(platforms)) {
+      // leaving crouch → grow upward, NOT downward
+      pY -= STAND_HEIGHT - CROUCH_HEIGHT;
+      pHeight = STAND_HEIGHT;
+      crouching = false;
+    }
+  }
 
   // Jump
   handleJump();
