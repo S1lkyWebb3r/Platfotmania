@@ -725,8 +725,8 @@ function update(delta) {
   pParticles = pParticles.filter(p => p.life > 0);
 
   // Horizontal movement
-  if (keys["ArrowLeft"] || keys["KeyA"] || keys["JOY_LEFT"]) pVelX -= moveSpeed;
-  else if (keys["ArrowRight"] || keys["KeyD"] || keys["JOY_RIGHT"]) pVelX += moveSpeed;
+  if (keys["ArrowLeft"] || keys["KeyA"] || keys["JOY_LEFT"]) pVelX = -moveSpeed;
+  else if (keys["ArrowRight"] || keys["KeyD"] || keys["JOY_RIGHT"]) pVelX = moveSpeed;
   else if (pVelX > 0) pVelX -= friction * delta;
   else if (pVelX < 0) pVelX += friction * delta;
   
