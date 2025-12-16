@@ -25,7 +25,9 @@ let pX = 50;
 let pY = 500;
 let spawnX = 50;
 let spawnY = 500;
-const pSize = 20;
+const pWidth = 20;
+let pHeight = 20;
+let crouching = false;
 let pVelX = 0;
 let friction = 2.5; 
 let pVelY = 0;
@@ -525,11 +527,6 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-// Collision check
-function isCollidingObj(x, y, size, objX, objY, height, width) {
-  return x < objX + width && x + size > objX && y < objY + height && y + size > objY;
-}
-
 function handleJump() {
   const jumpPressed = keys["Space"] || keys["ArrowUp"] || keys["KeyW"] || keys["JOY_JUMP"];
 
@@ -592,8 +589,8 @@ function handleTrail() {
 
     // Only update if we have enough history
     if (index >= 0 && trailPos[index]) {
-      t.x = trailPos[index].x + (pSize - t.size) / 2;
-      t.y = trailPos[index].y + (pSize - t.size) / 2;
+      t.x = trailPos[index].x + (pWidth - t.size) / 2;
+      t.y = trailPos[index].y + (pHeight - t.size) / 2;
     }
   }
 }
@@ -647,24 +644,6 @@ function handleObject(o) {
   };
   if (o.type === "mEnemy") {
     death(pX, pY, 60);
-    return;
-  };
-
-  // Switch
-  if (o.type === "switch") {
-    o.open = true;
-    return;
-  };
-
-  // Door
-  if (o.type === "door") {
-    if (!o.open) {
-      // Push the player away from the closed door
-      if (pX + pSize > o.x && pX < o.x) pX = o.x - pSize;
-      if (pX < o.x + o.sizeWidth && pX > o.x) pX = o.x + o.sizeWidth;
-      if (pY + pSize > o.y && pY < o.y) pY = o.y - pSize;
-      if (pY < o.y + o.sizeHeight && pY > o.y) pY = o.y + o.sizeHeight;
-    }
     return;
   };
 
@@ -762,11 +741,16 @@ function update(delta) {
   pParticles = pParticles.filter(p => p.life > 0);
 
   // Horizontal movement
-  if (keys["ArrowLeft"] || keys["KeyA"] || keys["JOY_LEFT"]) pVelX = -moveSpeed;
-  else if (keys["ArrowRight"] || keys["KeyD"] || keys["JOY_RIGHT"]) pVelX = moveSpeed;
+  if (keys["ArrowLeft"] && !crouching || keys["KeyA"] && !crouching || keys["JOY_LEFT"] && !crouching) pVelX = -moveSpeed;
+  else if (keys["ArrowRight"] && !crouching || keys["KeyD"] && !crouching || keys["JOY_RIGHT"] && !crouching) pVelX = moveSpeed;
   else if (pVelX > 0) pVelX -= friction * delta;
   else if (pVelX < 0) pVelX += friction * delta;
+
+  if (keys["ArrowDown"] || keys["KeyS"]) crouching = true;
+  else crouching = false;
   
+  if (crouching) pHeight = 15;
+  else pHeight = 20;
 
   // Jump
   handleJump();
@@ -774,7 +758,7 @@ function update(delta) {
 
   // Keep player inside canvas
   if (pX < 0) pX = 0;
-  if (pX + pSize > canvas.width) pX = canvas.width - pSize;
+  if (pX + pWidth > canvas.width) pX = canvas.width - pWidth;
 
   const platforms = getCurrentPlatforms();
 
@@ -806,11 +790,11 @@ function update(delta) {
 pX += pVelX * delta;
 
 for (let platform of platforms) {
-  if (aabb(pX, pY, pSize, pSize, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) {
+  if (aabb(pX, pY, pWidth, pHeight, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) {
 
     // Moving right: hit left side
     if (pVelX > 0) {
-      pX = platform.x - pSize;
+      pX = platform.x - pWidth;
     }
     // Moving left: hit right side
     else if (pVelX < 0) {
@@ -830,14 +814,14 @@ let landedThisFrame = false;
 for (let platform of platforms) {
 
   // Recompute AABB using nextY
-  if (!aabb(pX, nextY, pSize, pSize, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) 
+  if (!aabb(pX, nextY, pWidth, pHeight, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) 
     continue;
 
   // --- LANDING (top collision) ---
-  if (pVelY > 0 && (pY + pSize) <= platform.y && (nextY + pSize) >= platform.y) {
+  if (pVelY > 0 && (pY + pHeight) <= platform.y && (nextY + pHeight) >= platform.y) {
 
     // Correct position
-    nextY = platform.y - pSize;
+    nextY = platform.y - pHeight;
 
     if (landed === 1) {
       spawnLandingParticles(pX, nextY, Math.round(pVelY * 1.5));
@@ -912,7 +896,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
 
   //Collision of objects
   for (let o of objects) {
-    if (isCollidingObj(pX, pY, pSize, o.x, o.y, o.sizeHeight, o.sizeWidth)) {
+    if (aabb(pX, pY, pWidth, pHeight, o.x, o.y, o.sizeWidth, o.sizeHeight)) {
       handleObject(o);
     }
   }
@@ -931,7 +915,7 @@ function draw() {
   //Player
   if (gameState !== "Dead"){
     ctx.fillStyle = pColor;
-    ctx.fillRect(pX, pY, pSize, pSize);
+    ctx.fillRect(pX, pY, pWidth, pHeight);
 
     for (let t of pTrails) {
       ctx.fillStyle = pColor;
