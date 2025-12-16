@@ -27,6 +27,7 @@ let spawnX = 50;
 let spawnY = 500;
 const pSize = 20;
 let pVelX = 0;
+let friction = 2.5; 
 let pVelY = 0;
 let pColor = localStorage.getItem("color") || "teal";
 const moveSpeed = 5;
@@ -726,7 +727,9 @@ function update(delta) {
   // Horizontal movement
   if (keys["ArrowLeft"] || keys["KeyA"] || keys["JOY_LEFT"]) pVelX = -moveSpeed;
   else if (keys["ArrowRight"] || keys["KeyD"] || keys["JOY_RIGHT"]) pVelX = moveSpeed;
-  else pVelX = 0;
+  else if (pVelX > 0) pVelX -= friction * delta;
+  else if (pVelX < 0) pVelX += friction * delta;
+  
 
   // Jump
   handleJump();
@@ -954,7 +957,7 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
     ctx.font = "60px Arial";
-    ctx.fillText("XLR8", 300, 70);
+    ctx.fillText("XLR8R", 300, 70);
   }
   
   //Last level text
