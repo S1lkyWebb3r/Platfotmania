@@ -285,7 +285,8 @@ const level15Platforms = [
 
 const level16Platforms = [
   { x: 0, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
-  { x: 0, y: 0, sizeWidth: 600, sizeHeight: 10, name: "r1" },
+  { x: 0, y: 0, sizeWidth: 440, sizeHeight: 10, name: "r1" },
+  { x: 470, y: 0, sizeWidth: 130, sizeHeight: 10, name: "r2" },
 ];
 
 const level17Platforms = [];
@@ -415,7 +416,7 @@ let objects = [
   {x: 10, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 16, landX: 145, landY: 300},
   {x: 145, y: 300, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 16},
   {x: 250, y: 550, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 16, landX: 450, landY: 250},
-  {x: 80, y: 250, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 16},
+  {x: 450, y: 250, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 16},
 
 ];
 
