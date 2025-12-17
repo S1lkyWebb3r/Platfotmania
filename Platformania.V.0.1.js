@@ -594,7 +594,7 @@ function chooseColor() {
     hardcoreMode = true;
   };
 
-  if (pColor !== dark && hardcoreMode) hardcoreMode = false;
+  if (pColor !== "darkred" && hardcoreMode) hardcoreMode = false;
 }
 //Trailing function
 function handleTrail() {
