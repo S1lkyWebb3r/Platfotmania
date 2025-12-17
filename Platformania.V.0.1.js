@@ -447,7 +447,8 @@ let objects = [
   {x: 180, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
   {x: 80, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
   {x: 40, y: 120, sizeWidth: 550, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -50},
-  {x: 100, y: 520, sizeWidth: 350, sizeHeight: 5, type: "enemy", color: "red", level: 17},
+  {x: 100, y: 525, sizeWidth: 350, sizeHeight: 5, type: "enemy", color: "red", level: 17},
+  {x: 10, y: 425, sizeWidth: 560, sizeHeight: 5, type: "enemy", color: "red", level: 17},
 
 ];
 
