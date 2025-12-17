@@ -34,6 +34,7 @@ let pVelX = 0;
 let friction = 2.5; 
 let pVelY = 0;
 let pColor = localStorage.getItem("color") || "teal";
+let hardcoreMode = (pColor === "darkred");
 const moveSpeed = 5;
 const jumpStrength = 15;
 const gravity = 0.8;
