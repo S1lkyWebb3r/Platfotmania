@@ -588,6 +588,10 @@ function chooseColor() {
   if (keys["Digit9"] && completedGame) pColor = "black";
   if (keys["Digit0"] && completedGame) pColor = "turquoise";
   if (keys["KeyP"]) pColor = "indigo";
+  if (keys["KeyD"]&& completedGame){ 
+    pColor = "darkred"
+    hardcoreMode = true;
+  };
 }
 
 //Trailing function
@@ -642,7 +646,12 @@ function death(x, y, count) {
       maxLife: maxLife
     });
   }
-  deathCount++;
+  if (hardcoreMode){
+    deathCount = 0;
+    spawnX = 50;
+    spawnY = 50;
+    currentLevel = 1;
+  } else deathCount++;
   gameState = "Dead"
   deathTimer = 30; //Should probably have delta here
 }
@@ -727,9 +736,29 @@ function update(delta) {
     deathTimer--;
   
     // Respawn when timer ends
-    if (deathTimer <= 0) {
+    if (deathTimer <= 0 && hardcoreMode) {
+      pX = 50;
+      pY = 500;
+      spawnX = 50;
+      spawnY = 500;
+      deathCount = 0;
+      pVelX = 0;
+      pVelY = 0;
+      for(let o of objects){
+        if (o.type === "mEnemy"){
+          o.x = o.spawnX;
+          o.y = o.spawnY;
+          o.interval = o.inInterval;
+          o.tick = 0;
+          o.dir = o.inDir;
+        }
+      }
+      gameState = "Playing";
+
+    } else if (deathTimer <= 0) {
       pX = spawnX;
       pY = spawnY;
+      deathCount++;
       pVelX = 0;
       pVelY = 0;
       for(let o of objects){
@@ -984,7 +1013,9 @@ function draw() {
   ctx.textAlign = "left";
   ctx.fillStyle = "white";
   ctx.font = "20px Arial";
-  ctx.fillText("Deaths: " + deathCount, 10, 20);
+  if (hardcoreMode){
+    ctx.fillText("Hardcore Mode", 10, 20);
+  } else ctx.fillText("Deaths: " + deathCount, 10, 20);
 
   // Level indicator
   ctx.fillStyle = "white";
