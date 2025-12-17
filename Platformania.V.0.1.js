@@ -593,8 +593,9 @@ function chooseColor() {
     pColor = "darkred"
     hardcoreMode = true;
   };
-}
 
+  if (pColor !== dark && hardcoreMode) hardcoreMode = false;
+}
 //Trailing function
 function handleTrail() {
   trailPos.push({ x: pX, y: pY });
