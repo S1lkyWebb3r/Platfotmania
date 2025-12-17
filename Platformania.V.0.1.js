@@ -756,7 +756,7 @@ function update(delta) {
 
   // Horizontal movement
   if (keys["ArrowLeft"] && !crouching || keys["KeyA"] && !crouching || keys["JOY_LEFT"] && !crouching) pVelX = -moveSpeed;
-  else if (keys["ArrowRight"] && !crouching || keys["KeyD"] && !crouching || keys["JOY_RIGHT"] && !crouching) pVelX = moveSpeed;
+  else if (keys["ArrowRight"] && !crouching || keys["ArrowRight"] && airBorne || keys["KeyD"] && !crouching || keys["KeyD"] && airBorne || keys["JOY_RIGHT"] && !crouching || keys["JOY_RIGHT"] && airBorne) pVelX = moveSpeed;
   else if (pVelX > 0) pVelX -= friction * delta;
   else if (pVelX < 0) pVelX += friction * delta;
 
