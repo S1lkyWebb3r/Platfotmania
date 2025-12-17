@@ -589,7 +589,7 @@ function chooseColor() {
   if (keys["Digit9"] && completedGame) pColor = "black";
   if (keys["Digit0"] && completedGame) pColor = "turquoise";
   if (keys["KeyP"]) pColor = "indigo";
-  if (keys["KeyD"]&& completedGame){ 
+  if (keys["KeyH"]&& completedGame){ 
     pColor = "darkred"
     hardcoreMode = true;
   };
