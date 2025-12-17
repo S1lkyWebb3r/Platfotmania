@@ -442,9 +442,11 @@ let objects = [
   {x: 10, y: 270, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 17, accelX: 60},
   {x: 530, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
   {x: 430, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
+  {x: 370, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
   {x: 280, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
   {x: 180, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
   {x: 80, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
+  {x: 40, y: 130, sizeWidth: 550, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -60},
 ];
 
 // Keys pressed 
