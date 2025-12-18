@@ -309,7 +309,7 @@ const level18Platforms = [
   { x: 40, y: 550, sizeWidth: 60, sizeHeight: 50, name: "c1" },
   { x: 150, y: 350, sizeWidth: 10, sizeHeight: 250, name: "c2" },
   { x: 300, y: 300, sizeWidth: 10, sizeHeight: 300, name: "c3" },
-  { x: 500, y: 570, sizeWidth: 20, sizeHeight: 30, name: "c4" },
+  { x: 500, y: 570, sizeWidth: 25, sizeHeight: 30, name: "c4" },
   { x: 120, y: 200, sizeWidth: 30, sizeHeight: 30, name: "p1" },
   { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
   { x: 180, y: 0, sizeWidth: 10, sizeHeight: 200, name: "w1" },
@@ -450,7 +450,11 @@ let objects = [
   {spawnX: 0, spawnY: 600, x: 0, y: 600, speedX: 1.8, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
 
   //Level 18
-
+  {x: 175, y: 540, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
+  {x: 500, y: 560, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
+  {x: 150, y: 205, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 18, accelX: 40, },
+  {x: 575, y: 290, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
+  {x: 575, y: 150, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
 ];
 
 // Keys pressed 
