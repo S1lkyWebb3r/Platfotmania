@@ -318,10 +318,18 @@ const level18Platforms = [
 ];
 
 const level19Platforms = [
-  firstquarter = [],
-  secondquarter = [],
-  thirdquarter = [],
-  fourthquarter = [],
+  firstquarter = [
+    { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
+  ],
+  secondquarter = [
+    { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
+  ],
+  thirdquarter = [
+    { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
+  ],
+  fourthquarter = [
+    { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
+  ],
 ];
 
 const lastLevelPlatforms = [
