@@ -453,6 +453,7 @@ let objects = [
   {x: 10, y: 10, sizeWidth: 5, sizeHeight: 220, type: "enemy", color: "red", level: 17},
   {x: 40, y: 325, sizeWidth: 350, sizeHeight: 5, type: "enemy", color: "red", level: 17},
   {x: 40, y: 140, sizeWidth: 560, sizeHeight: 5, type: "enemy", color: "red", level: 17},
+  {x: 15, y: 325, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 10, spawnY: 330},
 ];
 
 // Keys pressed 
