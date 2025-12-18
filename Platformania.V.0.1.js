@@ -300,11 +300,9 @@ const level17Platforms = [
   { x: 0, y: 530, sizeWidth: 600, sizeHeight: 70, name: "b1" },
   { x: 0, y: 430, sizeWidth: 560, sizeHeight: 10, name: "p1" },
   { x: 40, y: 330, sizeWidth: 560, sizeHeight: 10, name: "p2" },
-  { x: 0, y: 230, sizeWidth: 540, sizeHeight: 10, name: "p3" },
-  { x: 60, y: 130, sizeWidth: 560, sizeHeight: 10, name: "p4" },
+  { x: 0, y: 230, sizeWidth: 560, sizeHeight: 10, name: "p3" },
+  { x: 40, y: 130, sizeWidth: 560, sizeHeight: 10, name: "p4" },
   { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
-  { x: 270, y: 420, sizeWidth: 10, sizeHeight: 10, name: "p5" },
-  { x: 10, y: 350, sizeWidth: 10, sizeHeight: 10, name: "p6" },
 ];
 
 const level18Platforms = [];
@@ -436,23 +434,7 @@ let objects = [
   {x: 450, y: 250, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 16},
 
   //Level 17
-  {x: 10, y: 520, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 50},
-  {x: 580, y: 370, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 17, accelX: -40},
-  {x: 245, y: 420, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -40},
-  {x: 10, y: 270, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 17, accelX: 60},
-  {x: 450, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 370, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 280, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 180, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 80, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 60, y: 120, sizeWidth: 550, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -50},
-  {x: 100, y: 525, sizeWidth: 350, sizeHeight: 5, type: "enemy", color: "red", level: 17},
-  {x: 10, y: 425, sizeWidth: 550, sizeHeight: 5, type: "enemy", color: "red", level: 17},
-  {x: 585, y: 140, sizeWidth: 5, sizeHeight: 190, type: "enemy", color: "red", level: 17},
-  {x: 10, y: 10, sizeWidth: 5, sizeHeight: 220, type: "enemy", color: "red", level: 17},
-  {x: 40, y: 325, sizeWidth: 350, sizeHeight: 5, type: "enemy", color: "red", level: 17},
-  {x: 60, y: 140, sizeWidth: 560, sizeHeight: 5, type: "enemy", color: "red", level: 17},
-  {x: 15, y: 320, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 10, spawnY: 330},
+  
 ];
 
 // Keys pressed 
