@@ -301,7 +301,7 @@ const level17Platforms = [
   { x: 0, y: 430, sizeWidth: 560, sizeHeight: 10, name: "p1" },
   { x: 40, y: 330, sizeWidth: 560, sizeHeight: 10, name: "p2" },
   { x: 0, y: 230, sizeWidth: 540, sizeHeight: 10, name: "p3" },
-  { x: 40, y: 130, sizeWidth: 560, sizeHeight: 10, name: "p4" },
+  { x: 60, y: 130, sizeWidth: 560, sizeHeight: 10, name: "p4" },
   { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
   { x: 270, y: 420, sizeWidth: 10, sizeHeight: 10, name: "p5" },
   { x: 10, y: 350, sizeWidth: 10, sizeHeight: 10, name: "p6" },
@@ -445,14 +445,14 @@ let objects = [
   {x: 280, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
   {x: 180, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
   {x: 80, y: 220, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: 0},
-  {x: 40, y: 120, sizeWidth: 550, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -50},
+  {x: 60, y: 120, sizeWidth: 550, sizeHeight: 10, type: "jumper", color: "brown", level: 17, accelX: -50},
   {x: 100, y: 525, sizeWidth: 350, sizeHeight: 5, type: "enemy", color: "red", level: 17},
   {x: 10, y: 425, sizeWidth: 550, sizeHeight: 5, type: "enemy", color: "red", level: 17},
   {x: 585, y: 140, sizeWidth: 5, sizeHeight: 190, type: "enemy", color: "red", level: 17},
   {x: 10, y: 10, sizeWidth: 5, sizeHeight: 220, type: "enemy", color: "red", level: 17},
   {x: 40, y: 325, sizeWidth: 350, sizeHeight: 5, type: "enemy", color: "red", level: 17},
-  {x: 40, y: 140, sizeWidth: 560, sizeHeight: 5, type: "enemy", color: "red", level: 17},
-  {x: 15, y: 325, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 10, spawnY: 330},
+  {x: 60, y: 140, sizeWidth: 560, sizeHeight: 5, type: "enemy", color: "red", level: 17},
+  {x: 15, y: 320, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 10, spawnY: 330},
 ];
 
 // Keys pressed 
