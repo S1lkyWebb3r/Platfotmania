@@ -437,7 +437,7 @@ let objects = [
   {spawnX: 350, spawnY: 600, x: 350, y: 600, speedX: 0, speedY: -4, interval: 150, inInterval: 150, sizeWidth: 250, sizeHeight: 10, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
   {spawnX: 0, spawnY: 0, x: 0, y: 0, speedX: 0, speedY: 4, interval: 150, inInterval: 150, sizeWidth: 250, sizeHeight: 10, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
   {spawnX: 600, spawnY: 600, x: 600, y: 600, speedX: -2, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 0, spawnY: 0, x: 600, y: 0, speedX: -2, speedY: 2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 0, spawnY: 0, x: 600, y: 0, speedX: 2, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
 ];
 
 // Keys pressed 
