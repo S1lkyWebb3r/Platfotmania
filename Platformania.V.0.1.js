@@ -305,7 +305,19 @@ const level17Platforms = [
   { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
 ];
 
-const level18Platforms = [];
+const level18Platforms = [
+  { x: 40, y: 550, sizeWidth: 60, sizeHeight: 50, name: "c1" },
+  { x: 150, y: 350, sizeWidth: 10, sizeHeight: 250, name: "c2" },
+  { x: 300, y: 300, sizeWidth: 10, sizeHeight: 300, name: "c3" },
+  { x: 500, y: 570, sizeWidth: 10, sizeHeight: 30, name: "c4" },
+  { x: 120, y: 200, sizeWidth: 30, sizeHeight: 30, name: "p1" },
+  { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
+  { x: 180, y: 0, sizeWidth: 10, sizeHeight: 200, name: "w1" },
+  { x: 495, y: 0, sizeWidth: 5, sizeHeight: 300, name: "w2" },
+  { x: 500, y: 300, sizeWidth: 100, sizeHeight: 10, name: "p2" },
+  
+];
+
 const level19Platforms = [];
 
 const lastLevelPlatforms = [
@@ -322,7 +334,6 @@ let objects = [
   {x: 300, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 0},
   {x: 280, y: 430, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 0, landX: 400, landY: 400},
   {x: 225, y: 490, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 0, accelX: -30, },
-
 
   //Level 5
   //first staircase
@@ -438,6 +449,9 @@ let objects = [
   {spawnX: 0, spawnY: 0, x: 0, y: 0, speedX: 0, speedY: 4, interval: 150, inInterval: 150, sizeWidth: 250, sizeHeight: 10, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
   {spawnX: 600, spawnY: 600, x: 600, y: 600, speedX: -2, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
   {spawnX: 0, spawnY: 600, x: 0, y: 600, speedX: 1.8, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
+
+  //Level 18
+
 ];
 
 // Keys pressed 
