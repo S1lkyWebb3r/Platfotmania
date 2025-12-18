@@ -318,18 +318,17 @@ const level18Platforms = [
 ];
 
 const level19Platforms = [
-  firstquarter = [
-    { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
-  ],
-  secondquarter = [
-    { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
-  ],
-  thirdquarter = [
-    { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
-  ],
-  fourthquarter = [
-    { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
-  ],
+ { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
+];
+const level1925Platforms = [
+ { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
+];
+
+const level195Platforms = [
+ { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
+];
+const level1975Platforms = [
+ { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
 ];
 
 const lastLevelPlatforms = [
@@ -1187,10 +1186,10 @@ function getCurrentPlatforms() {
   if (currentLevel === 16) return level16Platforms;
   if (currentLevel === 17) return level17Platforms;
   if (currentLevel === 18) return level18Platforms;
-  if (currentLevel === 19) return level19Platforms.firstquarter;
-  if (currentLevel === 19.25) return level19Platforms.secondquarter;
-  if (currentLevel === 19.5) return level19Platforms.thirdquarter;
-  if (currentLevel === 19.75) return level19Platforms.fourthquarter;
+  if (currentLevel === 19) return level19Platforms;
+  if (currentLevel === 19.25) return level1925Platforms;
+  if (currentLevel === 19.5) return level195Platforms;
+  if (currentLevel === 19.75) return level1975Platforms;
   if (currentLevel === 20) return lastLevelPlatforms;
   return []; // fallback
 }
