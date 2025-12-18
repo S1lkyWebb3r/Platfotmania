@@ -317,7 +317,12 @@ const level18Platforms = [
   { x: 495, y: 300, sizeWidth: 105, sizeHeight: 10, name: "p2" },
 ];
 
-const level19Platforms = [];
+const level19Platforms = [
+  firstquarter = [],
+  secondquarter = [],
+  thirdquarter = [],
+  fourthquarter = [],
+];
 
 const lastLevelPlatforms = [
   { x: 0, y: 520, sizeWidth: 600, sizeHeight: 30, name: "b1" },
@@ -608,10 +613,10 @@ function chooseColor() {
   if (keys["Digit4"]) pColor = "seagreen";
   if (keys["Digit5"]) pColor = "yellow";
   if (keys["Digit6"] && completedGame) pColor = "purple";
-  if (keys["Digit7"] && completedGame) pColor = "gold";
+  if (keys["Digit7"] && completedGame) pColor = "fuchsia";
   if (keys["Digit8"] && completedGame) pColor = "white";
   if (keys["Digit9"] && completedGame) pColor = "black";
-  if (keys["Digit0"] && completedGame) pColor = "turquoise";
+  if (keys["Digit0"] && completedGame) pColor = "honeydew";
   if (keys["KeyP"]) pColor = "indigo";
   if (keys["KeyH"]&& completedGame){ 
     pColor = "darkred"
@@ -955,7 +960,18 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
   // Switch levels (example: reach top of screen)
   if (pY <= 0) {
     if (currentLevel < 20) {
-      currentLevel++;
+      if (currentLevel === 19) {
+        currentLevel = 19.25;
+      } else if (currentLevel === 19.25) {
+        currentLevel = 19.5;
+      } else if (currentLevel === 19.5) {
+        currentLevel = 19.75;
+      } else if (currentLevel === 19.75) {
+        currentLevel = 20;
+        completedGame = true;
+      } else {
+        currentLevel++;
+      }
       spawnX = 50;
       spawnY = 500;
       pX = spawnX;
@@ -1057,6 +1073,19 @@ function draw() {
     ctx.fillText("WASD o Flechas", 380, 300);
     ctx.fillText("No caigas", 380, 320);
     ctx.fillText("Ves hacia arriba ^", 380, 340);
+    if (completedGame) {
+      ctx.fillText("H para modo Hardcore", 380, 360);
+      ctx.fillText("1-9 para colores nuevos", 380, 380);
+    } else {
+      ctx.fillText("1-5 para cambiar color", 380, 360);
+    }
+  }
+
+  if (currentLevel === 5) {
+    ctx.fillStyle = "white";
+    ctx.textAlign = "left";
+    ctx.font = "20px Arial";
+    ctx.fillText("Rojo te mata", 110, 550);
   }
 
   //Easter egg text
@@ -1141,7 +1170,10 @@ function getCurrentPlatforms() {
   if (currentLevel === 16) return level16Platforms;
   if (currentLevel === 17) return level17Platforms;
   if (currentLevel === 18) return level18Platforms;
-  if (currentLevel === 19) return level19Platforms;
+  if (currentLevel === 19) return level19Platforms.firstquarter;
+  if (currentLevel === 19.25) return level19Platforms.secondquarter;
+  if (currentLevel === 19.5) return level19Platforms.thirdquarter;
+  if (currentLevel === 19.75) return level19Platforms.fourthquarter;
   if (currentLevel === 20) return lastLevelPlatforms;
   return []; // fallback
 }
