@@ -1027,7 +1027,7 @@ function draw() {
     ctx.fillText("x: " + pX, 10, 60);
     ctx.fillText("y: " + pY, 10, 80);
     ctx.fillText("fps: " + fps, 10, 100);
-    ctx.fillText("Coyote timer: " + coyoteTimer, 10, 120);
+    ctx.fillText("Coyote: " + coyoteTimer, 10, 120);
     ctx.fillText("velY: " + pVelY.toFixed(2), 10, 140);
     ctx.fillText("velX: " + pVelX.toFixed(2), 10, 160);
   
@@ -1043,17 +1043,26 @@ function draw() {
   ctx.fillStyle = "white";
   ctx.font = "20px Arial";
   if (hardcoreMode){
-    ctx.fillText("Hardcore Mode", 10, 20);
-  } else ctx.fillText("Deaths: " + deathCount, 10, 20);
+    ctx.fillText("Modo Hardcore", 10, 20);
+  } else ctx.fillText("Muertes: " + deathCount, 10, 20);
 
   // Level indicator
   ctx.fillStyle = "white";
-  ctx.fillText("Level " + currentLevel, 10, 40);
+  ctx.fillText("Nivel " + currentLevel, 10, 40);
+  //Level 1
+  if (currentLevel === 1) {
+    ctx.fillStyle = "white";
+    ctx.textAlign = "Left";
+    ctx.font = "10px Arial";
+    ctx.fillText("WASD o Flechas", 380, 300);
+    ctx.fillText("No caigas", 380, 320);
+    ctx.fillText("Ves hacia arriba ^", 380, 300);
+  }
 
   //Easter egg text
   if (currentLevel === 6 && pX === 550 && pY === 330 && pColor === "black") {
     ctx.fillStyle = "white";
-    ctx.fillText("Where did they go?", 200, 550);
+    ctx.fillText("¿Donde estan?", 200, 550);
   }
   //Level 15 text
   if (currentLevel === 15) {
@@ -1068,9 +1077,10 @@ function draw() {
   ctx.fillStyle = "white";
   ctx.font = "60px Arial";
   ctx.textAlign = "center";
-  ctx.fillText("Well Played", 300, 360);
+  ctx.fillText("Bien Jugado", 300, 360);
   ctx.font = "20px Arial";
-  ctx.fillText("Game by The Wind's Webber", 300, 550);
+  ctx.fillText("Has desbloqueado nuevos colores y modo Hardcore.", 300, 550);
+  ctx.fillText("Prueba Speedrunear en speedrun.com/nombre", 300, 570);
   }
 
   //Particle appearances
@@ -1093,10 +1103,10 @@ function draw() {
     ctx.fillStyle = "white";
       ctx.textAlign = "center";
     ctx.font = "60px Arial";
-    ctx.fillText("PAUSED", canvas.width / 2, canvas.height / 2);
+    ctx.fillText("PAUSADO", canvas.width / 2, canvas.height / 2);
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
-    ctx.fillText("Press Enter to Resume", canvas.width / 2, canvas.height / 2 + 50);
+    ctx.fillText("Enter para volver", canvas.width / 2, canvas.height / 2 + 50);
   }
   if (gameState === "Starting") {
     ctx.fillStyle = "rgba(0,0,0,0.8)";
@@ -1106,7 +1116,7 @@ function draw() {
     ctx.textAlign = "center";
     ctx.fillText("Platformania", canvas.width / 2, canvas.height / 2);
     ctx.font = "30px Arial";
-    ctx.fillText("Press Enter to Start", canvas.width / 2, canvas.height / 2 + 50);
+    ctx.fillText("Enter para empezar", canvas.width / 2, canvas.height / 2 + 50);
   }
 }
 
