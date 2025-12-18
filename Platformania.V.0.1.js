@@ -458,7 +458,7 @@ let objects = [
   //Portals
   {x: 160, y: 580, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 18, landX: 250, landY: 550},
   {x: 250, y: 550, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 18},
-  {x: 350, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 18, landX: 380, landY: 570},
+  {x: 350, y: 300, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 18, landX: 380, landY: 570},
   {x: 380, y: 570, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 18},
   {x: 580, y: 310, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "mediumblue", level: 18, landX: 0, landY: 10},
   {x: 0, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumblue", level: 18},
