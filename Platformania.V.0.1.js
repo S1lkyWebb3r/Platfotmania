@@ -456,7 +456,7 @@ let objects = [
   {x: 150, y: 205, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 18, accelX: 60, },
   {x: 575, y: 150, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
   //Portals
-  {x: 160, y: 570, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 18, landX: 250, landY: 550},
+  {x: 160, y: 580, sizeWidth: 20, sizeHeight: 20, type:  "invTeleporter", color: "mediumspringgreen", level: 18, landX: 250, landY: 550},
   {x: 250, y: 550, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 18},
   {x: 350, y: 200, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 18, landX: 380, landY: 570},
   {x: 380, y: 570, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 18},
@@ -466,6 +466,7 @@ let objects = [
   {x: 150, y: 270, sizeWidth: 30, sizeHeight: 30, type: "enemy", color: "red", level: 18},
   {x: 250, y: 400, sizeWidth: 30, sizeHeight: 30, type: "enemy", color: "red", level: 18},
   {x: 220, y: 350, sizeWidth: 30, sizeHeight: 30, type: "enemy", color: "red", level: 18},
+  {x: 190, y: 300, sizeWidth: 30, sizeHeight: 30, type: "enemy", color: "red", level: 18},
 ];
 
 // Keys pressed 
