@@ -660,23 +660,24 @@ function death(x, y, count, delta) {
   if (hardcoreMode){
     deathCount = 0;
     spawnX = 50;
-    spawnY = 50;
-    currentLevel = 1;
+    spawnY = 500;
+    gameState = "Dead";
+    deathTimer = 30 * delta; 
   } else {
-  gameState = "Dead"
-  deathTimer = 30 * delta; //Should probably have delta here
+  gameState = "Dead";
+  deathTimer = 30 * delta;
   }
 }
 
-function handleObject(o) {
+function handleObject(o, delta) {
   if (o.level !== currentLevel) return;
   // Enemy
   if (o.type === "enemy") {
-    death(pX, pY, 60);
+    death(pX, pY, 60, delta);
     return;
   };
   if (o.type === "mEnemy") {
-    death(pX, pY, 60);
+    death(pX, pY, 60, delta);
     return;
   };
 
@@ -756,6 +757,7 @@ function update(delta) {
       deathCount = 0;
       pVelX = 0;
       pVelY = 0;
+      currentLevel = 1;
       for(let o of objects){
         if (o.type === "mEnemy"){
           o.x = o.spawnX;
@@ -960,7 +962,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
   //Collision of objects
   for (let o of objects) {
     if (aabb(pX, pY, pWidth, pHeight, o.x, o.y, o.sizeWidth, o.sizeHeight)) {
-      handleObject(o);
+      handleObject(o, delta);
     }
   }
 
