@@ -642,7 +642,7 @@ function spawnLandingParticles(x, y, count) {
 
 //Death animation
 let dParticles = [];
-function death(x, y, count) {
+function death(x, y, count, delta) {
   dParticles = [];
   for (let i = 0; i < count; i++) {
     const maxLife = 20
@@ -662,9 +662,10 @@ function death(x, y, count) {
     spawnX = 50;
     spawnY = 50;
     currentLevel = 1;
-  } else deathCount++;
+  } else {
   gameState = "Dead"
-  deathTimer = 30; //Should probably have delta here
+  deathTimer = 30 * delta; //Should probably have delta here
+  }
 }
 
 function handleObject(o) {
@@ -931,7 +932,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
 
   // Death check
   if (pY > canvas.height) {
-    death(pX, pY, 60)
+    death(pX, pY, 60, delta)
   }
 
   // Switch levels (example: reach top of screen)
