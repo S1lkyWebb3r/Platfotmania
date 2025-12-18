@@ -1094,6 +1094,14 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.fillText("¿Donde estan?", 200, 550);
   }
+
+  if (currentLevel === 14) {
+  ctx.fillStyle = "white";
+  ctx.font = "20px Arial";
+  ctx.fillText("Verde invierte", 430, 300);
+  }
+
+
   //Level 15 text
   if (currentLevel === 15) {
     ctx.fillStyle = "white";
