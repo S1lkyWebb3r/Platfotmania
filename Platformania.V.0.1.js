@@ -309,12 +309,12 @@ const level18Platforms = [
   { x: 40, y: 550, sizeWidth: 60, sizeHeight: 50, name: "c1" },
   { x: 150, y: 350, sizeWidth: 10, sizeHeight: 250, name: "c2" },
   { x: 300, y: 300, sizeWidth: 10, sizeHeight: 300, name: "c3" },
-  { x: 500, y: 570, sizeWidth: 10, sizeHeight: 30, name: "c4" },
+  { x: 500, y: 570, sizeWidth: 20, sizeHeight: 30, name: "c4" },
   { x: 120, y: 200, sizeWidth: 30, sizeHeight: 30, name: "p1" },
   { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
   { x: 180, y: 0, sizeWidth: 10, sizeHeight: 200, name: "w1" },
   { x: 495, y: 0, sizeWidth: 5, sizeHeight: 300, name: "w2" },
-  { x: 500, y: 300, sizeWidth: 100, sizeHeight: 10, name: "p2" },
+  { x: 495, y: 300, sizeWidth: 100, sizeHeight: 10, name: "p2" },
   
 ];
 
