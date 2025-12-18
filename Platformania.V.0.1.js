@@ -314,8 +314,7 @@ const level18Platforms = [
   { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
   { x: 180, y: 0, sizeWidth: 10, sizeHeight: 200, name: "w1" },
   { x: 495, y: 0, sizeWidth: 5, sizeHeight: 300, name: "w2" },
-  { x: 495, y: 300, sizeWidth: 100, sizeHeight: 10, name: "p2" },
-  
+  { x: 495, y: 300, sizeWidth: 105, sizeHeight: 10, name: "p2" },
 ];
 
 const level19Platforms = [];
