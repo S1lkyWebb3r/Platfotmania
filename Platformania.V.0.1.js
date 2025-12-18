@@ -53,7 +53,7 @@ const JUMPER_HOLD_BOOST = -0.9;   // stronger hold
 const MAX_JUMPER_HOLD = 10;       // frames
 let currentJumpType = "normal";
 //Change to local storage later
-let completedGame = true;
+let completedGame = localStorage.getItem("completion") || false;
 
 //Trail:
 let trailPos = [];
@@ -969,6 +969,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
       } else if (currentLevel === 19.75) {
         currentLevel = 20;
         completedGame = true;
+        localStorage.setItem("completion", completedGame)
       } else {
         currentLevel++;
       }
