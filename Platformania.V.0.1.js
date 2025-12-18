@@ -434,7 +434,7 @@ let objects = [
   {x: 450, y: 250, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 16},
 
   //Level 17
-  
+   {spawnX: 300, spawnY: 0, x: 300, y: 0, speedX: 0, speedY: 1, interval: 300, inInterval: 300, sizeWidth: 300, sizeHeight: 10, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
 ];
 
 // Keys pressed 
