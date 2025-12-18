@@ -450,7 +450,7 @@ let objects = [
   {spawnX: 0, spawnY: 600, x: 0, y: 600, speedX: 1.8, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
 
   //Level 18
-  {x: 175, y: 540, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
+  {x: 75, y: 540, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
   {x: 500, y: 560, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
   {x: 150, y: 205, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 18, accelX: 40, },
   {x: 575, y: 290, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
