@@ -452,7 +452,7 @@ let objects = [
   //Level 18
   {x: 75, y: 540, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
   {x: 500, y: 560, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
-  {x: 150, y: 205, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 18, accelX: 40, },
+  {x: 150, y: 205, sizeWidth: 10, sizeHeight: 25, type: "jumper", color: "brown", level: 18, accelX: 60, },
   {x: 575, y: 290, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
   {x: 575, y: 150, sizeWidth: 25, sizeHeight: 10, type: "jumper", color: "brown", level: 18, accelX: 0, },
 ];
