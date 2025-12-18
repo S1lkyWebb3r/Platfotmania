@@ -1052,11 +1052,11 @@ function draw() {
   //Level 1
   if (currentLevel === 1) {
     ctx.fillStyle = "white";
-    ctx.textAlign = "Left";
-    ctx.font = "10px Arial";
+    ctx.textAlign = "left";
+    ctx.font = "20px Arial";
     ctx.fillText("WASD o Flechas", 380, 300);
     ctx.fillText("No caigas", 380, 320);
-    ctx.fillText("Ves hacia arriba ^", 380, 300);
+    ctx.fillText("Ves hacia arriba ^", 380, 340);
   }
 
   //Easter egg text
