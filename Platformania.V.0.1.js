@@ -305,9 +305,9 @@ const level17Platforms = [
   { x: 250, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p8"},
   { x: 125, y: 140, sizeWidth: 65, sizeHeight: 10, name: "kaizo2"},
   { x: 50, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p9"},
-  {x: -5, y: 400, sizewidth: 6, sizeHeight: 5, name: "P"},
-  {x: -5, y: 250, sizewidth: 6, sizeHeight: 5, name: "P"},
-  {x: -5, y: 100, sizewidth: 6, sizeHeight: 5, name: "P"}
+  {x: -5, y: 400, sizewidth: 6, sizeHeight: 2, name: "P"},
+  {x: -5, y: 250, sizewidth: 6, sizeHeight: 2, name: "P"},
+  {x: -5, y: 100, sizewidth: 6, sizeHeight: 2, name: "P"}
 ];
 
 const level18Platforms = [
