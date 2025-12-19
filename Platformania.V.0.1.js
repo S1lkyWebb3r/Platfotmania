@@ -36,7 +36,8 @@ let pVelY = 0;
 let pColor = localStorage.getItem("color") || "teal";
 let hardcoreMode = (pColor === "darkred");
 let hue = 0;
-let rainbowObtained = localStorage.getItem("rainbowObtained") || false;
+let rainbowObtained = localStorage.getItem("rainbowObtained") === "true";
+let rainbowMode = false;
 const moveSpeed = 5;
 const jumpStrength = 15;
 const gravity = 0.8;
@@ -618,7 +619,7 @@ function canStandUp(platforms) {
 
 
 //Color picker
-function chooseColor(rainbowColor) {
+function chooseColor() {
   if (keys["Digit1"]) pColor = "teal";
   if (keys["Digit2"]) pColor = "tomato";
   if (keys["Digit3"]) pColor = "darkblue";
@@ -635,7 +636,17 @@ function chooseColor(rainbowColor) {
     hardcoreMode = true;
   };
   if (pColor !== "darkred" && hardcoreMode) hardcoreMode = false;
-  if (keys["KeyR"]&& rainbowObtained) pColor = rainbowColor;
+  if (keys["KeyR"] && rainbowObtained) {
+  rainbowMode = true;
+} else if (
+  keys["Digit1"] || keys["Digit2"] || keys["Digit3"] ||
+  keys["Digit4"] || keys["Digit5"] || keys["Digit6"] ||
+  keys["Digit7"] || keys["Digit8"] || keys["Digit9"] ||
+  keys["Digit0"] || keys["KeyP"] || keys["KeyH"]
+) {
+  rainbowMode = false;
+}
+
 }
 
 //level changer
@@ -1062,17 +1073,21 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
     }
   }
 
-  //Rainbow mode easter egg
-  hue += 1;          // speed of color change
-  if (hue >= 360) hue = 0;
+  hue = (hue + 1) % 360;
 
-  const rainbowColor = `hsl(${hue}, 100%, 50%)`;
+  if (rainbowMode) {
+    pColor = `hsl(${hue}, 100%, 50%)`;
+  }
+
 
   //color swap (see if they like it)
   if (currentLevel === 1) {
-    chooseColor(rainbowColor);
-  } else localStorage.setItem("color", pColor);
-  
+    chooseColor();
+  } else if (!rainbowMode) {
+  localStorage.setItem("color", pColor);
+  }
+
+
 }
 
 
