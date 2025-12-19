@@ -203,21 +203,6 @@ const level8Platforms = [
 ];
 
 const level9Platforms = [
-  { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
-  { x: 130, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p1"},
-  { x: 200, y: 550, sizeWidth: 30, sizeHeight: 10, name: "p2"},
-  { x: 270, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p3"},
-  { x: 410, y: 570, sizeWidth: 30, sizeHeight: 10, name: "p4"},
-  { x: 450, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p5"},
-  { x: 360, y: 365, sizeWidth: 30, sizeHeight: 10, name: "p6"},
-  { x: 425, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p7"},
-  { x: 325, y: 140, sizeWidth: 50, sizeHeight: 10, name: "kaizo1"},
-  { x: 250, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p8"},
-  { x: 125, y: 140, sizeWidth: 65, sizeHeight: 10, name: "kaizo2"},
-  { x: 50, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p9"},
-];
-
-const level10Platforms = [
   { x: 0, y: 550, sizeWidth: 600, sizeHeight: 50, name: "p1" },
   { x: 550, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p2"},
   { x: 0, y: 350, sizeWidth: 550, sizeHeight: 10, name: "p3"},
@@ -225,6 +210,17 @@ const level10Platforms = [
   { x: 0, y: 225, sizeWidth: 20, sizeHeight: 10, name: "p5"},
   { x: 30, y: 150, sizeWidth: 20, sizeHeight: 10, name: "p6"},
   { x: 50, y: 0, sizeWidth: 550, sizeHeight: 10, name: "r1" },
+];
+
+const level10Platforms = [
+  { x: 0, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
+  { x: 590, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
+  { x: 0, y: 530, sizeWidth: 600, sizeHeight: 70, name: "b1" },
+  { x: 0, y: 430, sizeWidth: 560, sizeHeight: 10, name: "p1" },
+  { x: 40, y: 330, sizeWidth: 560, sizeHeight: 10, name: "p2" },
+  { x: 0, y: 230, sizeWidth: 560, sizeHeight: 10, name: "p3" },
+  { x: 40, y: 130, sizeWidth: 560, sizeHeight: 10, name: "p4" },
+  { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
 ];
 
 const level11Platforms = [
@@ -295,14 +291,18 @@ const level16Platforms = [
 ];
 
 const level17Platforms = [
-  { x: 0, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
-  { x: 590, y: 0, sizeWidth: 10, sizeHeight: 600, name: "w1" },
-  { x: 0, y: 530, sizeWidth: 600, sizeHeight: 70, name: "b1" },
-  { x: 0, y: 430, sizeWidth: 560, sizeHeight: 10, name: "p1" },
-  { x: 40, y: 330, sizeWidth: 560, sizeHeight: 10, name: "p2" },
-  { x: 0, y: 230, sizeWidth: 560, sizeHeight: 10, name: "p3" },
-  { x: 40, y: 130, sizeWidth: 560, sizeHeight: 10, name: "p4" },
-  { x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, name: "r1" },
+  { x: 40, y: 550, sizeWidth: 30, sizeHeight: 50, name: "c1" },
+  { x: 130, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p1"},
+  { x: 200, y: 550, sizeWidth: 30, sizeHeight: 10, name: "p2"},
+  { x: 270, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p3"},
+  { x: 410, y: 570, sizeWidth: 30, sizeHeight: 10, name: "p4"},
+  { x: 450, y: 450, sizeWidth: 30, sizeHeight: 10, name: "p5"},
+  { x: 360, y: 365, sizeWidth: 30, sizeHeight: 10, name: "p6"},
+  { x: 425, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p7"},
+  { x: 325, y: 140, sizeWidth: 50, sizeHeight: 10, name: "kaizo1"},
+  { x: 250, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p8"},
+  { x: 125, y: 140, sizeWidth: 65, sizeHeight: 10, name: "kaizo2"},
+  { x: 50, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p9"},
 ];
 
 const level18Platforms = [
@@ -332,7 +332,7 @@ const level1975Platforms = [
 ];
 
 const lastLevelPlatforms = [
-  { x: 0, y: 520, sizeWidth: 600, sizeHeight: 30, name: "b1" },
+  { x: 0, y: 520, sizeWidth: 600, sizeHeight: 80, name: "b1" },
 ];
 
 let objects = [
@@ -381,29 +381,29 @@ let objects = [
   {x: 550, y: 0, sizeWidth: 10, sizeHeight: 250, type: "enemy", color: "red", level: 8},
 
   //Level 9
-  {x: 25, y: 450, sizeWidth: 15, sizeHeight: 150, type: "enemy", color: "red", level: 9},
-  {x: 70, y: 450, sizeWidth: 105, sizeHeight: 150, type: "enemy", color: "red", level: 9},
-  {x: 25, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
-  {x: 25, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 25, y: 450, sizeWidth: 15, sizeHeight: 150, type: "enemy", color: "red", level: 17},
+  {x: 70, y: 450, sizeWidth: 105, sizeHeight: 150, type: "enemy", color: "red", level: 17},
+  {x: 25, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 17},
+  {x: 25, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 17},
 
-  {x: 225, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
-  {x: 225, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
-  {x: 225, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 225, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 17},
+  {x: 225, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 17},
+  {x: 225, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 17},
 
-  {x: 425, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
-  {x: 425, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
-  {x: 425, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 9},
+  {x: 425, y: 450, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 17},
+  {x: 425, y: 225, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 17},
+  {x: 425, y: 0, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 17},
   //Checkpoint
-  {x: 280, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 275, spawnY: 430},
-  {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 9, spawnX: 375, spawnY: 345},
+  {x: 280, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 275, spawnY: 430},
+  {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 375, spawnY: 345},
 
   //Level 10
-  {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 550, spawnY: 500, x: 550, y: 500, speedX: 5, speedY: 0, interval: 116, inInterval: 116, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: -1, inDir: -1, tick: 0},
-  {spawnX: 0, spawnY: 10, x: 0, y: 10, speedX: 5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 0, spawnY: 300, x: 0, y: 300, speedX: 5, speedY: -5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 450, spawnY: 10, x: 450, y: 10, speedX: -5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 450, spawnY: 300, x: 450, y: 300, speedX: -5, speedY: -5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 550, spawnY: 500, x: 550, y: 500, speedX: 5, speedY: 0, interval: 116, inInterval: 116, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: -1, inDir: -1, tick: 0},
+  {spawnX: 0, spawnY: 10, x: 0, y: 10, speedX: 5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 0, spawnY: 300, x: 0, y: 300, speedX: 5, speedY: -5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 450, spawnY: 10, x: 450, y: 10, speedX: -5, speedY: 5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 450, spawnY: 300, x: 450, y: 300, speedX: -5, speedY: -5, interval: 35, inInterval: 35, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: 1, inDir: 1, tick: 0},
 
   //Level 11 
   {spawnX: -300, spawnY: 0, x: -300, y: 0, speedX: 2, speedY: 0, interval: 150, inInterval: 150, sizeWidth: 300, sizeHeight: 600, type: "mEnemy", color: "red", level: 11, dir: 1, inDir: 1, tick: 0},
@@ -456,10 +456,10 @@ let objects = [
   {x: 450, y: 250, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "mediumspringgreen", level: 16},
 
   //Level 17
-  {spawnX: 350, spawnY: 600, x: 350, y: 600, speedX: 0, speedY: -4, interval: 150, inInterval: 150, sizeWidth: 250, sizeHeight: 10, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 0, spawnY: 0, x: 0, y: 0, speedX: 0, speedY: 4, interval: 150, inInterval: 150, sizeWidth: 250, sizeHeight: 10, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 600, spawnY: 600, x: 600, y: 600, speedX: -2, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
-  {spawnX: 0, spawnY: 600, x: 0, y: 600, speedX: 1.8, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 17, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 350, spawnY: 600, x: 350, y: 600, speedX: 0, speedY: -4, interval: 150, inInterval: 150, sizeWidth: 250, sizeHeight: 10, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 0, spawnY: 0, x: 0, y: 0, speedX: 0, speedY: 4, interval: 150, inInterval: 150, sizeWidth: 250, sizeHeight: 10, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 600, spawnY: 600, x: 600, y: 600, speedX: -2, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
+  {spawnX: 0, spawnY: 600, x: 0, y: 600, speedX: 1.8, speedY: -2, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 10, dir: 1, inDir: 1, tick: 0},
 
   //Level 18
   //Jumpers
@@ -1124,8 +1124,8 @@ function draw() {
   ctx.textAlign = "center";
   ctx.fillText("Bien Jugado", 300, 360);
   ctx.font = "20px Arial";
-  ctx.fillText("Has desbloqueado nuevos colores y modo Hardcore.", 300, 550);
-  ctx.fillText("Prueba Speedrunear en speedrun.com/nombre", 300, 570);
+  ctx.fillText("Has desbloqueado nuevos colores y modo Hardcore.", 300, 420);
+  ctx.fillText("Prueba Speedrunear en speedrun.com/nombre", 300, 440);
   }
 
   //Particle appearances
