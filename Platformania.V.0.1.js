@@ -551,9 +551,13 @@ function aabb(aX, aY, aW, aH, bX, bY, bW, bH) {
 //Pause function
 function handlePause() {
   if (keys["Enter"] && !enterPressedLastFrame) {
-    if (gameState === "Playing") gameState = "Paused";
+    if (gameState === "Playing") { 
+      gameState = "Paused";
+      if (currentLevel === 20 ) chooseLevel();
+    }
     else if (gameState === "Paused") gameState = "Playing";
     else if (gameState === "Starting"){
+      if (completedGame) chooseLevel();
       if (audio)music.play();
       gameState = "Playing";
     }
@@ -623,7 +627,7 @@ function chooseColor() {
   if (keys["Digit7"] && completedGame) pColor = "fuchsia";
   if (keys["Digit8"] && completedGame) pColor = "white";
   if (keys["Digit9"] && completedGame) pColor = "black";
-  if (keys["Digit0"] && completedGame) pColor = "honeydew";
+  if (keys["Digit0"] && completedGame) pColor = "darkseagreen";
   if (keys["KeyP"]) pColor = "indigo";
   if (keys["KeyH"]&& completedGame){ 
     pColor = "darkred"
@@ -631,6 +635,20 @@ function chooseColor() {
   };
 
   if (pColor !== "darkred" && hardcoreMode) hardcoreMode = false;
+}
+
+//level changer
+function chooseLevel() {
+if (completedGame) {
+  if (keys["KeyL"]) {
+    currentLevel++;
+    if (currentLevel > maxLevel) currentLevel = 0;
+    spawnX = 50;
+    spawnY = 500;
+    pX = spawnX;
+    pY = spawnY;
+  }
+}
 }
 //Trailing function
 function handleTrail() {
@@ -1152,6 +1170,9 @@ function draw() {
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
     ctx.fillText("Enter para volver", canvas.width / 2, canvas.height / 2 + 50);
+    if (currentLevel === 20 ) {
+      ctx.fillText("L para siguiente nivel", canvas.width / 2, canvas.height / 2 + 100);
+    }
   }
   if (gameState === "Starting") {
     ctx.fillStyle = "rgba(0,0,0,0.8)";
@@ -1162,6 +1183,9 @@ function draw() {
     ctx.fillText("Platformania", canvas.width / 2, canvas.height / 2);
     ctx.font = "30px Arial";
     ctx.fillText("Enter para empezar", canvas.width / 2, canvas.height / 2 + 50);
+    if (completedGame) {
+      ctx.fillText("L para siguiente nivel", canvas.width / 2, canvas.height / 2 + 100);
+    }
   }
 }
 
