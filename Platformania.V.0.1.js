@@ -551,13 +551,9 @@ function aabb(aX, aY, aW, aH, bX, bY, bW, bH) {
 //Pause function
 function handlePause() {
   if (keys["Enter"] && !enterPressedLastFrame) {
-    if (gameState === "Playing") { 
-      gameState = "Paused";
-      if (currentLevel === 20 ) chooseLevel();
-    }
+    if (gameState === "Playing") gameState = "Paused";
     else if (gameState === "Paused") gameState = "Playing";
     else if (gameState === "Starting"){
-      if (completedGame) chooseLevel();
       if (audio)music.play();
       gameState = "Playing";
     }
@@ -639,16 +635,29 @@ function chooseColor() {
 
 //level changer
 function chooseLevel() {
-if (completedGame) {
-  if (keys["KeyL"]) {
-    currentLevel++;
-    if (currentLevel > maxLevel) currentLevel = 0;
-    spawnX = 50;
-    spawnY = 500;
-    pX = spawnX;
-    pY = spawnY;
+  if (completedGame) {
+    if (gameState === "Paused" && currentLevel === 20 || gameState === "Starting") {
+      if (keys["KeyL"]) {
+        currentLevel++;
+        if (currentLevel > maxLevel) currentLevel = 0;
+        spawnX = 50;
+        spawnY = 500;
+        pX = spawnX;
+        pY = spawnY;
+        pVelX = 0;
+        pVelY = 0;
+        for(let o of objects){
+          if (o.type === "mEnemy" && o.spawnX && o.spawnY){
+            o.x = o.spawnX;
+            o.y = o.spawnY;
+            o.interval = o.inInterval;
+            o.tick = 0;
+            o.dir = o.inDir;
+          }
+        }
+      }
+    }
   }
-}
 }
 //Trailing function
 function handleTrail() {
@@ -832,7 +841,7 @@ function update(delta) {
       gameState = "Playing";
     }
   }
-
+  chooseLevel();
   handlePause();
 
   if (gameState !== "Playing") return;
@@ -1171,7 +1180,7 @@ function draw() {
     ctx.textAlign = "center";
     ctx.fillText("Enter para volver", canvas.width / 2, canvas.height / 2 + 50);
     if (currentLevel === 20 ) {
-      ctx.fillText("L para siguiente nivel", canvas.width / 2, canvas.height / 2 + 100);
+      ctx.fillText("L para siguiente nivel:" + currentLevel, canvas.width / 2, canvas.height / 2 + 100);
     }
   }
   if (gameState === "Starting") {
@@ -1184,7 +1193,7 @@ function draw() {
     ctx.font = "30px Arial";
     ctx.fillText("Enter para empezar", canvas.width / 2, canvas.height / 2 + 50);
     if (completedGame) {
-      ctx.fillText("L para siguiente nivel", canvas.width / 2, canvas.height / 2 + 100);
+      ctx.fillText("L para siguiente nivel:"+ currentLevel, canvas.width / 2, canvas.height / 2 + 100);
     }
   }
 }
