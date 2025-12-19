@@ -36,6 +36,7 @@ let pVelY = 0;
 let pColor = localStorage.getItem("color") || "teal";
 let hardcoreMode = (pColor === "darkred");
 let hue = 0;
+let rainbowColor = "red";
 let rainbowObtained = localStorage.getItem("rainbowObtained") || false;
 const moveSpeed = 5;
 const jumpStrength = 15;
