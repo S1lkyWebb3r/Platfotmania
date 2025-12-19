@@ -658,7 +658,7 @@ function chooseLevel() {
       lWasPressed = false;
     }
 
-    if (currentLevel > 20) currentLevel = 0;
+    if (currentLevel > 20) currentLevel = 1;
       SpawnX = 50;
       spawnY = 500;
       pX = spawnX;
