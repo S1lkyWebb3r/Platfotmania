@@ -639,7 +639,7 @@ function chooseLevel() {
     if (gameState === "Paused" && currentLevel === 20 || gameState === "Starting") {
       if (keys["KeyL"]) {
         currentLevel++;
-        if (currentLevel > maxLevel) currentLevel = 0;
+        if (currentLevel > 20) currentLevel = 0;
         spawnX = 50;
         spawnY = 500;
         pX = spawnX;
