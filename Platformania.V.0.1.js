@@ -36,7 +36,6 @@ let pVelY = 0;
 let pColor = localStorage.getItem("color") || "teal";
 let hardcoreMode = (pColor === "darkred");
 let hue = 0;
-let rainbowColor = "red";
 let rainbowObtained = localStorage.getItem("rainbowObtained") || false;
 const moveSpeed = 5;
 const jumpStrength = 15;
@@ -306,9 +305,9 @@ const level17Platforms = [
   { x: 250, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p8"},
   { x: 125, y: 140, sizeWidth: 65, sizeHeight: 10, name: "kaizo2"},
   { x: 50, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p9"},
-  {x: -5, y: 400, sizewidth: 5, sizeHeight: 5, name: " "},
-  {x: -5, y: 250, sizewidth: 5, sizeHeight: 5, name: " "},
-  {x: -5, y: 100, sizewidth: 5, sizeHeight: 5, name: " "}
+  {x: -5, y: 400, sizewidth: 5, sizeHeight: 5, name: "P"},
+  {x: -5, y: 250, sizewidth: 5, sizeHeight: 5, name: "P"},
+  {x: -5, y: 100, sizewidth: 5, sizeHeight: 5, name: "P"}
 ];
 
 const level18Platforms = [
@@ -403,7 +402,7 @@ let objects = [
   {x: 280, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 275, spawnY: 430},
   {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 375, spawnY: 345},
   //Rainbow 
-  {x: 60, y: 205, sizeWidth: 10, sizeHeight: 10, type:  "rainbow", color: rainbowColor, level: 17},
+  {x: 60, y: 205, sizeWidth: 10, sizeHeight: 10, type:  "rainbow", color: "fuchsia", level: 17},
 
   //Level 10
   {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: 1, inDir: 1, tick: 0},
