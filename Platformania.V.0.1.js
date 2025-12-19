@@ -618,7 +618,7 @@ function canStandUp(platforms) {
 
 
 //Color picker
-function chooseColor() {
+function chooseColor(rainbowColor) {
   if (keys["Digit1"]) pColor = "teal";
   if (keys["Digit2"]) pColor = "tomato";
   if (keys["Digit3"]) pColor = "darkblue";
@@ -1062,16 +1062,17 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
     }
   }
 
-  //color swap (see if they like it)
-  if (currentLevel === 1) {
-    chooseColor()
-  } else localStorage.setItem("color", pColor);
-
   //Rainbow mode easter egg
   hue += 1;          // speed of color change
   if (hue >= 360) hue = 0;
 
   const rainbowColor = `hsl(${hue}, 100%, 50%)`;
+
+  //color swap (see if they like it)
+  if (currentLevel === 1) {
+    chooseColor(rainbowColor);
+  } else localStorage.setItem("color", pColor);
+  
 }
 
 
