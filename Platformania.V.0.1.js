@@ -5,6 +5,30 @@ const ctx = canvas.getContext("2d");
 //Game loop 
 let lastTime = 0;
 
+//Autosplitter
+let runActive = false;
+let runStartTime = 0;
+let runTime = 0;
+
+let splits = [];
+let lastSplitLevel = null;
+
+function now() {
+  return performance.now();
+}
+
+function formatTime(ms) {
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  const millis = Math.floor(ms % 1000);
+
+  return `${minutes}:${seconds.toString().padStart(2, "0")}.${millis
+    .toString()
+    .padStart(3, "0")}`;
+}
+
+
 //Music
 let audio = false
 const music = new Audio("Audio/PlatformerSong.mp3");
@@ -562,6 +586,10 @@ function handlePause() {
     else if (gameState === "Starting"){
       if (audio)music.play();
       gameState = "Playing";
+      runActive = true;
+      runStartTime = now();
+      splits = [];
+      lastSplitLevel = currentLevel;
     }
   }
   enterPressedLastFrame = keys["Enter"];
@@ -693,6 +721,16 @@ function chooseLevel() {
   }
 }
 
+//Splitter
+function split(level) {
+  splits.push({
+    level,
+    time: runTime
+  });
+  lastSplitLevel = level;
+}
+
+
 //Trailing function
 function handleTrail() {
   trailPos.push({ x: pX, y: pY });
@@ -750,7 +788,10 @@ function death(x, y, count, delta) {
     spawnX = 50;
     spawnY = 500;
     gameState = "Dead";
-    deathTimer = 30 * delta; 
+    deathTimer = 30 * delta;
+    //Reset run
+    runActive = false;
+    splits = []; 
   } else {
   gameState = "Dead";
   deathTimer = 30 * delta;
@@ -886,6 +927,11 @@ function update(delta) {
   handlePause();
 
   if (gameState !== "Playing") return;
+
+  if (runActive && gameState === "Playing") {
+    runTime = now() - runStartTime;
+  }
+
 
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
@@ -1045,6 +1091,8 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
         currentLevel = 20;
         completedGame = true;
         localStorage.setItem("completion", completedGame)
+        split(20);
+        runActive = false;
       } else {
         currentLevel++;
       }
@@ -1062,6 +1110,10 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
           o.tick = 0;
           o.dir = o.inDir;
         }
+      }
+
+      if (currentLevel !== lastSplitLevel) {
+        split(currentLevel);
       }
     }
   }
@@ -1221,6 +1273,31 @@ function draw() {
     ctx.fillRect(particle.parX, particle.parY, particle.size, particle.size);
   }
   ctx.globalAlpha = 1;
+
+  //Speedrun timer
+  ctx.fillStyle = "white";
+  ctx.font = "18px Arial";
+  ctx.textAlign = "right";
+
+  ctx.fillText(
+    runActive ? formatTime(runTime) : formatTime(runTime),
+    canvas.width - 10,
+    25
+  );
+
+  ctx.textAlign = "left";
+  let y = 50;
+
+  for (let i = 0; i < splits.length; i++) {
+    const s = splits[i];
+    ctx.fillText(
+      `Lv ${s.level}: ${formatTime(s.time)}`,
+      10,
+      y
+    );
+    y += 18;
+  }
+
   
   if (gameState === "Paused") {
     ctx.fillStyle = "rgba(0,0,0,0.8)";
