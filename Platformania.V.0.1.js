@@ -1193,8 +1193,8 @@ function draw() {
     ctx.textAlign = "left"; 
     ctx.fillStyle = "white";
     ctx.font = "14px Arial";
-    ctx.fillText("x: " + pX, 10, 60);
-    ctx.fillText("y: " + pY, 10, 80);
+    ctx.fillText("x: " + pX.toFixed(2), 10, 60);
+    ctx.fillText("y: " + pY.toFixed(2), 10, 80);
     ctx.fillText("fps: " + fps, 10, 100);
     ctx.fillText("Coyote: " + coyoteTimer, 10, 120);
     ctx.fillText("velY: " + pVelY.toFixed(2), 10, 140);
@@ -1240,6 +1240,13 @@ function draw() {
     ctx.textAlign = "left";
     ctx.font = "20px Arial";
     ctx.fillText("Rojo te mata", 110, 550);
+  }
+
+  if (currentLevel === 6) {
+    ctx.fillStyle = "white";
+    ctx.textAlign = "left";
+    ctx.font = "20px Arial";
+    ctx.fillText("Coyote", 340, 140);
   }
 
   //Easter egg text
