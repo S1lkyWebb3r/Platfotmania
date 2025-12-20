@@ -945,15 +945,16 @@ function update(delta) {
     }
   }
 
-  if (runActive && gameState === "Playing") {
-    runTime = now() - runStartTime;
-  }
-
   chooseLevel();
   startRun();
   handlePause();
 
   if (gameState !== "Playing") return;
+
+  if (runActive && gameState === "Playing") {
+    runTime = now() - runStartTime;
+  }
+
 
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
