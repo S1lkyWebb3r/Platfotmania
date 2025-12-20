@@ -587,10 +587,13 @@ function handlePause() {
     else if (gameState === "Starting"){
       if (audio)music.play();
       gameState = "Playing";
+      if (speedrunMode) {
       runActive = true;
       runStartTime = now();
+      runTime = 0;
       splits = [];
       lastSplitLevel = currentLevel;
+    }
     }
   }
   enterPressedLastFrame = keys["Enter"];
@@ -724,15 +727,11 @@ function chooseLevel() {
 
 //Speedrun starter
 function startRun() {
-  if (gameState === "Starting" ){
-    if (keys["KeyS"]) {
-      speedrunMode = true;
-      runStartTime = now();
-      splits = [];
-      lastSplitLevel = currentLevel;
-    }
+  if (gameState === "Starting" && keys["KeyS"]) {
+    speedrunMode = true;
   }
 }
+
 
 //Splitter
 function split(level) {
@@ -1295,7 +1294,7 @@ function draw() {
   }
   ctx.globalAlpha = 1;
 
-  if (speedrunMode && runActive) {
+  if (speedrunMode) {
     //Speedrun timer
   ctx.fillStyle = "white";
   ctx.font = "18px Arial";
