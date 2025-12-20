@@ -333,7 +333,7 @@ const level18Platforms = [
 const level19Platforms = [
  { x: 0, y: 570, sizeWidth: 70, sizeHeight: 30, name: "p1" },
  { x: 150, y: 580, sizeWidth: 10, sizeHeight: 30, name: "p2" },
- { x: 290, y: 500, sizeWidth: 20, sizeHeight: 2, name: "p3" },
+ { x: 290, y: 500, sizeWidth: 20, sizeHeight: 20, name: "p3" },
  { x: 300 - 60, y: 430, sizeWidth: 10, sizeHeight: 10, name: "lp4" },
  { x: 300 + 60, y: 430, sizeWidth: 10, sizeHeight: 10, name: "rp4" },
   { x: 300 - 250, y: 340, sizeWidth: 15, sizeHeight: 10, name: "lp6" },
@@ -347,6 +347,7 @@ const level19Platforms = [
   { x: 150, y: 120, sizeWidth: 300, sizeHeight: 100, name: "sp2" }, 
   { x: 200, y: 220, sizeWidth: 200, sizeHeight: 160, name: "sp3" },
   { x: 280, y: 380, sizeWidth: 40, sizeHeight: 80, name: "sp4" },
+  { x: 25, y: 0, sizeWidth: 550, sizeHeight: 20, name: "r1" },
 
 ];
 const level1925Platforms = [
