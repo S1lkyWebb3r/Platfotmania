@@ -727,7 +727,7 @@ function chooseLevel() {
 
 //Speedrun starter
 function startRun() {
-  if (gameState === "Starting" && keys["KeyS"]) {
+  if (gameState === "Starting" && keys["KeyS"] || gameState=== "Paused" && keys["Key S"] && currentLevel === 1) {
     speedrunMode = true;
   }
 }
@@ -1348,6 +1348,7 @@ function draw() {
     if (completedGame) {
       ctx.fillText("L para siguiente nivel: "+ currentLevel, canvas.width / 2, canvas.height / 2 + 100);
       ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 150);
+      if (currentLevel === 1) ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 100);
     }
   }
 }
