@@ -937,6 +937,7 @@ function update(delta) {
     }
   }
   chooseLevel();
+  startRun();
   handlePause();
 
   if (gameState !== "Playing") return;
