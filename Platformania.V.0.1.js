@@ -945,16 +945,15 @@ function update(delta) {
     }
   }
 
+  if (runActive && gameState === "Playing") {
+    runTime = now() - runStartTime;
+  }
+
   chooseLevel();
   startRun();
   handlePause();
 
   if (gameState !== "Playing") return;
-
-  if (runActive && gameState === "Playing") {
-    runTime = now() - runStartTime;
-  }
-
 
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
@@ -1343,7 +1342,7 @@ function draw() {
     ctx.textAlign = "center";
     ctx.fillText("Enter para volver", canvas.width / 2, canvas.height / 2 + 50);
     if (currentLevel === 20 ) {
-      ctx.fillText("L para primer nivel" + currentLevel, canvas.width / 2, canvas.height / 2 + 100);
+      ctx.fillText("Refresh para continuar" , canvas.width / 2, canvas.height / 2 + 100);
     }
     if (currentLevel === 1){ 
       ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 100);
