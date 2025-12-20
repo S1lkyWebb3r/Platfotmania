@@ -32,7 +32,7 @@ function formatTime(ms) {
 
 //Music
 let audio = false
-const music = new Audio("Audio/PlatformerSong.mp3");
+const music = new Audio("Audio/Platformania Song.mp3");
 music.loop = true;
 music.volume = 0.4;
 
