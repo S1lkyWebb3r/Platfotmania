@@ -9,6 +9,7 @@ let lastTime = 0;
 let runActive = false;
 let runStartTime = 0;
 let runTime = 0;
+let speedrunMode = false;
 
 let splits = [];
 let lastSplitLevel = null;
@@ -721,6 +722,18 @@ function chooseLevel() {
   }
 }
 
+//Speedrun starter
+function startRun() {
+  if (gameState === "Starting" ){
+    if (keys["KeyS"]) {
+      speedrunMode = true;
+      runStartTime = now();
+      splits = [];
+      lastSplitLevel = currentLevel;
+    }
+  }
+}
+
 //Splitter
 function split(level) {
   splits.push({
@@ -1274,7 +1287,8 @@ function draw() {
   }
   ctx.globalAlpha = 1;
 
-  //Speedrun timer
+  if (speedrunMode && runActive) {
+    //Speedrun timer
   ctx.fillStyle = "white";
   ctx.font = "18px Arial";
   ctx.textAlign = "right";
@@ -1297,6 +1311,7 @@ function draw() {
       y
     );
     y += 14;
+  }
   }
 
   
@@ -1325,6 +1340,7 @@ function draw() {
     ctx.fillText("Enter para empezar", canvas.width / 2, canvas.height / 2 + 50);
     if (completedGame) {
       ctx.fillText("L para siguiente nivel: "+ currentLevel, canvas.width / 2, canvas.height / 2 + 100);
+      ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 150);
     }
   }
 }
