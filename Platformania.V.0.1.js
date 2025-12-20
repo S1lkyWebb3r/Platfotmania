@@ -1285,17 +1285,18 @@ function draw() {
     25
   );
 
-  ctx.textAlign = "left";
+  ctx.textAlign = "right";
+  ctx.font = "14px Arial";
   let y = 50;
 
   for (let i = 0; i < splits.length; i++) {
     const s = splits[i];
     ctx.fillText(
       `Lv ${s.level}: ${formatTime(s.time)}`,
-      10,
+      590,
       y
     );
-    y += 18;
+    y += 14;
   }
 
   
