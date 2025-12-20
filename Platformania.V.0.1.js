@@ -684,7 +684,7 @@ function chooseColor() {
 //level changer
 function chooseLevel() {
   if (completedGame) {
-  if (gameState === "Paused" && (currentLevel === 20 || currentLevel === 1) || gameState === "Starting") {
+  if (gameState === "Starting") {
     if (keys["KeyL"] && !lWasPressed) {
       if (currentLevel === 19) {
         currentLevel = 19.25;
@@ -705,7 +705,8 @@ function chooseLevel() {
       lWasPressed = false;
     }
 
-    if (currentLevel > 20) currentLevel = 1;
+    if (currentLevel > 20){ 
+      currentLevel = 1;
       SpawnX = 50;
       spawnY = 500;
       pX = spawnX;
@@ -722,12 +723,13 @@ function chooseLevel() {
         }
       }
     }
+    }
   }
 }
 
 //Speedrun starter
 function startRun() {
-  if (gameState === "Starting" && keys["KeyS"] || gameState=== "Paused" && keys["Key S"] && currentLevel === 1) {
+  if (gameState === "Starting" && keys["KeyS"] || gameState === "Paused" && keys["Key S"] && currentLevel === 1) {
     speedrunMode = true;
   }
 }
@@ -942,6 +944,7 @@ function update(delta) {
       gameState = "Playing";
     }
   }
+
   chooseLevel();
   startRun();
   handlePause();
@@ -1343,8 +1346,7 @@ function draw() {
       ctx.fillText("L para primer nivel" + currentLevel, canvas.width / 2, canvas.height / 2 + 100);
     }
     if (currentLevel === 1){ 
-      ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 150);
-      ctx.fillText("L para siguiente nivel:" + currentLevel, canvas.width / 2, canvas.height / 2 + 100);
+      ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 100);
     }
   }
   if (gameState === "Starting") {
