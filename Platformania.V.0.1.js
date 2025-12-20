@@ -346,7 +346,7 @@ const level19Platforms = [
   { x: 100, y: 100, sizeWidth: 400, sizeHeight: 20, name: "sp1" },
   { x: 150, y: 120, sizeWidth: 300, sizeHeight: 100, name: "sp2" }, 
   { x: 200, y: 220, sizeWidth: 200, sizeHeight: 160, name: "sp3" },
-  { x: 270, y: 380, sizeWidth: 40, sizeHeight: 80, name: "sp4" },
+  { x: 280, y: 380, sizeWidth: 40, sizeHeight: 80, name: "sp4" },
 
 ];
 const level1925Platforms = [
