@@ -1333,7 +1333,11 @@ function draw() {
     ctx.textAlign = "center";
     ctx.fillText("Enter para volver", canvas.width / 2, canvas.height / 2 + 50);
     if (currentLevel === 20 ) {
-      ctx.fillText("L para siguiente nivel: " + currentLevel, canvas.width / 2, canvas.height / 2 + 100);
+      ctx.fillText("L para primer nivel" + currentLevel, canvas.width / 2, canvas.height / 2 + 100);
+    }
+    if (currentLevel === 1){ 
+      ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 150);
+      ctx.fillText("L para siguiente nivel:" + currentLevel, canvas.width / 2, canvas.height / 2 + 100);
     }
   }
   if (gameState === "Starting") {
