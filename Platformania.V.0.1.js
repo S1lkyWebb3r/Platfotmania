@@ -925,6 +925,8 @@ function update(delta) {
       splits = [];
       lastSplitLevel = currentLevel;
       }
+      gameState = "Playing";
+
 
     } else if (deathTimer <= 0) {
       pX = spawnX;
