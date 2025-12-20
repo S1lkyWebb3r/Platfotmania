@@ -43,6 +43,7 @@ window.addEventListener("keydown", () => {
   landingSound.play(); 
   landingSound.pause();
   landingSound.currentTime = 0;
+  music.play().catch(() => {});
 }, { once: true });
 
 // Player square
