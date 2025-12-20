@@ -684,7 +684,7 @@ function chooseColor() {
 //level changer
 function chooseLevel() {
   if (completedGame) {
-  if (gameState === "Paused" && currentLevel === 20 || gameState === "Starting") {
+  if (gameState === "Paused" && (currentLevel === 20 || currentLevel === 1) || gameState === "Starting") {
     if (keys["KeyL"] && !lWasPressed) {
       if (currentLevel === 19) {
         currentLevel = 19.25;
@@ -1352,7 +1352,6 @@ function draw() {
     if (completedGame) {
       ctx.fillText("L para siguiente nivel: "+ currentLevel, canvas.width / 2, canvas.height / 2 + 100);
       ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 150);
-      if (currentLevel === 1) ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 100);
     }
   }
 }
