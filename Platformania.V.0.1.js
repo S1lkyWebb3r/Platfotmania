@@ -30,22 +30,6 @@ function formatTime(ms) {
 }
 
 
-//Music
-let audio = false
-const music = new Audio("Audio/Platformania Song.mp3");
-music.loop = true;
-music.volume = 0.4;
-
-const landingSound = new Audio("Audio/impactWood_medium_003.ogg");
-landingSound.volume = 0.2;
-
-window.addEventListener("keydown", () => {
-  landingSound.play(); 
-  landingSound.pause();
-  landingSound.currentTime = 0;
-  music.play().catch(() => {});
-}, { once: true });
-
 // Player square
 let pX = 50;
 let pY = 500;
@@ -586,7 +570,6 @@ function handlePause() {
     if (gameState === "Playing") gameState = "Paused";
     else if (gameState === "Paused") gameState = "Playing";
     else if (gameState === "Starting"){
-      if (audio)music.play();
       gameState = "Playing";
       if (speedrunMode) {
       runActive = true;
@@ -1043,25 +1026,20 @@ pVelY += gravity * delta;
 let nextY = pY + pVelY * delta;
 let landedThisFrame = false;
 
-for (let platform of platforms) {
+  for (let platform of platforms) { 
 
   // Recompute AABB using nextY
   if (!aabb(pX, nextY, pWidth, pHeight, platform.x, platform.y, platform.sizeWidth, platform.sizeHeight)) 
     continue;
 
-  // --- LANDING (top collision) ---
-  if (pVelY > 0 && (pY + pHeight) <= platform.y && (nextY + pHeight) >= platform.y) {
+    // --- LANDING (top collision) ---
+    if (pVelY > 0 && (pY + pHeight) <= platform.y && (nextY + pHeight) >= platform.y) {
 
-    // Correct position
-    nextY = platform.y - pHeight;
+      // Correct position
+      nextY = platform.y - pHeight;
 
-    if (landed === 1) {
-      spawnLandingParticles(pX, nextY, Math.round(pVelY * 1.5));
-      if (audio) {
-      landingSound.currentTime = 0;
-      landingSound.play();
-    }
-    }
+      if (landed === 1) spawnLandingParticles(pX, nextY, Math.round(pVelY * 1.5));
+    
 
     pVelY = 0;
     landedThisFrame = true;
