@@ -343,7 +343,10 @@ const level19Platforms = [
  { x: 300 - 280, y: 250, sizeWidth: 5, sizeHeight: 3, name: "lp7" },
  { x: 300 + 280, y: 250, sizeWidth: 5, sizeHeight: 3, name: "rp7" },
  //Start of big spike 
-  { x: 100, y: 100, sizeWidth: 400, sizeHeight: 20, name: "sp1" }, 
+  { x: 100, y: 100, sizeWidth: 400, sizeHeight: 20, name: "sp1" },
+  { x: 150, y: 120, sizeWidth: 300, sizeHeight: 100, name: "sp2" }, 
+  { x: 200, y: 220, sizeWidth: 200, sizeHeight: 180, name: "sp3" },
+
 ];
 const level1925Platforms = [
  { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
