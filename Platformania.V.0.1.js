@@ -593,7 +593,7 @@ function handlePause() {
       runTime = 0;
       splits = [];
       lastSplitLevel = currentLevel;
-    }
+      }
     }
   }
   enterPressedLastFrame = keys["Enter"];
@@ -915,7 +915,14 @@ function update(delta) {
           o.dir = o.inDir;
         }
       }
-      gameState = "Playing";
+      
+      if (speedrunMode) {
+      runActive = true;
+      runStartTime = now();
+      runTime = 0;
+      splits = [];
+      lastSplitLevel = currentLevel;
+      }
 
     } else if (deathTimer <= 0) {
       pX = spawnX;
