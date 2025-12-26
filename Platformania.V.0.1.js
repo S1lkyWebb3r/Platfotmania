@@ -551,6 +551,9 @@ if (!("ontouchstart" in window)) {
   if (mc) mc.style.display = "none";
 }
 
+document.addEventListener("touchstart", () => {
+  keys["Enter"] = true;
+}, { once: true });
 
 
 //joycon support:
