@@ -2,6 +2,18 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+const BASE_SIZE = 600;
+
+// Internal resolution (important)
+canvas.width = BASE_SIZE;
+canvas.height = BASE_SIZE;
+
+// Prevent blur
+ctx.imageSmoothingEnabled = false;
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
 //Game loop 
 let lastTime = 0;
 
@@ -633,6 +645,26 @@ function handlePause() {
   }
   enterPressedLastFrame = keys["Enter"];
 }
+
+//Canvas resize
+
+function resizeCanvas() {
+  const scaleX = Math.floor(window.innerWidth / BASE_SIZE);
+  const scaleY = Math.floor(window.innerHeight / BASE_SIZE);
+
+  // Use the smaller scale so it always fits
+  const scale = Math.max(1, Math.min(scaleX, scaleY));
+
+  canvas.style.width = BASE_SIZE * scale + "px";
+  canvas.style.height = BASE_SIZE * scale + "px";
+
+  // Center the canvas
+  canvas.style.position = "absolute";
+  canvas.style.left = "50%";
+  canvas.style.top = "50%";
+  canvas.style.transform = "translate(-50%, -50%)";
+}
+
 
 // Random
 function getRandomInt(max) {
