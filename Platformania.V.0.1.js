@@ -522,6 +522,37 @@ document.addEventListener("keyup", (e) => keys[e.code] = false);
 let enterPressedLastFrame = false;
 let lWasPressed = false;
 
+function bindTouch(buttonId, keyName) {
+  const btn = document.getElementById(buttonId);
+  if (!btn) return;
+
+  btn.addEventListener("touchstart", e => {
+    e.preventDefault();
+    keys[keyName] = true;
+  });
+
+  btn.addEventListener("touchend", e => {
+    e.preventDefault();
+    keys[keyName] = false;
+  });
+
+  btn.addEventListener("touchcancel", () => {
+    keys[keyName] = false;
+  });
+}
+
+// Bind mobile buttons
+bindTouch("btnLeft", "ArrowLeft");
+bindTouch("btnRight", "ArrowRight");
+bindTouch("btnJump", "Space");
+
+if (!("ontouchstart" in window)) {
+  const mc = document.getElementById("mobileControls");
+  if (mc) mc.style.display = "none";
+}
+
+
+
 //joycon support:
 let joycon = null;  
 

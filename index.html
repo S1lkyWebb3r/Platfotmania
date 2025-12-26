@@ -3,21 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <title>Platformania</title>
+
   <style>
     body {
       margin: 0;
       overflow: hidden;
       background: black;
+      touch-action: none; /* IMPORTANT: prevents scrolling */
     }
+
     canvas {
       display: block;
       margin: auto;
       background: gray;
     }
+
+    /* ===== Mobile Controls ===== */
+    #mobileControls {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    #mobileControls button {
+      pointer-events: auto;
+      width: 80px;
+      height: 80px;
+      font-size: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(50, 50, 50, 0.7);
+      color: white;
+    }
+
+    #leftControls {
+      display: flex;
+      margin-left: 20px;
+    }
+
+    #btnJump {
+      margin-right: 20px;
+    }
   </style>
 </head>
+
 <body>
-  <canvas id="gameCanvas" width="600" height="600"></canvas>></canvas>
+  <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+  <!-- Mobile Buttons -->
+  <div id="mobileControls">
+    <div id="leftControls">
+      <button id="btnLeft">◀</button>
+      <button id="btnRight">▶</button>
+    </div>
+    <button id="btnJump">⤒</button>
+  </div>
+
   <script src="Platformania.V.0.1.js"></script>
 </body>
 </html>
