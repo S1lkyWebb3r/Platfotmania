@@ -1406,10 +1406,10 @@ function draw() {
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
     ctx.fillText("Enter para volver", canvas.width / 2, canvas.height / 2 + 50);
-    if (currentLevel === 20 ) {
+    if (currentLevel === 20) {
       ctx.fillText("Refresh para continuar" , canvas.width / 2, canvas.height / 2 + 100);
     }
-    if (currentLevel === 1){ 
+    if (currentLevel === 1 && completedGame){ 
       ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 100);
     }
   }
