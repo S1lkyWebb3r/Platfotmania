@@ -532,6 +532,7 @@ let objects = [
   {x: 295, y: 350, sizeWidth: 10, sizeHeight: 250, type: "enemy", color: "red", level: 19.25},
   {x: 295, y: 50, sizeWidth: 10, sizeHeight: 200, type: "enemy", color: "red", level: 19.25},
   {x: 0, y: 0, sizeWidth: 560, sizeHeight: 10, type: "enemy", color: "red", level: 19.25},
+  {x: 75, y: 375, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 19.25},
 ];
 
 // Keys pressed 
