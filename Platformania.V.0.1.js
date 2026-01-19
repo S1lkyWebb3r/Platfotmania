@@ -367,6 +367,7 @@ const level1925Platforms = [
  { x: 0, y: 430, sizeWidth: 10, sizeHeight: 10, name: "p1" },
  { x: 150, y: 375, sizeWidth: 10, sizeHeight: 10, name: "p2" },
  { x: 285, y: 450, sizeWidth: 10, sizeHeight: 10, name: "p3" },
+ { x: 315, y: 450, sizeWidth: 10, sizeHeight: 10, name: "p3" },
 ];
 
 const level195Platforms = [
@@ -529,7 +530,7 @@ let objects = [
   {x: 450, y: 300, sizeWidth: 30, sizeHeight: 30, type: "enemy", color: "red", level: 18},
   {x: 400, y: 350, sizeWidth: 30, sizeHeight: 30, type: "enemy", color: "red", level: 18},
 
-  //Level 18.25
+  //Level 19.25
   {x: 0, y: 295, sizeWidth: 250, sizeHeight: 10, type: "enemy", color: "red", level: 19.25},
   {x: 350, y: 295, sizeWidth: 250, sizeHeight: 10, type: "enemy", color: "red", level: 19.25},
   {x: 295, y: 350, sizeWidth: 10, sizeHeight: 250, type: "enemy", color: "red", level: 19.25},
@@ -539,6 +540,7 @@ let objects = [
   {x: 75, y: 75, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 19.25},
   {x: 375, y: 375, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 19.25},
   {x: 375, y: 75, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 19.25},
+  {x: 315, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 19.25, spawnX: 315, spawnY: 430},
 ];
 
 // Keys pressed 
