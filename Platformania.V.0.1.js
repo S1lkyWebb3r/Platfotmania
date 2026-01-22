@@ -49,6 +49,8 @@ let spawnX = 50;
 let spawnY = 500;
 const pWidth = 20;
 let pHeight = 20;
+const pHurtW = 17;
+let pHurtH = 17;
 let crouching = false;
 const STAND_HEIGHT = 20;
 const CROUCH_HEIGHT = 15;
@@ -1062,6 +1064,7 @@ function update(delta) {
         // entering crouch → shrink from the top
         pY += STAND_HEIGHT - CROUCH_HEIGHT;
         pHeight = CROUCH_HEIGHT;
+        pHurtH = CROUCH_HEIGHT;
         crouching = true;
     }
   } else {
@@ -1069,6 +1072,7 @@ function update(delta) {
       // leaving crouch → grow upward, NOT downward
       pY -= STAND_HEIGHT - CROUCH_HEIGHT;
       pHeight = STAND_HEIGHT;
+      pHurtH = STAND_HEIGHT;
       crouching = false;
     }
   }
@@ -1086,7 +1090,7 @@ function update(delta) {
 
 
   //Enemy movement
-  for (let o of objects) {
+for (let o of objects) {
   if (o.type === "mEnemy" && o.level === currentLevel) {
 
     // Move enemy
@@ -1228,7 +1232,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
 
   //Collision of objects
   for (let o of objects) {
-    if (aabb(pX, pY, pWidth, pHeight, o.x, o.y, o.sizeWidth, o.sizeHeight)) {
+    if (aabb(pX, pY, pHurtW, pHurtH, o.x, o.y, o.sizeWidth, o.sizeHeight)) {
       handleObject(o, delta);
     }
   }
