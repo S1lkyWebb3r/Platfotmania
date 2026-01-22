@@ -450,7 +450,7 @@ let objects = [
   {x: 280, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 275, spawnY: 430},
   {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 375, spawnY: 345},
   //Rainbow 
-  {x: 100, y: 205, sizeWidth: 10, sizeHeight: 10, type:  "rainbow", color: "fuchsia", level: 17},
+  {x: 100, y: 205, sizeWidth: 10, sizeHeight: 10, type:  "rainbow", color: "fuchsia", hue: 0, level: 17},
 
   //Level 10
   {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: 1, inDir: 1, tick: 0},
@@ -1105,6 +1105,14 @@ for (let o of objects) {
       o.dir *= -1;     // reverse direction
       o.tick = 0;      // reset counter
     }
+  }
+
+  //Rainbow object
+
+  if (o.type === "rainbow"){
+  o.hue = (o.hue + 1) % 360;
+  o.color = `hsl(${o.hue}, 100%, 50%)`;
+  
   }
 }
 
