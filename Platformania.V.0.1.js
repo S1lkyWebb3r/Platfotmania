@@ -329,7 +329,7 @@ const level17Platforms = [
   { x: 325, y: 140, sizeWidth: 50, sizeHeight: 10, name: "kaizo1"},
   { x: 250, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p8"},
   { x: 125, y: 140, sizeWidth: 65, sizeHeight: 10, name: "kaizo2"},
-  { x: 90, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p9"},
+  { x: 100, y: 225, sizeWidth: 30, sizeHeight: 10, name: "p9"},
 ];
 
 const level18Platforms = [
@@ -450,7 +450,7 @@ let objects = [
   {x: 280, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 275, spawnY: 430},
   {x: 380, y: 345, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 17, spawnX: 375, spawnY: 345},
   //Rainbow 
-  {x: 100, y: 205, sizeWidth: 10, sizeHeight: 10, type:  "rainbow", color: "fuchsia", hue: 0, level: 17},
+  {x: 110, y: 205, sizeWidth: 10, sizeHeight: 10, type:  "rainbow", color: "fuchsia", hue: 0, level: 17},
 
   //Level 10
   {spawnX: 0, spawnY: 450, x: 0, y: 450, speedX: 5, speedY: 0, interval: 110, inInterval: 110, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 9, dir: 1, inDir: 1, tick: 0},
