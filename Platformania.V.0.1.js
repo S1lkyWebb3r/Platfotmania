@@ -9,7 +9,7 @@ canvas.width = BASE_SIZE;
 canvas.height = BASE_SIZE;
 
 // Prevent blur
-ctx.imageSmoothingEnabled = false;
+ctx.imageSmoothingEnabled = true;
 
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
