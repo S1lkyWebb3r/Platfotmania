@@ -1113,17 +1113,17 @@ for (let o of objects) {
 
   //Rainbow object
 
-  if (o.type === "rainbow"){
+  if (o.type === "rainbow" && !rainbowObtained){
   o.hue = (o.hue + 1) % 360;
   o.color = `hsl(${o.hue}, 100%, 50%)`;
-  
-  }
+  } else if (o.type === "rainbow") o.color = "gray";
+
   if (o.type ==="checkpoint" && o.spawnX === spawnX && o.spawnY === spawnY) {
     o.color = pColor
-  } else {
+  } else if (o.type === "checkpoint") {
     o.color = "green"
-  }
-}
+  };
+  };
 
 
   // ---- Horizontal Movement ----
