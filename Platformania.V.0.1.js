@@ -49,8 +49,9 @@ let spawnX = 50;
 let spawnY = 500;
 const pWidth = 20;
 let pHeight = 20;
-const pHurtW = 17;
+let pHurtW = 17;
 let pHurtH = 17;
+let noClip = false;
 let crouching = false;
 const STAND_HEIGHT = 20;
 const CROUCH_HEIGHT = 15;
@@ -1052,6 +1053,11 @@ function update(delta) {
     runTime = now() - runStartTime;
   }
 
+  //Noclip, remove later.
+  if (noClip) {
+    pHurtH = 0;
+    pHurtW = 0;
+  }
 
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
