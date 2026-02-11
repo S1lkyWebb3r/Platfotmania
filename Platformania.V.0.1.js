@@ -376,6 +376,10 @@ const level1925Platforms = [
  { x: 65, y: 290, sizeWidth: 10, sizeHeight: 10, name: "p7" },
  { x: 65, y: 215, sizeWidth: 10, sizeHeight: 10, name: "p8" },
  { x: 0, y: 75, sizeWidth: 10, sizeHeight: 10, name: "p9" },
+ { x: 125, y: 75, sizeWidth: 10, sizeHeight: 10, name: "p10" },
+ { x: 245, y: 50, sizeWidth: 10, sizeHeight: 10, name: "p11" },
+ { x: 245, y: 120, sizeWidth: 10, sizeHeight: 10, name: "p12" },
+ { x: 360, y: 150, sizeWidth: 10, sizeHeight: 10, name: "p13" },
 ];
 
 const level195Platforms = [
