@@ -1053,11 +1053,6 @@ function update(delta) {
     runTime = now() - runStartTime;
   }
 
-  //Noclip, remove later.
-  if (noClip) {
-    pHurtH = 0;
-    pHurtW = 0;
-  }
 
   // remove dead particles
   pParticles = pParticles.filter(p => p.life > 0);
@@ -1256,7 +1251,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
 
   //Collision of objects
   for (let o of objects) {
-    if (aabb(pX, pY, pHurtW, pHurtH, o.x, o.y, o.sizeWidth, o.sizeHeight)) {
+    if (aabb(pX, pY, pHurtW, pHurtH, o.x, o.y, o.sizeWidth, o.sizeHeight) && !noClip ) {  //Remove noclip later.
       handleObject(o, delta);
     }
   }
