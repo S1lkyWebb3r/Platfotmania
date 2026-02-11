@@ -377,12 +377,12 @@ const level1925Platforms = [
  { x: 65, y: 215, sizeWidth: 10, sizeHeight: 10, name: "p8" },
  { x: 0, y: 75, sizeWidth: 10, sizeHeight: 10, name: "p9" },
  { x: 125, y: 75, sizeWidth: 10, sizeHeight: 10, name: "p10" },
- { x: 250, y: 20, sizeWidth: 10, sizeHeight: 30, name: "p11" },
+ { x: 250, y: 30, sizeWidth: 10, sizeHeight: 10, name: "p11" },
  { x: 250, y: 120, sizeWidth: 10, sizeHeight: 10, name: "p12" },
  { x: 365, y: 150, sizeWidth: 10, sizeHeight: 10, name: "p13" },
  { x: 400, y: 75, sizeWidth: 10, sizeHeight: 10, name: "p14" },
  { x: 520, y: 290, sizeWidth: 10, sizeHeight: 10, name: "p15" },
- { x: 590, y: 75, sizeWidth: 10, sizeHeight: 10, name: "p16" },
+ { x: 590, y: 160, sizeWidth: 10, sizeHeight: 10, name: "p16" },
 
  //Remove later: 
  { x: 0, y: 0, sizeWidth: 550, sizeHeight: 5, name: "r1" },
