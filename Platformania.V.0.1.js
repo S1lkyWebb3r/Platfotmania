@@ -52,6 +52,7 @@ let pHeight = 20;
 let pHurtW = 17;
 let pHurtH = 17;
 let noClip = false;
+let hitting = true;
 let crouching = false;
 const STAND_HEIGHT = 20;
 const CROUCH_HEIGHT = 15;
