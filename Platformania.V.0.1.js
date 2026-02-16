@@ -1259,6 +1259,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
     }
   }
 
+  hitting = false;
   //Collision of objects
   for (let o of objects) {
     if (aabb(pX, pY, pHurtW, pHurtH, o.x, o.y, o.sizeWidth, o.sizeHeight)) {  //Remove noclip later.
@@ -1269,8 +1270,7 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
       }
     }
   }
-  hitting = false;
-
+  
   hue = (hue + 1) % 360;
 
   if (rainbowMode) {
