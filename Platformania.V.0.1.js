@@ -380,7 +380,7 @@ const level1925Platforms = [
  { x: 250, y: 30, sizeWidth: 10, sizeHeight: 10, name: "p11" },
  { x: 250, y: 120, sizeWidth: 10, sizeHeight: 10, name: "p12" },
  { x: 365, y: 150, sizeWidth: 10, sizeHeight: 10, name: "p13" },
- { x: 400, y: 75, sizeWidth: 10, sizeHeight: 10, name: "p14" },
+ { x: 420, y: 75, sizeWidth: 10, sizeHeight: 10, name: "p14" },
  { x: 520, y: 290, sizeWidth: 10, sizeHeight: 10, name: "p15" },
  { x: 590, y: 160, sizeWidth: 10, sizeHeight: 10, name: "p16" },
 ];
@@ -558,7 +558,7 @@ let objects = [
   {x: 375, y: 75, sizeWidth: 150, sizeHeight: 150, type: "enemy", color: "red", level: 19.25},
   {x: 305, y: 430, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 19.25, spawnX: 305, spawnY: 430},
   {x: 65, y: 195, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 19.25, spawnX: 55, spawnY: 195},
-  {x: 400, y: 55, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 19.25, spawnX: 400, spawnY: 55},
+  {x: 420, y: 55, sizeWidth: 10, sizeHeight: 10, type:  "checkpoint", color: "green", level: 19.25, spawnX: 420, spawnY: 55},
   {spawnX: 125, spawnY: 425, x: 125, y: 425, speedX: 1, speedY: -1, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 19.25, dir: 1, inDir: 1, tick: 0},
   {spawnX: 125, spawnY: 125, x: 125, y: 125, speedX: 1, speedY: 1, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 19.25, dir: 1, inDir: 1, tick: 0},
   {spawnX: 425, spawnY: 125, x: 425, y: 125, speedX: -1, speedY: 1, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 19.25, dir: 1, inDir: 1, tick: 0},
@@ -1260,8 +1260,14 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
 
   //Collision of objects
   for (let o of objects) {
-    if (aabb(pX, pY, pHurtW, pHurtH, o.x, o.y, o.sizeWidth, o.sizeHeight) && !noClip ) {  //Remove noclip later.
-      handleObject(o, delta);
+    if (aabb(pX, pY, pHurtW, pHurtH, o.x, o.y, o.sizeWidth, o.sizeHeight)) {  //Remove noclip later.
+      if (!noClip){
+        handleObject(o, delta);
+      } else if (noClip) {
+        hitting = true;
+      } else {
+        hitting = false;
+      }
     }
   }
 
@@ -1477,6 +1483,16 @@ function draw() {
       ctx.fillText("L para siguiente nivel: "+ currentLevel, canvas.width / 2, canvas.height / 2 + 100);
       ctx.fillText("S para modo speedrunner", canvas.width / 2, canvas.height / 2 + 150);
     }
+  }
+
+  //Remove later
+  if (noClip) {
+    if (hitting) {
+      ctx.fillStyle = "red";
+    } else {
+      ctx.fillStyle = "green";
+    }
+    ctx.fillRect(0, 590, 600, 10) 
   }
 }
 
