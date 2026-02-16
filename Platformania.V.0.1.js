@@ -1266,11 +1266,10 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
         handleObject(o, delta);
       } else if (noClip) {
         hitting = true;
-      } else {
-        hitting = false;
       }
     }
   }
+  hitting = false;
 
   hue = (hue + 1) % 360;
 
