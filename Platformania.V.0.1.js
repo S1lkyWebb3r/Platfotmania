@@ -52,7 +52,6 @@ let pHeight = 20;
 let pHurtW = 17;
 let pHurtH = 17;
 let noClip = false;
-let hitting = true;
 let crouching = false;
 const STAND_HEIGHT = 20;
 const CROUCH_HEIGHT = 15;
@@ -1263,10 +1262,8 @@ if (!onPlatform && coyoteTimer > 0) coyoteTimer--;
   //Collision of objects
   for (let o of objects) {
     if (aabb(pX, pY, pHurtW, pHurtH, o.x, o.y, o.sizeWidth, o.sizeHeight)) {  //Remove noclip later.
-      if (!noClip){
+      if (!noClip) {
         handleObject(o, delta);
-      } else if (noClip) {
-        hitting = true;
       }
     }
   }
@@ -1485,15 +1482,6 @@ function draw() {
     }
   }
 
-  //Remove later
-  if (noClip) {
-    if (hitting) {
-      ctx.fillStyle = "red";
-    } else {
-      ctx.fillStyle = "green";
-    }
-    ctx.fillRect(0, 590, 600, 10) 
-  }
 }
 
 //Level checker
