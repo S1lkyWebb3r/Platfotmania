@@ -568,7 +568,7 @@ let objects = [
   {x: 0, y: 530, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 19.5, landX: 0, landY: 10},
   {x: 0, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 19.5},
   {x: 295, y: 0, sizeWidth: 10, sizeHeight: 600, type: "enemy", color: "red", level: 19.5},
-  {x: 0, y: 4800, sizeWidth: 80, sizeHeight: 10, type: "enemy", color: "red", level: 19.5},
+  {x: 0, y: 480, sizeWidth: 80, sizeHeight: 10, type: "enemy", color: "red", level: 19.5},
   {x: 70, y: 480, sizeWidth: 10, sizeHeight: 120, type: "enemy", color: "red", level: 19.5},
 ];
 
