@@ -385,7 +385,8 @@ const level1925Platforms = [
 ];
 
 const level195Platforms = [
- { x: 0, y: 550, sizeWidth: 150, sizeHeight: 50, name: "p1" },
+ { x: 0, y: 550, sizeWidth: 50, sizeHeight: 50, name: "p1" },
+ { x: 0, y: 0, sizeWidth: 300, sizeHeight: 10, name: "r1" },
 ];
 
 const level1975Platforms = [
@@ -562,6 +563,11 @@ let objects = [
   {spawnX: 125, spawnY: 125, x: 125, y: 125, speedX: 1, speedY: 1, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 19.25, dir: 1, inDir: 1, tick: 0},
   {spawnX: 425, spawnY: 125, x: 425, y: 125, speedX: -1, speedY: 1, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 19.25, dir: 1, inDir: 1, tick: 0},
   {spawnX: 425, spawnY: 425, x: 425, y: 425, speedX: -1, speedY: -1, interval: 300, inInterval: 300, sizeWidth: 50, sizeHeight: 50, type: "mEnemy", color: "red", level: 19.25, dir: 1, inDir: 1, tick: 0},
+
+  //Level 19.5 
+  {x: 0, y: 530, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 19.5, landX: 0, landY: 10},
+  {x: 0, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 19.5},
+  {x: 395, y: 0, sizeWidth: 10, sizeHeight: 600, type: "enemy", color: "red", level: 19.5},
 ];
 
 // Keys pressed
