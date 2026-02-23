@@ -385,8 +385,8 @@ const level1925Platforms = [
 ];
 
 const level195Platforms = [
- { x: 0, y: 550, sizeWidth: 50, sizeHeight: 50, name: "p1" },
- { x: 0, y: 0, sizeWidth: 300, sizeHeight: 10, name: "r1" },
+ { x: 0, y: 550, sizeWidth: 70, sizeHeight: 50, name: "p1" },
+ { x: 0, y: 0, sizeWidth: 600, sizeHeight: 10, name: "r1" }, //change later
 ];
 
 const level1975Platforms = [
@@ -567,7 +567,9 @@ let objects = [
   //Level 19.5 
   {x: 0, y: 530, sizeWidth: 20, sizeHeight: 20, type:  "teleporter", color: "orange", level: 19.5, landX: 0, landY: 10},
   {x: 0, y: 10, sizeWidth: 20, sizeHeight: 20, type:  "exit", color: "orange", level: 19.5},
-  {x: 395, y: 0, sizeWidth: 10, sizeHeight: 600, type: "enemy", color: "red", level: 19.5},
+  {x: 295, y: 0, sizeWidth: 10, sizeHeight: 600, type: "enemy", color: "red", level: 19.5},
+  {x: 0, y: 500, sizeWidth: 80, sizeHeight: 10, type: "enemy", color: "red", level: 19.5},
+  {x: 70, y: 500, sizeWidth: 10, sizeHeight: 100, type: "enemy", color: "red", level: 19.5},
 ];
 
 // Keys pressed
